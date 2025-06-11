@@ -249,3 +249,5 @@ body:has(.offcanvas-backdrop.show) .open-pill {
     padding: 0.25rem;
     font-size: 0.75rem;
   }
+
+  .list-group-item a{ color: #000; text-decoration: none;}
