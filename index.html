@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<!---work in progress6--->
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,8 +9,8 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/supplementary.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-    
-    
+
+
 </head>
 
 <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
@@ -19,20 +19,20 @@
     <nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white d-xl-none">
         <div class="container-fluid position-relative">
             <button class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y">
-              <a href="patient-search.html">  <i class="fs-4 bi bi-search text-white"></i></a>
+                <a href="patient-search.html"> <i class="fs-4 bi bi-search text-white"></i></a>
             </button>
             <span class="navbar-brand text-white mx-auto">Patients</span>
             <div class="position-absolute end-0 top-50 translate-middle-y">
                 <button class="btn btn-link text-white">
-                    <a href="new-patient.html">  <i class="fs-4 bi bi-person-plus-fill text-white"></i></a>
+                    <a href="new-patient.html"> <i class="fs-4 bi bi-person-plus-fill text-white"></i></a>
                 </button>
                 <button class="btn btn-link text-white">
-                    <a href="new-patient.html">   <i class="fs-4 bi bi-plus-circle-fill text-white"></i></a>
+                    <a href="new-patient.html"> <i class="fs-4 bi bi-plus-circle-fill text-white"></i></a>
                 </button>
             </div>
         </div>
     </nav>
- <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
         <div class="container-xxl">
             <a class="navbar-brand border-end pe-3" href="index.html">
                 <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
@@ -40,13 +40,15 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i> Patients</a>
+                        <a class="nav-link active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Manage
                         </a>
                         <ul class="dropdown-menu">
@@ -58,7 +60,8 @@
                         </ul>
                     </li>
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="settings.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                        <a class="nav-link dropdown-toggle" href="settings.html" role="button" data-bs-toggle="dropdown"
+                            aria-expanded="false">
                             Settings
                         </a>
                         <ul class="dropdown-menu">
@@ -79,97 +82,568 @@
     </nav>
     <!-- Main Content -->
     <div class="container-xxl mt-3">
-    <div class="row">
-   <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
-        <div class="d-flex justify-content-between align-items-center mb-2">
-            <h5 class="mb-0 fs-6 fw-semibold">My Patients</h5>
-            <a href="#" class="text-decoration-none text-primary">Manage List</a>
-        </div>
-        <div class="border border-black my-3"></div>
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+                <div class="d-flex justify-content-between align-items-center mb-2">
+                    <h5 class="mb-0 fs-6 fw-semibold">My Patients</h5>
+                    <a href="#" class="text-decoration-none text-primary">Manage List</a>
+                </div>
+                <div class="border border-black my-3"></div>
 
-        <!-- Patient Cards -->
-        <div class="list-group rounded-0 mb-5 pb-5">
-            <!-- Patient 1 -->
-            <div class="list-group-item">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <div class="d-flex gap-1">
-                        <strong>Doe, Jane</strong> 
-                        <small>
-                            <span class="badge rounded-pill text-bg-danger">123</span>
-                        </small>
+                <!-- Patient Cards -->
+                <div class="list-group rounded-0 mb-5 pb-5">
+                    <!-- Patient 1 -->
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <div class="d-flex gap-1">
+                                    <strong>Doe, Jane</strong>
+                                    <small>
+                                        <span class="badge rounded-pill text-bg-danger">123</span>
+                                    </small>
+                                </div>
+                                <small>10081928 - 04/02/1958</small>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-secondary btn-sm me-2 rounded" data-bs-toggle="offcanvas"
+                                    data-bs-target="#bottomDrawer">
+                                    <i class="d-block bi bi-share-fill"></i> Share
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded">
+                                    <i class="d-block bi bi-graph-up"></i> Analyze
+                                </button>
+                            </div>
                         </div>
-                        <small>10081928 - 04/02/1958</small>
                     </div>
-                    <div>
-                        <button class="btn btn-outline-secondary btn-sm me-2 rounded">
-                            <i class="d-block bi bi-share-fill"></i> Share
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm rounded">
-                            <i class="d-block bi bi-graph-up"></i> Analyze
-                        </button>
+
+                    <!-- Patient 2 -->
+                    <div class="list-group-item bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Pearson, Karla</strong><br>
+                                <small>1109238 - 03/05/1998</small>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-secondary btn-sm me-2 rounded" data-bs-toggle="offcanvas"
+                                    data-bs-target="#bottomDrawer">
+                                    <i class="d-block bi bi-share-fill"></i> Share
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded">
+                                    <i class="d-block bi bi-graph-up"></i> Analyze
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patient 3 -->
+                    <div class="list-group-item">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Holloway, Harmony</strong><br>
+                                <small>12049276 - 12/12/1970</small>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-secondary btn-sm me-2 rounded" data-bs-toggle="offcanvas"
+                                    data-bs-target="#bottomDrawer">
+                                    <i class="d-block bi bi-share-fill"></i> Share
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded">
+                                    <i class="d-block bi bi-graph-up"></i> Analyze
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Patient 4 -->
+                    <div class="list-group-item bg-light">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <div>
+                                <strong>Jordan, Angeline</strong><br>
+                                <small>09929461 - 04/29/2001</small>
+                            </div>
+                            <div>
+                                <button class="btn btn-outline-secondary btn-sm me-2 rounded" data-bs-toggle="offcanvas"
+                                    data-bs-target="#bottomDrawer">
+                                    <i class="d-block bi bi-share-fill"></i> Share
+                                </button>
+                                <button class="btn btn-outline-secondary btn-sm rounded">
+                                    <i class="d-block bi bi-graph-up"></i> Analyze
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    <!-- share report -->
+
+    <!-- <div class="open-pill" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer" title="Open Drawer"></div> -->
+
+    <!-- Drawer -->
+
+    <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="bottomDrawer">
+
+        <div class="offcanvas-body position-relative p-0">
+
+            <!-- Top pill to close -->
+
+            <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+
+            <!-- Drawer content -->
+
+            <div class="container-xxl mt-4 minimal-tabs">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <!-- Tab headers -->
+                        <ul class="nav nav-tabs justify-content-around" id="minimalTab" role="tablist">
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link active" id="report-tab" data-bs-toggle="tab"
+                                    data-bs-target="#report" type="button" role="tab" aria-controls="report"
+                                    aria-selected="true">
+                                    Share Report
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link" id="access-tab" data-bs-toggle="tab" data-bs-target="#access"
+                                    type="button" role="tab" aria-controls="access" aria-selected="false">
+                                    Share Access
+                                </button>
+                            </li>
+                            <li class="nav-item" role="presentation">
+                                <button class="nav-link position-relative" id="invite-tab" data-bs-toggle="tab"
+                                    data-bs-target="#invite" type="button" role="tab" aria-controls="invite"
+                                    aria-selected="false">
+                                    <span class="badge rounded-pill notification-badge">3</span>
+                                    Invite Status
+                                </button>
+                            </li>
+                        </ul>
+
+                        <!-- Tab content -->
+                        <div class="tab-content p-0" id="minimalTabContent">
+                            <div class="tab-pane fade active" id="report" role="tabpanel"
+                                aria-labelledby="report-tab">
+                                <div class="p-2 bg-light mb-2 text-center">
+                                    <strong>Doe, Jane</strong>
+                                    <p class="mb-0">10081928 - 04/02/1958</p>
+                                </div>
+                                <div class="px-3">
+                                    <div class="row my-3">
+                                        <div class="col-5 col-sm-5 col-md-4">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                        <span class="col-2 col-sm-2 col-md-4 col-form-label text-center"><i
+                                                class="bi bi-arrow-right-short"></i></span>
+                                        <div class="col-5 col-sm-5 col-md-4">
+                                            <input type="date" class="form-control">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="my-4 px-3">
+                                    <div class="accordion" id="accordionExample">
+                                        <div class="accordion-item">
+                                            <h2 class="accordion-header" id="headingOne">
+                                                <button class="accordion-button collapsed px-2 py-2" type="button"
+                                                    data-bs-toggle="collapse" data-bs-target="#collapseOne"
+                                                    aria-expanded="false" aria-controls="collapseOne">
+                                                    <strong>Wounds</strong>
+                                                </button>
+                                            </h2>
+                                            <div id="collapseOne" class="accordion-collapse collapse"
+                                                aria-labelledby="headingOne" data-bs-parent="#accordionExample">
+                                                <div class="accordion-body px-2 pb-0">
+                                                    <ul class="ps-0 wounds-list">
+                                                        <li class="d-flex align-items-center gap-2 py-3">
+                                                            <div class="form-check mt-1">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="itemCheck1">
+                                                            </div>
+                                                            <img src="assets/images/assign-img-1.png" class="img-fluid"
+                                                                style="width: 150px;">
+                                                            <div>
+                                                                <div><strong>Wound #1</strong></div>
+                                                                <div><strong>Location:</strong> Sacrum</div>
+                                                                <div><strong>Type:</strong> Pressure Injury</div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="d-flex align-items-center gap-2 py-3">
+                                                            <div class="form-check mt-1">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="itemCheck1">
+                                                            </div>
+                                                            <img src="assets/images/assign-img-1.png" class="img-fluid"
+                                                                style="width: 150px;">
+                                                            <div>
+                                                                <div><strong>Wound #2</strong></div>
+                                                                <div><strong>Location:</strong> Sacrum</div>
+                                                                <div><strong>Type:</strong> Pressure Injury</div>
+                                                            </div>
+                                                        </li>
+                                                        <li class="d-flex align-items-center gap-2 py-3">
+                                                            <div class="form-check mt-1">
+                                                                <input class="form-check-input" type="checkbox" value=""
+                                                                    id="itemCheck1">
+                                                            </div>
+                                                            <img src="assets/images/assign-img-1.png" class="img-fluid"
+                                                                style="width: 150px;">
+                                                            <div>
+                                                                <div><strong>Wound #2</strong></div>
+                                                                <div><strong>Location:</strong> Sacrum</div>
+                                                                <div><strong>Type:</strong> Pressure Injury</div>
+                                                            </div>
+                                                        </li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="mb-5 px-3 pb-5">
+                                    <label for="reportNotes" class="form-label">Report Notes</label>
+                                    <textarea class="form-control" id="reportNotes" rows="4"
+                                        placeholder="Add note..."></textarea>
+                                </div>
+
+                                <footer class="fixed-bottom bg-white border-top">
+                                    <div class="container-xxl">
+                                        <div class="row">
+                                            <div
+                                                class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
+                                                <div class="form-check mb-2">
+                                                    <label class="form-check-label" for="includeAnalyticsCheckbox">
+                                                        Include Analytics
+                                                    </label>
+                                                    <input class="form-check-input" type="checkbox"
+                                                        id="includeAnalyticsCheckbox">
+                                                </div>
+                                                <button class="btn btn-primary mb-3 mb-sm-0 text-nowrap"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer2">Share
+                                                    Report</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>
+
+                            </div>
+                            <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
+                                <div class="p-2 bg-light mb-2 text-center">
+                                    <strong>Doe, Jane</strong>
+                                    <p class="mb-0">10081928 - 04/02/1958</p>
+                                </div>
+
+                                <div class="my-3">
+
+                                </div>
+
+                                <div class="px-3">
+                                    <h4 class="mb-3">Recipients</h4>
+                                    <ul class="list-group">
+                                        <li class="list-group-item px-2">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <div class="fw-semibold">Dr. John Doe</div>
+                                                    <div class="text-muted small">jsmith@gmail.com</div>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="min-width: 120px;">
+                                                        Can Edit <i class="bi bi-chevron-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" style="min-width: 120px;">
+                                                        <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                                        <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-2">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <div class="fw-semibold">Kathryn Murphy</div>
+                                                    <div class="text-muted small">kmurphy@gmail.com</div>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="min-width: 120px;">
+                                                        Can Edit <i class="bi bi-chevron-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" style="min-width: 120px;">
+                                                        <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                                        <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-2">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <div class="fw-semibold">Dr. Jenny Wilson</div>
+                                                    <div class="text-muted small">jwilson@gmail.com</div>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="min-width: 120px;">
+                                                        Can Edit <i class="bi bi-chevron-down"></i>
+                                                    </button>
+                                                    <ul class="dropdown-menu" style="min-width: 120px;">
+                                                        <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                                        <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+
+
+                                <footer class="fixed-bottom bg-white border-top">
+                                    <div class="container-xxl">
+                                        <div class="row">
+                                            <div
+                                                class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
+                                                <button class="btn btn-primary my-2 text-nowrap"
+                                                    data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer2">Share
+                                                    Access</button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </footer>
+
+                            </div>
+                            <div class="tab-pane fade" id="invite" role="tabpanel" aria-labelledby="invite-tab">
+                                <div class="p-2 bg-light mb-2 text-center">
+                                    <strong>Doe, Jane</strong>
+                                    <p class="mb-0">10081928 - 04/02/1958</p>
+                                </div>
+
+                                <div class="my-3">
+
+                                </div>
+
+                                <div class="px-3">
+                                    <h4 class="mb-3">Pending Invites</h4>
+                                    <ul class="list-group">
+                                        <li class="list-group-item px-2">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <div class="fw-semibold">Dr. John Doe</div>
+                                                    <div class="text-muted small">jsmith@gmail.com</div>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="min-width: 100px;">
+                                                        Invite Sent
+                                                    </button>
+                                                    <ul class="dropdown-menu" style="min-width: 100px;">
+                                                        <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                                        <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-2">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <div class="fw-semibold">Kathryn Murphy</div>
+                                                    <div class="text-muted small">kmurphy@gmail.com</div>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="min-width: 100px;">
+                                                        Invite Sent
+                                                    </button>
+                                                    <ul class="dropdown-menu" style="min-width: 100px;">
+                                                        <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                                        <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                        <li class="list-group-item px-2">
+                                            <div class="d-flex justify-content-between align-items-start">
+                                                <div>
+                                                    <div class="fw-semibold">Dr. Jenny Wilson</div>
+                                                    <div class="text-muted small">jwilson@gmail.com</div>
+                                                </div>
+                                                <div class="dropdown">
+                                                    <button
+                                                        class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                        type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                        style="min-width: 100px;">
+                                                        Invite Sent
+                                                    </button>
+                                                    <ul class="dropdown-menu" style="min-width: 100px;">
+                                                        <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                                        <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
 
-            <!-- Patient 2 -->
-            <div class="list-group-item bg-light">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>Pearson, Karla</strong><br>
-                        <small>1109238 - 03/05/1998</small>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-secondary btn-sm me-2 rounded">
-                            <i class="d-block bi bi-share-fill"></i> Share
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm rounded">
-                            <i class="d-block bi bi-graph-up"></i> Analyze
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Patient 3 -->
-            <div class="list-group-item">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>Holloway, Harmony</strong><br>
-                        <small>12049276 - 12/12/1970</small>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-secondary btn-sm me-2 rounded">
-                            <i class="d-block bi bi-share-fill"></i> Share
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm rounded">
-                            <i class="d-block bi bi-graph-up"></i> Analyze
-                        </button>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Patient 4 -->
-            <div class="list-group-item bg-light">
-                <div class="d-flex justify-content-between align-items-center">
-                    <div>
-                        <strong>Jordan, Angeline</strong><br>
-                        <small>09929461 - 04/29/2001</small>
-                    </div>
-                    <div>
-                        <button class="btn btn-outline-secondary btn-sm me-2 rounded">
-                            <i class="d-block bi bi-share-fill"></i> Share
-                        </button>
-                        <button class="btn btn-outline-secondary btn-sm rounded">
-                            <i class="d-block bi bi-graph-up"></i> Analyze
-                        </button>
-                    </div>
-                </div>
-            </div>
 
         </div>
     </div>
+
+
+    <!-- report shared -->
+
+    <!-- <div class="open-pill" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer2" title="Open Drawer"></div> -->
+
+    <!-- Drawer -->
+
+    <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="bottomDrawer2">
+
+        <div class="offcanvas-body position-relative p-0">
+
+            <!-- Top pill to close -->
+
+            <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+
+            <!-- Drawer content -->
+
+            <div class="container-xxl mt-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+
+                        <img src="assets/images/success-icon.svg" class="img-fluid d-block m-auto mb-3"
+                            alt="success-icon" />
+                        <h4 class="text-center">Report Shared</h4>
+
+                        <div class="my-3">
+                            <label class="form-check-label px-3"
+                                for="includeAnalyticsCheckbox"><strong>Recipient</strong></label>
+                            <div class="list-group">
+                                <ul class="list-group">
+                                    <li class="list-group-item border-0">
+                                        <div class="d-flex justify-content-between align-items-end">
+                                            <div>
+                                                <h6>Laura Scott</h6>
+                                                <p class="mb-0">lscott@gmail.com</p>
+                                            </div>
+                                            <div>
+                                                <button class="btn bg-light px-3">Can Edit</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <div class="d-flex justify-content-between align-items-end">
+                                            <div>
+                                                <h6>Laura Scott</h6>
+                                                <p class="mb-0">lscott@gmail.com</p>
+                                            </div>
+                                            <div>
+                                                <button class="btn bg-light px-3">Can Edit</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                    <li class="list-group-item border-0">
+                                        <div class="d-flex justify-content-between align-items-end">
+                                            <div>
+                                                <h6>Laura Scott</h6>
+                                                <p class="mb-0">lscott@gmail.com</p>
+                                            </div>
+                                            <div>
+                                                <button class="btn bg-light px-3">Can Edit</button>
+                                            </div>
+                                        </div>
+                                    </li>
+                                </ul>
+
+                                <!-- Additional list items can be added dynamically -->
+                            </div>
+                        </div>
+
+
+                        <label class="form-check-label px-3" for="includeAnalyticsCheckbox">
+                            <strong> Dates Shared</strong>
+                        </label>
+                        <div class="px-3">
+                            <div class="row my-3">
+                                <div class="col-5 col-sm-5 col-md-4">
+                                    <input type="date" class="form-control">
+                                </div>
+                                <span class="col-2 col-sm-2 col-md-4 col-form-label text-center"><i
+                                        class="bi bi-arrow-right-short"></i></span>
+                                <div class="col-5 col-sm-5 col-md-4">
+                                    <input type="date" class="form-control">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="p-3">
+
+                            <h4 class="mb-4">Photos Shared</h4>
+
+                            <ul class="list-group mb-5 wound-item">
+                                <li class="d-flex align-items-center justify-content-start">
+                                    <div class="form-check mt-2 mb-3">
+                                        <input class="form-check-input" type="checkbox" id="includeAnalyticsCheckbox">
+                                    </div>
+                                    <img src="assets/images/assign-img-1.png" class="img-fluid" style="width: 150px;">
+                                    <div class="p-3">
+                                        <strong>Wound #1</strong>
+                                        <br>
+                                        <strong>Location:</strong><small> Sacrum</small>
+                                        <br>
+                                        <strong>Type:</strong><small> Pressure Injury</small>
+                                    </div>
+                                </li>
+
+                                <li class="d-flex align-items-center justify-content-start">
+                                    <div class="form-check mt-2 mb-3">
+                                        <input class="form-check-input" type="checkbox" id="includeAnalyticsCheckbox">
+                                    </div>
+                                    <img src="assets/images/assign-img-1.png" class="img-fluid" style="width: 150px;">
+                                    <div class="p-3">
+                                        <strong>Wound #1</strong>
+                                        <br>
+                                        <strong>Location:</strong><small> Sacrum</small>
+                                        <br>
+                                        <strong>Type:</strong><small> Pressure Injury</small>
+                                    </div>
+                                </li>
+                            </ul>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="fixed-bottom bg-white border-top">
+                <div class="container-xxl">
+                    <div class="row">
+                        <div
+                            class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end my-2">
+                            <button class="btn btn-primary text-nowrap my-2" data-bs-dismiss="offcanvas">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
     </div>
-    </div>
+
 
     <!-- Bottom Navbar -->
     <nav class="navbar navbar-light bg-white fixed-bottom border-top d-xl-none">
@@ -196,7 +670,8 @@
             </a>
         </div>
     </nav>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 
 </html>
