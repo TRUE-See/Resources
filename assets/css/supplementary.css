@@ -48,13 +48,6 @@ body {
   padding-right: 15px;
 }
 
-
-
-
-
-
-/* new css for payment form */
-
 /* Bottom pill to open drawer */
 .open-pill {
   position: fixed;
@@ -109,12 +102,13 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 }
 
 .minimal-tabs .nav-tabs .nav-link {
+  font-weight: 500;
   border: none;
   background: none;
   color: #000;
-  font-weight: 500;
   padding: 0.5rem 0;
   transition: color 0.3s;
+  width: 120px;
 }
 
 .minimal-tabs .nav-tabs .nav-link:hover,
@@ -126,7 +120,7 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 }
 
 .minimal-tabs .nav-tabs .nav-link.active {
-  font-weight: 500;
+  font-weight: bold;
 }
 
 .minimal-tabs .tab-content {
@@ -137,8 +131,8 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 
 .notification-badge {
   position: absolute;
-  top: -5px;
-  left: -18px;
+  top: -2px;
+  left: -10px;
   font-size: 0.65rem;
   padding: 3px 6px;
   font-weight: 500;
@@ -146,108 +140,135 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 }
 
 .details-list li {
-    font-size: 1.125rem;
-    list-style-type: none;
-    padding: .15rem .5rem .15rem 1.5rem;
-    position: relative;
+  font-size: 1.125rem;
+  list-style-type: none;
+  padding: .15rem .5rem .15rem 1.5rem;
+  position: relative;
 }
 
 /* Remove default accordion button styles */
-  .accordion-button {
-    background-color: transparent;
-    border: none;
-    box-shadow: none;
-    padding: 1rem 0;
-    border-bottom: 1px solid #dee2e6;
-    transition: none;
-     border-radius: 0 !important;
-  }
+.accordion-button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid #dee2e6;
+  transition: none;
+  border-radius: 0 !important;
+}
 
-  .accordion-button:not(.collapsed) {
-    background-color: transparent;
-    box-shadow: none;
-  }
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+  box-shadow: none;
+}
 
-  .accordion-button:focus,
-  .accordion-button:active,
-  .accordion-button:hover {
-    background-color: transparent;
-    color: inherit;
-    outline: none;
-    box-shadow: none;
-  }
+.accordion-button:focus,
+.accordion-button:active,
+.accordion-button:hover {
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
+}
 
-  .accordion-item {
-    border: none; 
-  }
+.accordion-item {
+  border: none;
+}
 
-  .wounds-list li:hover {
-    background-color: #F8F9FA;
-  }
-
-
-   .list-group-item {
-    border: none !important;
-  }
-
-  /* Remove default caret on dropdown-toggle */
-  .can-edit-custom::after {
-    display: none;
-  }
+.wounds-list li:hover {
+  background-color: #F8F9FA;
+}
 
 
- .select-recipient .dropdown-toggle::after {
-    display: none;
-  }
+.list-group-item {
+  border: none !important;
+}
 
-  .select-recipient .btn {
-    background-color: transparent;
-    border: 1px solid #ced4da;
-    color: #000;
-  }
+/* Remove default caret on dropdown-toggle */
+.can-edit-custom::after {
+  display: none;
+}
 
-  .select-recipient .btn:focus,
-  .select-recipient .btn:hover,
-  .select-recipient .btn:active,
-  .select-recipient .btn.show {
-    background-color: transparent;
-    border-color: #ced4da;
-    box-shadow: none;
-  }
 
-  .select-recipient .dropdown-menu-item {
-    padding: 0.5rem 1rem;
-    border: 1px solid transparent;
-    border-radius: 0.5rem;
-    margin: 2px;
-    cursor: pointer;
-  }
+.recipients-dropdown .dropdown-toggle {
+  border: 1px solid #ccc;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+}
 
-  .select-recipient .dropdown-menu-item .title {
-    font-weight: 500;
-  }
+.recipients-dropdown .dropdown-toggle::after {
+  display: none;
+}
 
-  .select-recipient .dropdown-menu-item .subtitle {
-    font-size: 0.875rem;
-    color: #6c757d;
-  }
+.recipients-dropdown .dropdown-menu {
+  width: 100%;
+}
 
-  .select-recipient .dropdown-menu-item.selected {
-    border-color: #198754;
-    position: relative;
-    background-color: #e9f7ef;
-  }
+.recipients-dropdown .form-check {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0;
+  margin-bottom: 5px;
+}
 
-  .select-recipient .dropdown-menu-item .checkmark {
-    position: absolute;
-    right: 1rem;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: #198754;
-    color: #fff;
-    border-radius: 50%;
-    padding: 0.25rem;
-    font-size: 0.75rem;
-  }
+.recipients-dropdown .form-check-input {
+  display: none;
+}
 
-  .list-group-item a{ color: #000; text-decoration: none;}
+.recipients-dropdown .form-check-input:checked+.form-check-label {
+  border: 2px solid green;
+  border-radius: 6px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipients-dropdown .form-check-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.recipients-dropdown .form-check-label .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipients-dropdown .form-check-input:checked+.form-check-label .checkmark {
+  display: inline-block;
+}
+
+.recipients-dropdown .checkmark {
+  display: none;
+  color: green;
+  font-size: 20px;
+}
+
+.add-new-recipient {
+  font-size: 18px;
+  color: #2196F3;
+  font-weight: 500;
+}
+
+.user-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  cursor: pointer;
+  color: #807f7f;
+}
+
+.user-close .bi-x {
+  font-size: 36px;
+}
+
+.list-group-item a {
+  color: #000;
+  text-decoration: none;
+}
