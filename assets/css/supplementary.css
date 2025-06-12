@@ -1,0 +1,274 @@
+:root {
+  --bs-primary: #2196F3;
+  --bs-secondary: #00BFFF;
+}
+
+body {
+  font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif !important;
+}
+
+.bg-primary,
+.btn-primary {
+  background-color: var(--bs-primary) !important;
+}
+
+.text-primary {
+  color: var(--bs-primary) !important;
+}
+
+.bg-secondary {
+  background-color: var(--bs-secondary) !important;
+}
+
+.text-secondary {
+  color: var(--bs-secondary) !important;
+}
+
+
+/* General custom button style */
+.btn-success,
+.btn-primary {
+  border-radius: 2rem !important;
+  box-shadow: inset 0 3px 3px rgba(255, 255, 255, 0.25);
+  padding-left: 15px;
+  padding-right: 15px;
+  border: none;
+}
+
+.btn-outline-danger,
+.btn-outline-dark {
+  border-radius: 2rem !important;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+.btn-outline-secondary {
+  border-radius: 2rem;
+  padding-left: 15px;
+  padding-right: 15px;
+}
+
+/* Bottom pill to open drawer */
+.open-pill {
+  position: fixed;
+  bottom: 10px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 120px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 3px;
+  cursor: pointer;
+  z-index: 1055;
+  transition: opacity 0.8s ease;
+}
+
+/* When backdrop is visible, hide the open pill */
+body:has(.offcanvas-backdrop.show) .open-pill {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Drawer styling */
+.offcanvas-bottom.partial {
+  height: calc(100vh - 56px);
+  top: auto;
+  transition: transform 0.8s ease-in-out;
+}
+
+/* Pill inside drawer (top) to close */
+.drawer-pill {
+  width: 120px;
+  height: 6px;
+  background-color: #000;
+  border-radius: 3px;
+  margin: 10px auto;
+  cursor: pointer;
+}
+
+/* Close button at bottom of drawer */
+.drawer-close-btn {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 1060;
+}
+
+/* Custom class for clean minimal tabs */
+
+.minimal-tabs .nav-tabs {
+  gap: 1.5rem;
+}
+
+.minimal-tabs .nav-tabs .nav-link {
+  font-weight: 500;
+  border: none;
+  background: none;
+  color: #000;
+  padding: 0.5rem 0;
+  transition: color 0.3s;
+  width: 120px;
+}
+
+.minimal-tabs .nav-tabs .nav-link:hover,
+.minimal-tabs .nav-tabs .nav-link:focus {
+  background: none;
+  color: #000;
+  outline: none;
+  box-shadow: none;
+}
+
+.minimal-tabs .nav-tabs .nav-link.active {
+  font-weight: bold;
+}
+
+.minimal-tabs .tab-content {
+  padding: 1rem 0;
+}
+
+/* Badge top-left corner */
+
+.notification-badge {
+  position: absolute;
+  top: -2px;
+  left: -10px;
+  font-size: 0.65rem;
+  padding: 3px 6px;
+  font-weight: 500;
+  background-color: #FD9843;
+}
+
+.details-list li {
+  font-size: 1.125rem;
+  list-style-type: none;
+  padding: .15rem .5rem .15rem 1.5rem;
+  position: relative;
+}
+
+/* Remove default accordion button styles */
+.accordion-button {
+  background-color: transparent;
+  border: none;
+  box-shadow: none;
+  padding: 1rem 0;
+  border-bottom: 1px solid #dee2e6;
+  transition: none;
+  border-radius: 0 !important;
+}
+
+.accordion-button:not(.collapsed) {
+  background-color: transparent;
+  box-shadow: none;
+}
+
+.accordion-button:focus,
+.accordion-button:active,
+.accordion-button:hover {
+  background-color: transparent;
+  color: inherit;
+  outline: none;
+  box-shadow: none;
+}
+
+.accordion-item {
+  border: none;
+}
+
+.wounds-list li:hover {
+  background-color: #F8F9FA;
+}
+
+
+.list-group-item {
+  border: none !important;
+}
+
+/* Remove default caret on dropdown-toggle */
+.can-edit-custom::after {
+  display: none;
+}
+
+
+.recipients-dropdown .dropdown-toggle {
+  border: 1px solid #ccc;
+  background-color: transparent;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 260px;
+}
+
+.recipients-dropdown .dropdown-toggle::after {
+  display: none;
+}
+
+.recipients-dropdown .dropdown-menu {
+  width: 100%;
+}
+
+.recipients-dropdown .form-check {
+  border: 1px solid transparent;
+  border-radius: 6px;
+  padding: 0;
+  margin-bottom: 5px;
+}
+
+.recipients-dropdown .form-check-input {
+  display: none;
+}
+
+.recipients-dropdown .form-check-input:checked+.form-check-label {
+  border: 2px solid green;
+  border-radius: 6px;
+  padding: 0.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.recipients-dropdown .form-check-label {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  width: 100%;
+}
+
+.recipients-dropdown .form-check-label .text {
+  display: flex;
+  flex-direction: column;
+}
+
+.recipients-dropdown .form-check-input:checked+.form-check-label .checkmark {
+  display: inline-block;
+}
+
+.recipients-dropdown .checkmark {
+  display: none;
+  color: green;
+  font-size: 20px;
+}
+
+.add-new-recipient {
+  font-size: 18px;
+  color: #2196F3;
+  font-weight: 500;
+}
+
+.user-close {
+  position: absolute;
+  top: 4px;
+  right: 8px;
+  cursor: pointer;
+  color: #807f7f;
+}
+
+.user-close .bi-x {
+  font-size: 36px;
+}
+
+.list-group-item a {
+  color: #000;
+  text-decoration: none;
+}

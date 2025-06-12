@@ -1,0 +1,1148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Human Model Viewer</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        body{overflow-x: hidden;}
+        .select-section {
+            padding: 1rem;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        .form-select {
+            border-color: #4A90E2;
+            transition: all 0.3s ease;
+        }
+
+        .form-select:hover {
+            border-color: #357ABD;
+        }
+
+        .form-select:focus {
+            border-color: #357ABD;
+            box-shadow: 0 0 0 0.25rem rgba(74, 144, 226, 0.25);
+        }
+
+        .form-label {
+            font-weight: 500;
+            color: #333;
+        }
+
+        .region-selector {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .region-button {
+            padding: 8px 15px;
+            border: 2px solid #4A90E2;
+            border-radius: 20px;
+            background: white;
+            color: #4A90E2;
+            cursor: pointer;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .view-icon {
+            width: 24px;
+            height: 24px;
+        }
+
+        .region-button:hover {
+            background: #4A90E2;
+            color: white;
+        }
+
+        .region-button.active {
+            background: #4A90E2;
+            color: white;
+        }
+
+        .region-button:hover .view-icon,
+        .region-button.active .view-icon {
+            color: white;
+        }
+
+        .sub-regions {
+            margin-top: 10px;
+            display: none;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .sub-regions.visible {
+            display: flex;
+        }
+
+        .sub-region-button {
+            padding: 5px 12px;
+            border: 1px solid #4A90E2;
+            border-radius: 15px;
+            background: white;
+            color: #4A90E2;
+            cursor: pointer;
+            font-size: 0.9em;
+            transition: all 0.3s ease;
+        }
+
+        .sub-region-button:hover,
+        .sub-region-button.active {
+            background: #4A90E2;
+            color: white;
+        }
+        
+        .instruction-text {
+            text-align: center;
+            padding: 1rem;
+            color: #333;
+            font-weight: 500;
+            background-color: #f0f0f0;
+            border-bottom: 1px solid #ddd;
+        }
+
+        #canvas-container {
+            flex-grow: 1;
+            background-color: #5F5F5F;
+            position: relative;
+            height: 450px;
+            overflow: hidden;
+        }
+
+        #model-holder {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            transition: transform 1s ease;
+        }
+        
+        canvas {
+            width: 100%;
+            height: 450px;
+            display: block;
+            position: absolute;
+            left: 0%;
+            right: 0%;
+            margin: 0 auto;
+        }
+        #orientation{ width:140px; text-align: left;}
+        
+        #orientation-label {
+            position: absolute;
+            left: 0px;
+            right: 0px;
+            top:0px;
+            bottom: 0px;
+            margin: 0 auto;
+            /* transform: translateX(-50%); */
+            color: white;
+            font-size: 20px;
+            font-weight: bold;
+            display: block;
+            align-items: center;
+            gap: 8px;
+            cursor: pointer;
+            user-select: none;
+            transition: transform 0.3s ease;
+            z-index: 10;
+            background-color: rgba(0, 0, 0, 0);
+            padding: 10px;
+            border-radius: 0px;
+        }
+        
+        #orientation-label:hover {
+            /* transform: translateX(-50%) scale(1.05); */
+        }
+        
+        #orientation-icon {
+            width: 28px;
+            height: 28px;
+            margin-left: 5px;
+            transition: transform 0.3s ease;
+        }
+        
+        .footer {
+            padding: 1.5rem;
+            background-color: white;
+            
+        }
+        
+        .action-title {
+            font-size: 1.5rem;
+            font-weight: bold;
+            margin-bottom: 1.5rem;
+            color: #333;
+        }
+
+        .footer-form {
+            margin-bottom: 1.5rem;
+        }
+        
+        .btn-success {
+            background-color: #4CAF50;
+            border-color: #4CAF50;
+        }
+        
+        .btn-outline-secondary {
+            color: #333;
+            border-color: #ddd;
+        }
+        #modelCanvas{
+            touch-action: pan-y; /* Allow vertical scrolling */
+        }
+        .noteforuser{
+            position: absolute;
+            z-index: 1000;
+            right: 7%;
+            text-align: center;
+            width: 100px;
+            color: #fff;
+            bottom: 0px;
+            padding-bottom: 100px;
+            padding-top: 50px;
+        }
+        
+        @media (min-width: 768px) {
+  .noteforuser {
+    right: 35%;
+  }
+}
+        .scrollblock{
+    position: absolute;
+    z-index: 1000;
+    left: 0px;
+    text-align: center;
+    width: 125px;
+    color: #fff;
+    bottom: 0px;
+    padding-bottom: 150px;
+    padding-top: 50px;
+    display: block;
+        }        
+    </style>
+</head>
+<body>
+      <!-- Top Navbar -->
+  <nav class="navbar bg-primary text-white d-xl-none">
+    <div class="container-xxl position-relative">
+      <button onclick="history.back()" class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <span class="navbar-brand text-white mx-auto">Doe, Jane</span>
+      <div class="position-absolute end-0 top-50 translate-middle-y">
+        <button class="btn btn-link text-white">
+          <i class="fs-4 bi bi-info-circle-fill"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
+    <div class="container-xxl">
+      <a class="navbar-brand border-end pe-3" href="#">
+        <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#"><i class="bi bi-person-fill"></i> Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#"><i class="bi bi-images"></i> Assign</a>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Manage
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">My Patients</a></li>
+              <li><a class="dropdown-item" href="#">All Patients</a></li>
+              <li><a class="dropdown-item" href="#">Access</a></li>
+              <li><a class="dropdown-item" href="#">Stats</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Settings
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Application</a></li>
+              <li><a class="dropdown-item" href="#">Connection</a></li>
+              <li><a class="dropdown-item" href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <div class="container-flude mt-3" style="
+    overflow: hidden;>
+    <div class="row">
+      <div class="col-12">
+        <div class="pb-2 border-bottom text-center">
+          <strong>Click to Change Position &nbsp;&nbsp; <button id="orientation" class="btn btn-success"><img src="orientation.svg" /> &nbsp;Anterior
+            </button></strong>
+        </div>
+
+        
+        <div id="canvas-container">
+            <div class="scrollblock"></div>
+            <h5 class="noteforuser">Click on Region</h5>
+            <div id="model-holder">
+                <canvas id="modelCanvas"></canvas>
+                <!-- <div id="orientation-label">
+                    Anterior
+                    <img id="orientation-icon" src="orientation.svg" />
+                </div> -->
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+        
+        <footer class="footer container-xxl">
+            <div class="row">
+                <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+            <!-- <h2 class="action-title">Create New Wound</h2> -->
+            <form class="footer-form">
+                <div class="row g-3">
+                    <div class="col-md-6 col-6">
+                        <label class="form-label" for="body-region-footer">Region</label>
+                        <select class="form-select" id="body-region-footer">
+                             <option value="">Select Region</option>
+                            <option value="head_neck">Head &amp; Neck</option>
+                            <option value="chest">Chest</option>
+                            <option value="abdomen">Abdomen</option>
+                            <option value="pelvis">Pelvis</option>
+                            <option value="left_upper_extremity">Left Upper Extremity</option>
+                            <option value="right_upper_extremity">Right Upper Extremity</option>
+                            <option value="left_lower_extremity">Left Lower Extremity</option>
+                            <option value="right_lower_extremity">Right Lower Extremity</option>
+                            <option value="back_region">Back Region</option>
+                        </select>
+                    </div>
+                    <div class="col-md-6 col-6">
+                        <label class="form-label" for="sub-region-footer">Sub Region</label>
+                        <select class="form-select" id="sub-region-footer">
+                            <option value="">Select Sub Region</option>
+                        </select>
+                    </div>
+                </div>
+                <br>
+                <div class="row g-2 justify-content-end">
+    <div class="col-6 col-lg-auto  ms-auto">
+      <button class="btn btn-outline-secondary w-100">Cancel</button>
+    </div>
+     <div class="col-6 col-lg-auto">
+      <button type="reset" class="btn btn-success w-100 next-btn">Next</button>
+    </div>
+  </div>
+            </form>
+
+            </div>
+            </div>
+        </footer>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/controls/OrbitControls.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+        // Configuration and Constants
+        const CONFIG = {
+            scene: {
+                background: 0x5F5F5F,
+                cameraFov: 35,
+                cameraAspect: window.innerWidth / 480,
+                cameraNear: 0.3,
+                cameraFar: 1000,
+                modelScale: 1.1,
+                modelPositionY: -1
+            },
+            controls: {
+                dampingFactor: 0.05,
+                minDistance: 3.5,
+                maxDistance: 3.5,
+                rotateSpeed: 0.1,
+                zoomSpeed: 0.5
+            },
+            highlight: {
+                color: 0x0096E0,
+                emissiveIntensity: 0.3
+            }
+        };
+    
+        const HIGHLIGHTABLE_NODES = ['Head', 'Chest', 'Lefthand', 'Righthand', 'Pelvis', 'Leftleg', 'Rightleg', 'Tummy'];
+        const BACK_REGION_NODES = ['Chest', 'Tummy'];
+    
+        const VIEWS = {
+            anterior: { rotation: 0, cameraPosition: [0, 0, 5] },
+            left_side: { rotation: Math.PI/2, cameraPosition: [5, 0, 0] },
+            posterior: { rotation: Math.PI, cameraPosition: [0, 0, -5] },
+            right_side: { rotation: -Math.PI/2, cameraPosition: [-5, 0, 0] }
+        };
+    
+        const VIEW_ORDER = ['anterior', 'left_side', 'posterior', 'right_side'];
+        const VIEW_DISPLAY_NAMES = {
+            'anterior': 'Anterior',
+            'left_side': 'Left Side',
+            'posterior': 'Posterior',
+            'right_side': 'Right Side'
+        };
+    
+        const BODY_REGIONS_MAP = {
+            'head_neck': ['Scalp', 'Frontal (forehead)', 'Eyebrow', 'Eye', 'Cheek', 'Nose', 'Nostril', 'Jaw', 'Lip', 'Gum', 'Palate', 'Tongue', 'Chin', 'Throat'],
+            'chest': ['Clavicular', 'Sternal', 'Midaxillary', 'Breast', 'Nipple'],
+            'abdomen': ['Epigastrium', 'RUQ', 'LUQ', 'RLQ', 'LLQ', 'Umbilical'],
+            'pelvis': ['Pubis', 'Inguinal (groin)', 'Perineum', 'Labia', 'Vagina', 'Penis', 'Urethral Meatus', 'Scrotum'],
+            'left_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Antecubital (inside elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
+            'right_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Antecubital (inside elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
+            'left_lower_extremity': ['Femoral (thigh)', 'Patellar (anterior knee)', 'Tarsal (ankle)', 'Dorsal (top of foot)', 'Plantar (bottom of foot)', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit', '1-2 Interdigital Space', '2-3 Interdigital Space', '3-4 Interdigital Space', '4-5 Interdigital Space', 'Residual Limb'],
+            'right_lower_extremity': ['Femoral (thigh)', 'Patellar (anterior knee)', 'Tarsal (ankle)', 'Dorsal (top of foot)', 'Plantar (bottom of foot)', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit', '1-2 Interdigital Space', '2-3 Interdigital Space', '3-4 Interdigital Space', '4-5 Interdigital Space', 'Residual Limb'],
+            'back_region': ['Cervical Spine', 'Scapular', 'Thoracic Spine', 'Flank', 'Lumbar Spine', 'Gluteal', 'Sacral Spine', 'Coccyx'],
+        };
+        
+        const POSTERIOR_BODY_REGIONS_MAP = {
+            'head_neck': ['Parietal', 'Occipital', 'Scalp', 'Cervical'],
+            'pelvis': ['Ilium', 'Iliac Crest', 'Ischial Tuberosity', 'Intergluteal Fold/Crease', 'Perirectal', 'Anus'],
+            'left_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Olecranal (back of elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
+            'right_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Olecranal (back of elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
+            'left_lower_extremity': ['Femoral (thigh)', 'Popliteal (posterior knee)', 'Sural (calf)', 'Tarsal (ankle)', 'Calcaneal (heel)', 'Plantar (bottom of foot)', 'Residual Limb'],
+            'right_lower_extremity': ['Femoral (thigh)', 'Popliteal (posterior knee)', 'Sural (calf)', 'Tarsal (ankle)', 'Calcaneal (heel)', 'Plantar (bottom of foot)', 'Residual Limb'],
+            'back_region': ['Cervical Spine', 'Scapular', 'Thoracic Spine', 'Flank', 'Lumbar Spine', 'Gluteal', 'Sacral Spine', 'Coccyx'],
+        };
+        
+        const LEFT_SIDE_BODY_REGIONS_MAP = {
+            'head_neck': ['Temporal', 'Scalp', 'Ear', 'Cheek', 'Jaw', 'Throat', 'Cervical'],
+            'pelvis': ['Greater Trochanter'],
+            'left_upper_extremity': ['Acromial (shoulder)', 'Axillary (armpit)', 'Brachial (upper arm)', 'Antebrachial (forearm)', 'Carpal (wrist)'],
+            'left_lower_extremity': ['Femoral (thigh)', 'Sural (calf)', 'Peroneal (side of leg)', 'Tarsal (ankle)', 'Residual Limb'],
+            //'chest': ['Midaxillary'],
+            //'abdomen': ['Flank'],
+            'back_region': ['Scapular']
+        };
+        
+        const RIGHT_SIDE_BODY_REGIONS_MAP = {
+            'head_neck': ['Temporal', 'Scalp', 'Ear', 'Cheek', 'Jaw', 'Throat', 'Cervical'],
+            'pelvis': ['Greater Trochanter'],
+            'right_upper_extremity': ['Acromial (shoulder)', 'Axillary (armpit)', 'Brachial (upper arm)', 'Antebrachial (forearm)', 'Carpal (wrist)'],
+            'right_lower_extremity': ['Femoral (thigh)', 'Sural (calf)', 'Peroneal (side of leg)', 'Tarsal (ankle)', 'Residual Limb'],
+            //'chest': ['Midaxillary'],
+            //'abdomen': ['Flank'],
+            'back_region': ['Scapular']
+        };
+    
+        const REGION_TO_NODE_MAP = {
+            'head_neck': ['Head'],
+            'chest': ['Chest'],
+            'abdomen': ['Tummy'],
+            'pelvis': ['Pelvis'],
+            'left_upper_extremity': ['Lefthand'],
+            'right_upper_extremity': ['Righthand'],
+            'left_lower_extremity': ['Leftleg'],
+            'right_lower_extremity': ['Rightleg']
+        };
+    
+        // View-specific visibility rules
+        const VIEW_VISIBILITY_RULES = {
+            'anterior': {
+                hidden: ['back_region']
+            },
+            'left_side': {
+                hidden: ['back_region', 'right_upper_extremity', 'right_lower_extremity', 'chest', 'abdomen']
+            },
+            'right_side': {
+                hidden: ['back_region', 'left_upper_extremity', 'left_lower_extremity', 'chest', 'abdomen']
+            },
+            'posterior': {
+                hidden: ['chest', 'abdomen'], // Removed 'pelvis' from hidden list
+                visible: ['head_neck', 'pelvis', 'left_upper_extremity', 'right_upper_extremity', 'left_lower_extremity', 'right_lower_extremity', 'back_region']
+            }
+        };
+    
+        // State Management
+        class AppState {
+            constructor() {
+                this.scene = null;
+                this.camera = null;
+                this.renderer = null;
+                this.controls = null;
+                this.model = null;
+                this.currentView = 'anterior';
+                this.highlightedPart = null;
+                this.selectedPart = null;
+                this.originalMaterials = {};
+                this.raycaster = new THREE.Raycaster();
+                this.mouse = new THREE.Vector2();
+            }
+    
+            reset() {
+                this.highlightedPart = null;
+                this.selectedPart = null;
+                this.originalMaterials = {};
+            }
+        }
+    
+        const appState = new AppState();
+    
+        // Utility Functions
+        const Utils = {
+            // Debounce function for performance optimization
+            debounce(func, wait) {
+                let timeout;
+                return function executedFunction(...args) {
+                    const later = () => {
+                        clearTimeout(timeout);
+                        func(...args);
+                    };
+                    clearTimeout(timeout);
+                    timeout = setTimeout(later, wait);
+                };
+            },
+    
+            // Get mouse/touch coordinates
+            getCoordinates(event, canvas) {
+                const rect = canvas.getBoundingClientRect();
+                let clientX, clientY;
+    
+                if (event.touches) {
+                    const touch = event.touches[0] || event.changedTouches[0];
+                    clientX = touch.clientX;
+                    clientY = touch.clientY;
+                } else {
+                    clientX = event.clientX;
+                    clientY = event.clientY;
+                }
+    
+                return {
+                    x: ((clientX - rect.left) / canvas.clientWidth) * 2 - 1,
+                    y: -((clientY - rect.top) / canvas.clientHeight) * 2 + 1
+                };
+            },
+    
+            // Check if node is highlightable
+            isHighlightableNode(object) {
+                if (object.name && HIGHLIGHTABLE_NODES.includes(object.name)) {
+                    return true;
+                }
+    
+                let parent = object.parent;
+                while (parent) {
+                    if (parent.name && HIGHLIGHTABLE_NODES.includes(parent.name)) {
+                        return true;
+                    }
+                    parent = parent.parent;
+                }
+                return false;
+            },
+    
+            // Map part name to region
+            mapPartToRegion(partName, currentView) {
+                // Handle back region in posterior view
+                if (currentView === 'posterior' && BACK_REGION_NODES.some(node => partName.includes(node))) {
+                    return 'back_region';
+                }
+    
+                const mapping = {
+                    'Head': 'head_neck',
+                    'Lefthand': 'left_upper_extremity',
+                    'Righthand': 'right_upper_extremity',
+                    'Leftleg': 'left_lower_extremity',
+                    'Rightleg': 'right_lower_extremity',
+                    'Chest': 'chest',
+                    'Tummy': 'abdomen',
+                    'Pelvis': 'pelvis'
+                };
+    
+                for (const [key, region] of Object.entries(mapping)) {
+                    if (partName.includes(key)) {
+                        return region;
+                    }
+                }
+                return '';
+            }
+        };
+    
+        // Material Management
+        const MaterialManager = {
+            storeOriginalMaterial(object) {
+                if (!appState.originalMaterials[object.uuid]) {
+                    if (Array.isArray(object.material)) {
+                        appState.originalMaterials[object.uuid] = object.material.map(mat => mat.clone());
+                    } else {
+                        appState.originalMaterials[object.uuid] = object.material.clone();
+                    }
+                }
+            },
+    
+            createHighlightMaterial(baseMaterial) {
+                const highlightMaterial = baseMaterial.clone();
+                highlightMaterial.color.set(CONFIG.highlight.color);
+                highlightMaterial.emissive = new THREE.Color(CONFIG.highlight.color);
+                highlightMaterial.emissiveIntensity = CONFIG.highlight.emissiveIntensity;
+                return highlightMaterial;
+            },
+    
+            highlightPart(object) {
+                if (!object || !object.material) return;
+    
+                this.storeOriginalMaterial(object);
+    
+                if (Array.isArray(object.material)) {
+                    for (let i = 0; i < object.material.length; i++) {
+                        object.material[i] = this.createHighlightMaterial(object.material[i]);
+                    }
+                } else {
+                    object.material = this.createHighlightMaterial(object.material);
+                }
+            },
+    
+            resetHighlight(object) {
+                if (object && appState.originalMaterials[object.uuid]) {
+                    object.material = appState.originalMaterials[object.uuid];
+                }
+            },
+    
+            resetBackRegionHighlight() {
+                BACK_REGION_NODES.forEach(nodeName => {
+                    appState.model.traverse(node => {
+                        if (node.name === nodeName) {
+                            this.resetHighlight(node);
+                        }
+                    });
+                });
+            }
+        };
+    
+        // Scene Management
+        const SceneManager = {
+            initScene() {
+                appState.scene = new THREE.Scene();
+                appState.scene.background = new THREE.Color(CONFIG.scene.background);
+            },
+    
+            initCamera() {
+                appState.camera = new THREE.PerspectiveCamera(
+                    CONFIG.scene.cameraFov,
+                    CONFIG.scene.cameraAspect,
+                    CONFIG.scene.cameraNear,
+                    CONFIG.scene.cameraFar
+                );
+                appState.camera.position.set(0, 0, 5);
+                appState.camera.updateProjectionMatrix();
+            },
+    
+            initRenderer() {
+                const canvas = document.getElementById('modelCanvas');
+                appState.renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
+                appState.renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+                appState.renderer.setPixelRatio(window.devicePixelRatio);
+                appState.renderer.outputEncoding = THREE.sRGBEncoding;
+            },
+    
+            initLighting() {
+                //ambientLight
+                const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
+                appState.scene.add(ambientLight);
+
+                //Front
+                const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.2);
+                directionalLight2.position.set(0, 0, 5);
+                appState.scene.add(directionalLight2);
+    
+                //Top
+                const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
+                directionalLight.position.set(1, 10, 2);
+                appState.scene.add(directionalLight);
+                
+                 //back
+                const backLight = new THREE.DirectionalLight(0xffffff, 0.6);
+                backLight.position.set(-1, -1, -3);
+                appState.scene.add(backLight);
+            },
+    
+            initControls() {
+                appState.controls = new THREE.OrbitControls(appState.camera, appState.renderer.domElement);
+                Object.assign(appState.controls, {
+                    enableDamping: true,
+                    dampingFactor: CONFIG.controls.dampingFactor,
+                    screenSpacePanning: false,
+                    minDistance: CONFIG.controls.minDistance,
+                    maxDistance: CONFIG.controls.maxDistance,
+                    maxPolarAngle: Math.PI,
+                    enablePan: false,
+                    enableRotate: false,
+                    rotateSpeed: CONFIG.controls.rotateSpeed,
+                    enableZoom: false,
+                    zoomSpeed: CONFIG.controls.zoomSpeed
+                });
+            },
+    
+            onWindowResize() {
+                const canvas = document.getElementById('modelCanvas');
+                appState.camera.aspect = canvas.clientWidth / canvas.clientHeight;
+                appState.camera.updateProjectionMatrix();
+                appState.renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+            }
+        };
+    
+        // Model Management
+        const ModelManager = {
+            loadGLBModel() {
+                const loader = new THREE.GLTFLoader();
+                
+                // Create placeholder
+                const geometry = new THREE.BoxGeometry(0.5, 1.8, 0.5);
+                const material = new THREE.MeshBasicMaterial({ color: 0xcccccc, transparent: true, opacity: 0.5 });
+                const placeholder = new THREE.Mesh(geometry, material);
+                placeholder.position.y = CONFIG.scene.modelPositionY;
+                appState.scene.add(placeholder);
+                
+                loader.load(
+                    'body.glb',
+                    (gltf) => {
+                        appState.scene.remove(placeholder);
+                        appState.model = gltf.scene;
+                        appState.model.position.y = CONFIG.scene.modelPositionY;
+                        appState.model.scale.set(CONFIG.scene.modelScale, CONFIG.scene.modelScale, CONFIG.scene.modelScale);
+                        appState.scene.add(appState.model);
+                        
+                        // Apply default materials
+                        appState.model.traverse((child) => {
+                            if (child.isMesh) {
+                                child.material = new THREE.MeshStandardMaterial({ color: 0xd3d3d3 });
+                            }
+                        });
+                        
+                        console.log('Model loaded successfully');
+                    },
+                    (xhr) => console.log((xhr.loaded / xhr.total * 100) + '% loaded'),
+                    (error) => console.error('Error loading model', error)
+                );
+            }
+        };
+    
+        // Interaction Management
+        const InteractionManager = {
+            handleHover(event) {
+                if (!appState.model) return;
+    
+                const canvas = document.getElementById('modelCanvas');
+                const coords = Utils.getCoordinates(event, canvas);
+                appState.mouse.set(coords.x, coords.y);
+                appState.raycaster.setFromCamera(appState.mouse, appState.camera);
+    
+                const intersects = appState.raycaster.intersectObject(appState.model, true);
+                
+                if (appState.currentView === 'posterior') {
+                    this.handlePosteriorHover(intersects);
+                } else {
+                    this.handleAnteriorHover(intersects);
+                }
+            },
+    
+    
+            handleAnteriorHover(intersects) {
+                if (appState.highlightedPart && appState.highlightedPart !== appState.selectedPart) {
+                    this.resetCurrentHighlight();
+                }
+    
+                if (intersects.length > 0) {
+                    const object = intersects[0].object;
+                    if (Utils.isHighlightableNode(object) && object !== appState.selectedPart) {
+                        MaterialManager.highlightPart(object);
+                        appState.highlightedPart = object;
+                    }
+                }
+            },
+    
+            handleClick(event) {
+                if (!appState.model) return;
+    
+                const canvas = document.getElementById('modelCanvas');
+                const coords = Utils.getCoordinates(event, canvas);
+                appState.mouse.set(coords.x, coords.y);
+                appState.raycaster.setFromCamera(appState.mouse, appState.camera);
+    
+                const intersects = appState.raycaster.intersectObject(appState.model, true);
+                
+                if (intersects.length > 0) {
+                    const object = intersects[0].object;
+                    
+                    if (appState.currentView === 'posterior') {
+                        this.handlePosteriorClick(object);
+                    } else if (Utils.isHighlightableNode(object)) {
+                        this.selectPart(object);
+                    }
+                }
+            },
+    
+            handlePosteriorClick(object) {
+                // Check if it's a back region node
+                if (BACK_REGION_NODES.includes(object.name)) {
+                    this.selectBackRegion();
+                }
+                // Check if it's other selectable nodes in posterior view
+                else if (Utils.isHighlightableNode(object)) {
+                    this.selectPart(object);
+                }
+            },
+    
+            selectBackRegion() {
+                // Reset previous selection
+                if (appState.selectedPart) {
+                    if (appState.selectedPart.isBackRegion) {
+                        MaterialManager.resetBackRegionHighlight();
+                    } else {
+                        MaterialManager.resetHighlight(appState.selectedPart);
+                    }
+                }
+
+                // Select back region
+                this.highlightBackRegion();
+                appState.selectedPart = { isBackRegion: true, nodes: BACK_REGION_NODES };
+
+                // Update dropdown
+                const bodyRegionSelect = document.getElementById('body-region-footer');
+                bodyRegionSelect.value = 'back_region';
+                bodyRegionSelect.dispatchEvent(new Event('change'));
+            },
+    
+            selectPart(object) {
+                // Reset previous selection
+                if (appState.selectedPart && appState.selectedPart !== object) {
+                    if (appState.selectedPart.isBackRegion) {
+                        MaterialManager.resetBackRegionHighlight();
+                    } else {
+                        MaterialManager.resetHighlight(appState.selectedPart);
+                    }
+                }
+    
+                appState.selectedPart = object;
+                MaterialManager.highlightPart(appState.selectedPart);
+    
+                // Update dropdown
+                const selectedRegion = Utils.mapPartToRegion(appState.selectedPart.name, appState.currentView);
+                if (selectedRegion) {
+                    const bodyRegionSelect = document.getElementById('body-region-footer');
+                    bodyRegionSelect.value = selectedRegion;
+                    bodyRegionSelect.dispatchEvent(new Event('change'));
+                }
+            },
+    
+            highlightBackRegion() {
+                BACK_REGION_NODES.forEach(nodeName => {
+                    appState.model.traverse(node => {
+                        if (node.name === nodeName) {
+                            MaterialManager.highlightPart(node);
+                        }
+                    });
+                });
+            },
+    
+            resetCurrentHighlight() {
+                if (appState.highlightedPart) {
+                    if (appState.highlightedPart.isBackRegion) {
+                        MaterialManager.resetBackRegionHighlight();
+                    } else {
+                        MaterialManager.resetHighlight(appState.highlightedPart);
+                    }
+                    appState.highlightedPart = null;
+                }
+            },
+    
+            setupEventListeners() {
+                const canvas = document.getElementById('modelCanvas');
+                
+                // Debounced hover for performance
+                const debouncedHover = Utils.debounce(this.handleHover.bind(this), 10);
+                
+                canvas.addEventListener('mousemove', debouncedHover);
+                canvas.addEventListener('touchmove', (e) => {
+                    e.preventDefault();
+                    debouncedHover(e);
+                }, { passive: true });
+    
+                canvas.addEventListener('click', this.handleClick.bind(this));
+                canvas.addEventListener('touchend', (e) => {
+                    e.preventDefault();
+                    this.handleClick(e);
+                }, { passive: true });
+    
+                canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: true });
+            }
+        };
+    
+        // View Management
+        const ViewManager = {
+            changeOrientation(direction) {
+                const currentIndex = VIEW_ORDER.indexOf(appState.currentView);
+                let newIndex;
+                
+                if (direction === 'next') {
+                    newIndex = (currentIndex + 1) % VIEW_ORDER.length;
+                } else {
+                    newIndex = (currentIndex - 1 + VIEW_ORDER.length) % VIEW_ORDER.length;
+                }
+                
+                appState.currentView = VIEW_ORDER[newIndex];
+    
+                this.updateOrientationButton();
+                this.updateDropdownVisibility();
+                this.animateToView();
+                
+                // Refresh the sub-region dropdown based on the new view
+                const bodyRegionSelect = document.getElementById('body-region-footer');
+                if (bodyRegionSelect.value) {
+                    DropdownManager.handleRegionChange();
+                }
+            },
+    
+            updateOrientationButton() {
+                const orientationButton = document.getElementById('orientation');
+                orientationButton.innerHTML = `<img src="orientation.svg" /> &nbsp;${VIEW_DISPLAY_NAMES[appState.currentView]}`;
+            },
+    
+            updateDropdownVisibility() {
+                const regionSelect = document.getElementById('body-region-footer');
+                const visibilityRules = VIEW_VISIBILITY_RULES[appState.currentView];
+                
+                // Reset all options to visible first
+                Array.from(regionSelect.options).forEach(option => {
+                    if (option.value !== '') {
+                        option.style.display = '';
+                    }
+                });
+    
+                // Hide options based on current view rules
+                if (visibilityRules && visibilityRules.hidden) {
+                    visibilityRules.hidden.forEach(regionValue => {
+                        const option = Array.from(regionSelect.options).find(opt => opt.value === regionValue);
+                        if (option) {
+                            option.style.display = 'none';
+                        }
+                    });
+                }
+    
+                // Reset dropdown selection if current selection is now hidden
+                if (regionSelect.value && visibilityRules && visibilityRules.hidden && 
+                    visibilityRules.hidden.includes(regionSelect.value)) {
+                    regionSelect.value = '';
+                    
+                    // Reset any current selection
+                    if (appState.selectedPart) {
+                        if (appState.selectedPart.isBackRegion) {
+                            MaterialManager.resetBackRegionHighlight();
+                        } else {
+                            MaterialManager.resetHighlight(appState.selectedPart);
+                        }
+                        appState.selectedPart = null;
+                    }
+                    
+                    // Trigger change event to update sub-regions
+                    regionSelect.dispatchEvent(new Event('change'));
+                }
+            },
+    
+            animateToView() {
+                if (!appState.model) return;
+    
+                appState.controls.enabled = false;
+                const currentY = appState.camera.position.y;
+                const targetView = VIEWS[appState.currentView];
+    
+                gsap.to(appState.camera.position, {
+                    x: targetView.cameraPosition[0],
+                    y: currentY,
+                    z: targetView.cameraPosition[2],
+                    duration: 1,
+                    ease: "power2.inOut",
+                    onComplete: () => {
+                        appState.camera.lookAt(0, 0, 0);
+                        appState.controls.target.set(0, 0, 0);
+                        appState.controls.update();
+                        appState.controls.enabled = true;
+                    }
+                });
+            }
+        };
+    
+        // Dropdown Management
+        const DropdownManager = {
+            initRegionDropdowns() {
+                const bodyRegionSelect = document.getElementById('body-region-footer');
+                const subRegionSelect = document.getElementById('sub-region-footer');
+                const nextButton = document.querySelector('.next-btn');
+                
+                nextButton.disabled = true;
+                subRegionSelect.disabled = true;
+                
+                // Initialize dropdown visibility
+                ViewManager.updateDropdownVisibility();
+                
+                bodyRegionSelect.addEventListener('change', this.handleRegionChange.bind(this));
+                subRegionSelect.addEventListener('change', this.checkSelections);
+                
+                // Handle region selection from dropdown
+                bodyRegionSelect.addEventListener('change', (event) => {
+                    const selectedRegion = event.target.value;
+                    
+                    if (appState.selectedPart) {
+                        if (appState.selectedPart.isBackRegion) {
+                            MaterialManager.resetBackRegionHighlight();
+                        } else {
+                            MaterialManager.resetHighlight(appState.selectedPart);
+                        }
+                        appState.selectedPart = null;
+                    }
+                    
+                    if (selectedRegion === 'back_region') {
+                        this.handleBackRegionSelection();
+                    } else if (selectedRegion) {
+                        this.handleNormalRegionSelection(selectedRegion);
+                    }
+                });
+            },
+    
+            handleBackRegionSelection() {
+                // Switch to posterior view if not already there
+                if (appState.currentView !== 'posterior') {
+                    appState.currentView = 'posterior';
+                    ViewManager.updateOrientationButton();
+                    ViewManager.updateDropdownVisibility();
+                    ViewManager.animateToView();
+                }
+                
+                if (appState.model) {
+                    InteractionManager.highlightBackRegion();
+                    appState.selectedPart = { isBackRegion: true, nodes: BACK_REGION_NODES };
+                }
+            },
+    
+            handleNormalRegionSelection(selectedRegion) {
+                // Check if the region is visible in the current view
+                const visibilityRules = VIEW_VISIBILITY_RULES[appState.currentView];
+                if (visibilityRules && visibilityRules.hidden && visibilityRules.hidden.includes(selectedRegion)) {
+                    return; // Don't highlight if region is hidden in current view
+                }
+                
+                const nodesToHighlight = REGION_TO_NODE_MAP[selectedRegion] || [];
+                
+                if (appState.model && nodesToHighlight.length > 0) {
+                    appState.model.traverse((node) => {
+                        if (nodesToHighlight.includes(node.name)) {
+                            appState.selectedPart = node;
+                            MaterialManager.highlightPart(node);
+                            return;
+                        }
+                    });
+                }
+            },
+    
+            handleRegionChange() {
+                const bodyRegionSelect = document.getElementById('body-region-footer');
+                const subRegionSelect = document.getElementById('sub-region-footer');
+                const selectedRegion = bodyRegionSelect.value;
+                
+                subRegionSelect.innerHTML = '<option value="">Select Sub Region</option>';
+                
+                // Determine which map to use based on the current view
+                let regionsMap;
+                if (appState.currentView === 'posterior') {
+                    regionsMap = POSTERIOR_BODY_REGIONS_MAP;
+                } else if (appState.currentView === 'left_side') {
+                    regionsMap = LEFT_SIDE_BODY_REGIONS_MAP;
+                } else if (appState.currentView === 'right_side') {
+                    regionsMap = RIGHT_SIDE_BODY_REGIONS_MAP;
+                } else {
+                    regionsMap = BODY_REGIONS_MAP;
+                }
+                
+                if (selectedRegion && regionsMap[selectedRegion]) {
+                    const subRegions = regionsMap[selectedRegion];
+                    
+                    subRegions.forEach(subRegion => {
+                        const option = document.createElement('option');
+                        option.value = subRegion.toLowerCase().replace(/ /g, '_');
+                        option.textContent = subRegion;
+                        subRegionSelect.appendChild(option);
+                    });
+                    
+                    subRegionSelect.disabled = false;
+                } else {
+                    subRegionSelect.disabled = true;
+                }
+                
+                this.checkSelections();
+            },
+    
+            checkSelections() {
+                const bodyRegionSelect = document.getElementById('body-region-footer');
+                const subRegionSelect = document.getElementById('sub-region-footer');
+                const nextButton = document.querySelector('.next-btn');
+                
+                const isRegionSelected = bodyRegionSelect.value !== '';
+                const isSubRegionSelected = subRegionSelect.value !== '';
+                nextButton.disabled = !(isRegionSelected && isSubRegionSelected);
+            }
+        };
+    
+        // Animation Loop
+        function animate() {
+            requestAnimationFrame(animate);
+            appState.controls.update();
+            appState.renderer.render(appState.scene, appState.camera);
+        }
+    
+        // Main Initialization
+        function init() {
+            // Initialize scene components
+            SceneManager.initScene();
+            SceneManager.initCamera();
+            SceneManager.initRenderer();
+            SceneManager.initLighting();
+            SceneManager.initControls();
+            
+            // Setup interactions
+            InteractionManager.setupEventListeners();
+            
+            // Load model
+            ModelManager.loadGLBModel();
+            
+            // Setup UI
+            DropdownManager.initRegionDropdowns();
+            
+            // Setup orientation button
+            document.getElementById('orientation').addEventListener('click', function() {
+                ViewManager.changeOrientation('next');
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', SceneManager.onWindowResize);
+            
+            // Start animation loop
+            animate();
+        }
+    
+        // Initialize when DOM is loaded
+        window.addEventListener('DOMContentLoaded', init);
+    </script>
+</body>
+</html>
