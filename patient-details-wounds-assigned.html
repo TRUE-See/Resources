@@ -30,7 +30,6 @@
       </div>
     </div>
   </nav>
-  <!-- patient details model popup -->
   <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="staticBackdropLabel1" aria-hidden="true">
     <div class="modal-dialog modal-dialog-centered modal-lg">
@@ -62,105 +61,13 @@
         <div class="modal-footer">
           <div class="container-xxl">
             <div class="d-grid w-100">
-              <button class="btn btn-outline-primary w-100" data-bs-toggle="modal"
-                data-bs-target="#staticBackdrop-edit-patient"><i class="bi bi-pencil-square ps-2"></i> Edit</button>
+              <button class="btn btn-outline-primary w-100"><i class="bi bi-pencil-square ps-2"></i> Edit</button>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-  <!-- patient details model popup end -->
-
-  <!-- edit patient details model popup -->
-  <div class="modal fade" id="staticBackdrop-edit-patient" data-bs-backdrop="static" data-bs-keyboard="false"
-    tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
-    <div class="modal-dialog modal-dialog-centered modal-lg">
-      <div class="modal-content">
-        <div class="modal-header">
-          <h1 class="modal-title fs-5" id="staticBackdropLabel1">Edit Patient Details </h1>
-          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-        </div>
-        <div class="modal-body">
-          <div class="">
-            <form class="mt-3">
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">First Name</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <input type="text" class="form-control drop-input" placeholder="Jane">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">Middle Name</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <input type="text" class="form-control drop-input" placeholder="">
-                </div>
-              </div>
-
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">Last Name</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <input type="text" class="form-control drop-input" placeholder="Doe">
-                </div>
-              </div>
-
-              <!-- MRN -->
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">MRN</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <input type="text" class="form-control" placeholder="1002611108">
-                </div>
-              </div>
-
-              <!-- Date of Birth -->
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">Date of Birth</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <input type="date" class="form-control" >
-                </div>
-              </div>
-
-              <!-- Gender -->
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">Gender</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="female" checked="">
-                    <label class="form-check-label" for="female">Female</label>
-                  </div>
-                  <div class="form-check form-check-inline">
-                    <input class="form-check-input" type="radio" name="gender" id="male">
-                    <label class="form-check-label" for="male">Male</label>
-                  </div>
-                </div>
-              </div>
-
-              <!-- Visit Type -->
-              <div class="row mb-3">
-                <label class="col-4 col-md-4 col-lg-4 col-form-label">Visit Type</label>
-                <div class="col-8 col-md-8 col-lg-8">
-                  <input type="text" class="form-control" placeholder="example">
-                </div>
-              </div>
-            </form>
-          </div>
-        </div>
-        <div class="modal-footer">
-          <div class="container-xxl d-flex px-0">
-            <div class="d-grid w-50 pe-2">
-              <button class="btn btn-outline-danger w-100"> Cancle</button>
-            </div>
-            <div class="d-grid w-50">
-              <button class="btn btn-primary w-100"> Save Changes</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- edit patient details model popup end -->
-
   <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
     <div class="container-xxl">
       <a class="navbar-brand border-end pe-3" href="#">
@@ -195,143 +102,13 @@
       </div>
     </div>
   </nav>
-  <div class="p-2 bg-danger text-white text-center mb-2 d-flex justify-content-center" data-bs-toggle="offcanvas"
-    data-bs-target="#offcanvasBottom-assign-photo-1" aria-controls="offcanvasBottom-assign-photo-1">
-    <small>
+  <div class="p-2 bg-success text-white text-center mb-2 d-flex justify-content-center" >
+    <!-- <small>
       <span class="badge rounded-pill bg-white text-danger">2</span>
-    </small>
-    <span class="px-2"> Unassigned Photos</span>
-    <i class="bi bi-chevron-down"></i>
+    </small> -->
+    <span class="px-2"> All Wounds Assigned</span>
+    <i class="bi bi-check-circle-fill"></i>
   </div>
-  <!-- assign-photos-1 drawer -->
-  <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-assign-photo-1"
-    aria-labelledby="offcanvasBottomLabeoffcanvasBottom-assign-photo-1">
-    <div class="offcanvas-header d-flex justify-content-center p-0">
-      <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
-    </div>
-    <div class="container-xxl mt-4 minimal-tabs overflow-auto">
-      <div class="row">
-        <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-          <div class="offcanvas-body small pt-0">
-            <div class="modal-body">
-              <div class="text-center text-danger border-bottom">
-                <div class="p-2 pt-0">
-                  <strong> Unassigned Photos</strong>
-                </div>
-              </div>
-              <div class="">
-                <div class="mb-2 mt-1">
-                  <div class="row g-2">
-                    <div class="col-6 col-md-6 position-relative">
-                      <div
-                        class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
-                        onclick="toggleCheckbox(this, event)">
-                        <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
-                        <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-                          <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-                        </div>
-                      </div>
-                    </div>
-                    <div class="col-6 col-md-6 position-relative">
-                      <div
-                        class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
-                        onclick="toggleCheckbox(this, event)">
-                        <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
-                        <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-                          <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <div class="bg-light p-3">
-                  <!-- Dropdown Filter -->
-                  <div class="w-50 mb-3">
-                    <select class="form-select" id="woundFilter">
-                      <option value="all" selected>All Wounds</option>
-                      <option value="wound1">Wound #1</option>
-                      <option value="wound2">Wound #2</option>
-                      <option value="wound2">Wound #3</option>
-                      <option value="wound2">Wound #4</option>
-                      <option value="wound2">Wound #5</option>
-                      <option value="wound2">Wound #6</option>
-                      <option value="wound2">Wound #7</option>
-                      <option value="wound2">Wound #8</option>
-                      <option value="wound2">Wound #9</option>
-                      <option value="wound2">Wound #10</option>
-                      <option value="wound2">Wound #11</option>
-                      <option value="wound2">Wound #12</option>
-                    </select>
-                  </div>
-                  <!-- Combined Wound List -->
-                  <div id="woundList">
-                    <div class="list-group mb-2 wound-item" data-wound="wound1">
-                      <label
-                        class="list-group-item list-group-item-action position-relative mb-3 border-2 border-white shadow-sm rounded p-0"
-                        onclick="toggleWound(this)">
-                        <div class="d-flex justify-content-between">
-                          <div class="p-3"><strong>Wound #1</strong><br><small>Sacrum<br>Pressure Injury</small></div>
-                          <img src="assets/images/assign-img-1.png" class="rounded-end" style="width: 150px;">
-                        </div>
-                        <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                          <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                        </span>
-                      </label>
-                    </div>
-
-                    <div class="list-group mb-2 wound-item" data-wound="wound2">
-                      <label
-                        class="list-group-item list-group-item-action position-relative mb-3 border-2 border-white shadow-sm rounded p-0"
-                        onclick="toggleWound(this)">
-                        <div class="d-flex justify-content-between">
-                          <div class="p-3"><strong>Wound #2</strong><br><small>Left Leg<br>Ulcer</small></div>
-                          <img src="assets/images/assign-img-2.png" class="rounded-end" style="width: 150px;">
-                        </div>
-                        <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                          <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                        </span>
-                      </label>
-                    </div>
-
-                    <div class="list-group mb-2 wound-item" data-wound="wound2">
-                      <label
-                        class="list-group-item list-group-item-action position-relative mb-3 border-2 border-white shadow-sm rounded p-0"
-                        onclick="toggleWound(this)">
-                        <div class="d-flex justify-content-between">
-                          <div class="p-3"><strong>Wound #3</strong><br><small>Right Foot<br>Necrotic Ulcer</small>
-                          </div>
-                          <img src="assets/images/assign-img-3.png" class="rounded-end" style="width: 150px;">
-                        </div>
-                        <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                          <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                        </span>
-                      </label>
-                    </div>
-
-                  </div>
-                </div>
-                <br> <br> <br> <br>
-                <!-- Sticky bottom navbar -->
-                <footer class="fixed-bottom bg-white border-top">
-                  <div class="container-xxl">
-                    <div class="row">
-                      <div
-                        class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
-                        <button id="assignBtn" class="btn btn-success mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button"
-                          disabled>Assign to Wound</button>
-                        <button class="btn btn-outline-dark text-nowrap" type="button">Create New Wound</button>
-                      </div>
-                    </div>
-                  </div>
-                </footer>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  <!-- assign-photos-1 drawer end-->
 
   <div class="container-xxl mt-4 mb-5 pb-5">
     <div class="row">
