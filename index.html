@@ -770,6 +770,35 @@
                             <h3 class="mb-0">Invite User</h3>
                             <span class="user-close" data-bs-dismiss="offcanvas"><i class="bi bi-x"></i></span>
                         </div>
+                        <div class="px-3 my-3 mb-5 pb-5">
+                            <div id="form-area">
+                                <div class="form-set mb-4">
+                                    <div class="row mb-3">
+                                        <div class="col-6">
+                                            <label class="form-label">First Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter First Name">
+                                        </div>
+                                        <div class="col-6">
+                                            <label class="form-label">Last Name</label>
+                                            <input type="text" class="form-control" placeholder="Enter Last Name">
+                                        </div>
+                                    </div>
+                                    <div class="row mb-3">
+                                        <div class="col-12">
+                                            <label class="form-label">Email</label>
+                                            <input type="email" class="form-control" placeholder="Enter Email">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="mt-4 mb-3 px-3 d-flex justify-content-end">
+                                <a href="#" id="add-more" class="text-decoration-none">
+                                    <i class="bi bi-plus"></i> Add Another
+                                </a>
+                            </div>
+                        </div>
+
                     </div>
                 </div>
             </div>
@@ -779,13 +808,277 @@
                     <div class="row">
                         <div
                             class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end my-2">
-                            <button class="btn btn-primary text-nowrap my-2">Invite Users</button>
+                            <button class="btn btn-primary text-nowrap my-2" data-bs-toggle="offcanvas"
+                                data-bs-target="#bottomDrawer5">Invite Users</button>
                         </div>
                     </div>
                 </div>
             </footer>
         </div>
     </div>
+
+
+    <!-- Recipients Invited -->
+
+    <!-- <div class="open-pill" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer2" title="Open Drawer"></div> -->
+
+    <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="bottomDrawer5">
+
+        <div class="offcanvas-body position-relative p-0">
+
+            <!-- Top pill to close -->
+
+            <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+
+            <!-- Drawer content -->
+
+            <div class="container-xxl mt-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+
+                        <img src="assets/images/success-icon.svg" class="img-fluid d-block m-auto mb-3"
+                            alt="success-icon" />
+                        <div class="px-3">
+                            <h4 class="text-center mb-3"><strong>Recipients Invited</strong></h4>
+                            <p class="mb-5 text-center">New recipients must access the invitation before viewing patient
+                                information.</p>
+                        </div>
+                        <div class="px-3">
+                            <h4 class="mb-3">Invited Recipients</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item px-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="fw-semibold">Dr. John Doe</div>
+                                            <div class="text-muted small">jsmith@gmail.com</div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="min-width: 100px;">
+                                                Invite Sent
+                                            </button>
+                                            <ul class="dropdown-menu" style="min-width: 100px;">
+                                                <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="fw-semibold">Kathryn Murphy</div>
+                                            <div class="text-muted small">kmurphy@gmail.com</div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="min-width: 100px;">
+                                                Invite Sent
+                                            </button>
+                                            <ul class="dropdown-menu" style="min-width: 100px;">
+                                                <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="fixed-bottom bg-white border-top">
+                <div class="container-xxl">
+                    <div class="row">
+                        <div
+                            class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end my-2">
+                            <button class="btn btn-primary text-nowrap my-2" data-bs-dismiss="offcanvas">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Recipients Invited -->
+
+    <!-- <div class="open-pill" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer2" title="Open Drawer"></div> -->
+
+    <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="bottomDrawer5">
+
+        <div class="offcanvas-body position-relative p-0">
+
+            <!-- Top pill to close -->
+
+            <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+
+            <!-- Drawer content -->
+
+            <div class="container-xxl mt-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+
+                        <img src="assets/images/success-icon.svg" class="img-fluid d-block m-auto mb-3"
+                            alt="success-icon" />
+                        <div class="px-3">
+                            <h4 class="text-center mb-3"><strong>Recipients Invited</strong></h4>
+                            <p class="mb-5 text-center">New recipients must access the invitation before viewing patient
+                                information.</p>
+                        </div>
+                        <div class="px-3">
+                            <h4 class="mb-3">Invited Recipients</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item px-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="fw-semibold">Dr. John Doe</div>
+                                            <div class="text-muted small">jsmith@gmail.com</div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="min-width: 100px;">
+                                                Invite Sent
+                                            </button>
+                                            <ul class="dropdown-menu" style="min-width: 100px;">
+                                                <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="fw-semibold">Kathryn Murphy</div>
+                                            <div class="text-muted small">kmurphy@gmail.com</div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom  justify-content-between"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="min-width: 100px;">
+                                                Invite Sent
+                                            </button>
+                                            <ul class="dropdown-menu" style="min-width: 100px;">
+                                                <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="fixed-bottom bg-white border-top">
+                <div class="container-xxl">
+                    <div class="row">
+                        <div
+                            class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end my-2">
+                            <button class="btn btn-primary text-nowrap my-2" data-bs-dismiss="offcanvas">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
+    <!-- Recipients Invited -->
+
+    <!-- <div class="open-pill" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer2" title="Open Drawer"></div> -->
+
+    <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="bottomDrawer6">
+
+        <div class="offcanvas-body position-relative p-0">
+
+            <!-- Top pill to close -->
+
+            <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+
+            <!-- Drawer content -->
+
+            <div class="container-xxl mt-4">
+                <div class="row">
+                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+
+                        <img src="assets/images/success-icon.svg" class="img-fluid d-block m-auto mb-3"
+                            alt="success-icon" />
+                        <div class="px-3">
+                            <h4 class="text-center mb-3"><strong>Recipients Invited</strong></h4>
+                            <p class="mb-5 text-center">New recipients must access the invitation before viewing patient
+                                information.</p>
+                        </div>
+                        <div class="px-3">
+                            <h4 class="mb-3">Invited Recipients</h4>
+                            <ul class="list-group">
+                                <li class="list-group-item px-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="fw-semibold">Dr. John Doe</div>
+                                            <div class="text-muted small">jsmith@gmail.com</div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom justify-content-between"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="min-width: 100px;">
+                                                Invite Sent
+                                            </button>
+                                            <ul class="dropdown-menu" style="min-width: 100px;">
+                                                <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                                <li class="list-group-item px-2">
+                                    <div class="d-flex justify-content-between align-items-start">
+                                        <div>
+                                            <div class="fw-semibold">Kathryn Murphy</div>
+                                            <div class="text-muted small">kmurphy@gmail.com</div>
+                                        </div>
+                                        <div class="dropdown">
+                                            <button
+                                                class="btn btn-light dropdown-toggle d-flex align-items-center can-edit-custom justify-content-between"
+                                                type="button" data-bs-toggle="dropdown" aria-expanded="false"
+                                                style="min-width: 100px;">
+                                                Invite Sent
+                                            </button>
+                                            <ul class="dropdown-menu" style="min-width: 100px;">
+                                                <li><a class="dropdown-item" href="#">Can View</a></li>
+                                                <li><a class="dropdown-item" href="#">Can Edit</a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <footer class="fixed-bottom bg-white border-top">
+                <div class="container-xxl">
+                    <div class="row">
+                        <div
+                            class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end my-2">
+                            <button class="btn btn-primary text-nowrap my-2" data-bs-dismiss="offcanvas">Close</button>
+                        </div>
+                    </div>
+                </div>
+            </footer>
+        </div>
+    </div>
+
 
 
     <!-- Bottom Navbar -->
@@ -813,8 +1106,18 @@
             </a>
         </div>
     </nav>
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+    <script>
+        document.getElementById('add-more').onclick = e => {
+            e.preventDefault();
+            const original = document.querySelector('.form-set');
+            const clone = original.cloneNode(true);
+            clone.querySelectorAll('input').forEach(i => i.value = '');
+            document.getElementById('form-area').appendChild(clone);
+        };
+    </script>
 </body>
 
 </html>
