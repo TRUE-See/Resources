@@ -48,6 +48,12 @@ body {
   padding-right: 15px;
 }
 
+.ref-txt {
+  bottom: 24%;
+  font-size: 12px;
+  left: 8px;
+}
+
 /* Bottom pill to open drawer */
 .open-pill {
   position: fixed;

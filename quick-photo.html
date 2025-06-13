@@ -1,0 +1,618 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assign Wound</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/supplementary.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Top Navbar -->
+
+  <!-- Top Navbar -->
+  <nav class="navbar bg-primary text-white d-xl-none sticky-top d-xl-none ">
+    <div class="container-xxl position-relative">
+      <button onclick="history.back()"
+        class="btn btn-link text-white position-absolute start-0 top-50 translate-middle-y">
+        <i class="bi bi-chevron-left"></i>
+      </button>
+      <span class="navbar-brand text-white mx-auto">Doe, Jane</span>
+
+      <div class="position-absolute end-0 top-50 translate-middle-y">
+        <button class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
+          <i class="fs-4 bi bi-info-circle-fill"></i>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <!-- patient details model popup -->
+  <div class="modal fade" id="staticBackdrop1" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel1">Patient Details </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="">
+            <div>
+              <div class="px-3">
+                <div class="mt-2">
+                  Name: <small class="opacity-50">Doe, Jane </small>
+                </div>
+                <div class="mt-2">
+                  MRN: <small class="opacity-50">1002611108</small>
+                </div>
+                <div class="mt-2">
+                  Date of Birth: <small class="opacity-50">April 02, 1989 </small>
+                </div>
+                <div class="mt-2">
+                  Gender: <small class="opacity-50">Female</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="container-xxl">
+            <div class="d-grid w-100">
+              <button class="btn btn-outline-primary w-100" data-bs-toggle="modal"
+                data-bs-target="#staticBackdrop-edit-patient"><i class="bi bi-pencil-square ps-2"></i> Edit</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- patient details model popup end -->
+
+  <!-- edit patient details model popup -->
+  <div class="modal fade" id="staticBackdrop-edit-patient" data-bs-backdrop="static" data-bs-keyboard="false"
+    tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="staticBackdropLabel1">Edit Patient Details </h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <div class="">
+            <form class="mt-3">
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">First Name</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <input type="text" class="form-control drop-input" placeholder="Jane">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">Middle Name</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <input type="text" class="form-control drop-input" placeholder="">
+                </div>
+              </div>
+
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">Last Name</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <input type="text" class="form-control drop-input" placeholder="Doe">
+                </div>
+              </div>
+
+              <!-- MRN -->
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">MRN</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <input type="text" class="form-control" placeholder="1002611108">
+                </div>
+              </div>
+
+              <!-- Date of Birth -->
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">Date of Birth</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <input type="date" class="form-control">
+                </div>
+              </div>
+
+              <!-- Gender -->
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">Gender</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="female" checked="">
+                    <label class="form-check-label" for="female">Female</label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input" type="radio" name="gender" id="male">
+                    <label class="form-check-label" for="male">Male</label>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Visit Type -->
+              <div class="row mb-3">
+                <label class="col-4 col-md-4 col-lg-4 col-form-label">Visit Type</label>
+                <div class="col-8 col-md-8 col-lg-8">
+                  <input type="text" class="form-control" placeholder="example">
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <div class="container-xxl d-flex px-0">
+            <div class="d-grid w-50 pe-2">
+              <button class="btn btn-outline-danger w-100"> Cancle</button>
+            </div>
+            <div class="d-grid w-50">
+              <button class="btn btn-primary w-100"> Save Changes</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- edit patient details model popup end -->
+
+  <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+    <div class="container-xxl">
+      <a class="navbar-brand border-end pe-3" href="#">
+        <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person-fill"></i> Patients</a></li>
+          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-images"></i> Assign</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Manage</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">My Patients</a></li>
+              <li><a class="dropdown-item" href="#">All Patients</a></li>
+              <li><a class="dropdown-item" href="#">Access</a></li>
+              <li><a class="dropdown-item" href="#">Stats</a></li>
+            </ul>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Settings</a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="#">Application</a></li>
+              <li><a class="dropdown-item" href="#">Connection</a></li>
+              <li><a class="dropdown-item" href="#">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+
+
+
+  <div class="container-xxl mt-4 mb-5 pb-5">
+    <div class="row">
+      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+        <div class="">
+          <h5 class="mb-3 fs-6 fw-semibold">Preview Images</h5>
+          <div class="d-flex">
+            <button class="btn btn-outline-primary w-50 me-2" type="button" data-bs-toggle="modal"
+              data-bs-target="#delete-photo">Delete Photo</button>
+
+            <!-- delete-photo model popup -->
+            <div class="modal fade" id="delete-photo" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <div class="px-3">
+                        <img src="assets/images/delete-photo.png" class="rounded w-50 d-block m-auto">
+                        <div class="mt-2 opacity-50 text-center">
+                          Are you sure you want to<br> delete this photo?
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container-xxl">
+                      <div class="d-grid d-flex w-100">
+                        <button class="btn btn-danger w-50 me-2 rounded-5">
+                          Yes, I’m sure</button>
+                        <button class="btn btn-outline-dark w-50">
+                          No, go back</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- delete-photo model popup end -->
+
+            <button class="btn btn-outline-success w-50" type="button" data-bs-toggle="modal"
+              data-bs-target="#add-new-patient">Add New Patient</button>
+
+            <!-- add-new-patient model popup -->
+            <div class="modal fade" id="add-new-patient" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Add New Patient </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <div class="d-grid mb-3 d-xl-none">
+                        <button class="btn btn-primary d-block m-auto w-50">Scan Patient Info</button>
+                      </div>
+                      <div class="px-3">
+                        <div class="mt-2  text-center">
+                          Don’t have access to the barcode?
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container-xxl">
+                      <div class="d-grid w-100">
+                        <button class="btn btn-outline-primary w-75 d-block m-auto" data-bs-toggle="modal"
+                          data-bs-target="#enter-manually">
+                          Enter Information Manually</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- add-new-patient model popup end -->
+
+            <!-- enter-manually model popup -->
+            <div class="modal fade" id="enter-manually" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Enter Patient Information </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <form class="mt-3">
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">First Name</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <input type="text" class="form-control" placeholder="Enter First Name">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">Middle Name</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <input type="text" class="form-control" placeholder="Enter Middle Name">
+                          </div>
+                        </div>
+
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">Last Name</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <input type="text" class="form-control" placeholder="Enter Last Name">
+                          </div>
+                        </div>
+
+                        <!-- MRN -->
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">MRN</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <input type="text" class="form-control" placeholder="Enter MRN">
+                          </div>
+                        </div>
+
+                        <!-- Date of Birth -->
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">Date of Birth</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <input type="date" class="form-control">
+                          </div>
+                        </div>
+
+                        <!-- Gender -->
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">Gender</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="gender" id="female" checked="">
+                              <label class="form-check-label" for="female">Female</label>
+                            </div>
+                            <div class="form-check form-check-inline">
+                              <input class="form-check-input" type="radio" name="gender" id="male">
+                              <label class="form-check-label" for="male">Male</label>
+                            </div>
+                          </div>
+                        </div>
+
+                        <!-- Visit Type -->
+                        <div class="row mb-3">
+                          <label class="col-4 col-md-4 col-lg-4 col-form-label">Visit Type</label>
+                          <div class="col-8 col-md-8 col-lg-8">
+                            <input type="text" class="form-control" placeholder="Enter Visit Type">
+                          </div>
+                        </div>
+
+                      </form>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- enter-manually model popup end -->
+
+          </div>
+          <div class="d-flex mt-3">
+            <button class="btn btn-outline-success w-50 me-2" type="button" data-bs-toggle="modal"
+              data-bs-target="#client-notes">Client Notes</button>
+
+            <!-- client-notes model popup -->
+            <div class="modal fade" id="client-notes" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Client Notes (Optional)</h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <div class="px-3">
+                        <div class="mb-3">
+                          <small class="">Client Notes </small>
+                          <textarea class="form-control" id="reportNotes" rows="3" placeholder=""></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- client-notes model popup end -->
+
+            <button class="btn btn-outline-primary w-50 d-block m-auto" type="button" data-bs-toggle="modal"
+              data-bs-target="#send-report">Send Report</button>
+
+            <!-- send-report model popup -->
+            <div class="modal fade" id="send-report" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+              aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Send Report </h1>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <div class="px-3">
+                        <img src="assets/images/true-video-1.png" class="rounded w-100 d-block m-auto">
+                        <div class="mb-3 mt-3">
+                          <small class="">Client Notes </small>
+                          <textarea class="form-control" id="reportNotes" rows="3" placeholder=""></textarea>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container-xxl">
+                      <div class="d-grid d-flex w-100">
+                        <button class="btn btn-primary w-100 me-2" data-bs-toggle="modal"
+                          data-bs-target="#staticBackdrop-edit-patient">
+                          Share</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- send-report model popup end -->
+          </div>
+        </div>
+        <hr>
+
+        <div class="">
+          <h5 class="mb-3 fs-6 fw-semibold">Assign Measurements</h5>
+          <div class="d-flex">
+            <button class="btn btn-outline-primary w-50 me-2" type="button" data-bs-toggle="modal"
+              data-bs-target="#measurements-popup-1">Measurements popup1</button>
+
+            <!-- measurements-popup-1 model popup -->
+            <div class="modal fade" id="measurements-popup-1" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <div class="px-3">
+                        <img src="assets/images/delete-photo.png" class="rounded w-50 d-block m-auto">
+                        <div class="mt-2 opacity-50 text-center">
+                          Are you sure you want to mark this<br> Problem as healed?
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container-xxl">
+                      <div class="d-grid d-flex w-100">
+                        <button class="btn btn-success w-50 me-2 rounded-5">
+                          Yes, I’m sure</button>
+                        <button class="btn btn-outline-dark w-50">
+                          No, go back</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- measurements-popup-1 model popup end -->
+
+            <button class="btn btn-outline-success w-50 me-2" type="button" data-bs-toggle="modal"
+              data-bs-target="#measurements-popup-2">Measurements popup2</button>
+
+            <!-- measurements-popup-2 model popup -->
+            <div class="modal fade" id="measurements-popup-2" data-bs-backdrop="static" data-bs-keyboard="false"
+              tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered modal-xs">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="modal-body">
+                    <div class="">
+                      <div class="px-3">
+                        <img src="assets/images/delete-photo.png" class="rounded w-50 d-block m-auto">
+                        <div class="mt-2 opacity-50 text-center">
+                          This Problem is marked as healed.<br> Are you sure you want to revert this action?
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-footer">
+                    <div class="container-xxl">
+                      <div class="d-grid d-flex w-100">
+                        <button class="btn btn-success w-50 me-2 rounded-5">
+                          Yes, I’m sure</button>
+                        <button class="btn btn-outline-dark w-50">
+                          No, go back</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- measurements-popup-2 model popup end -->
+
+          </div>
+        </div>
+        <hr>
+
+
+
+      </div>
+    </div>
+  </div>
+
+  <!-- Sticky bottom navbar -->
+  <!-- <footer class="fixed-bottom bg-white border-top">
+    <div class="container-xxl">
+      <div class="row">
+        <div
+          class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+          <button id="assignBtn" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add New
+            Wound <i class="fs-4 bi bi-person-standing"></i></button>
+          <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+            type="button">New Photo &nbsp<i class="fs-4 bi bi-camera-fill"></i></button>
+        </div>
+      </div>
+    </div>
+  </footer> -->
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+  <!-- JavaScript -->
+  <script>
+    let selectedItem = null;
+    let currentTab = "problem";
+
+    document.querySelectorAll('#assignTabs .nav-link').forEach(btn => {
+      btn.addEventListener('click', () => {
+        document.querySelectorAll('#assignTabs .nav-link').forEach(b => b.classList.remove('active'));
+        btn.classList.add('active');
+        currentTab = btn.dataset.mode;
+        resetAssignUI();
+      });
+    });
+
+    function toggleCheckmark(checkmarkId, checkbox, labelId) {
+      const checkmark = document.getElementById(checkmarkId);
+      const label = document.getElementById(labelId);
+      if (checkbox.checked) {
+        checkmark.classList.remove('d-none');
+        label.classList.replace('border-secondary', 'border-success');
+      } else {
+        checkmark.classList.add('d-none');
+        label.classList.replace('border-success', 'border-secondary');
+      }
+    }
+
+    function toggleWound(el) {
+      const assignBtn = document.getElementById("assignBtn");
+      if (selectedItem === el) {
+        el.classList.replace("border-success", "border-white");
+        el.querySelector(".checkmark-icon").classList.add("d-none");
+        selectedItem = null;
+        assignBtn.textContent = "Assign to";
+        assignBtn.disabled = true;
+      } else {
+        if (selectedItem) {
+          selectedItem.classList.replace("border-success", "border-white");
+          selectedItem.querySelector(".checkmark-icon").classList.add("d-none");
+        }
+        el.classList.replace("border-white", "border-success");
+        el.querySelector(".checkmark-icon").classList.remove("d-none");
+        selectedItem = el;
+        assignBtn.textContent = (currentTab === "problem" ? "Assign Problem to Wound" : "Assign Wound to Wound") + " #" + el.querySelector("strong").textContent.split("#")[1];
+        assignBtn.disabled = false;
+      }
+    }
+
+    function resetAssignUI() {
+      selectedItem = null;
+      document.querySelectorAll(".wound-item").forEach(el => {
+        el.classList.replace("border-success", "border-white");
+        el.querySelector(".checkmark-icon").classList.add("d-none");
+      });
+      const btn = document.getElementById("assignBtn");
+      btn.textContent = "Assign to";
+      btn.disabled = true;
+    }
+
+    // Called when image-wrapper is clicked (not the checkbox itself)
+    function toggleCheckbox(wrapper, event) {
+      if (event.target.tagName === 'INPUT') return; // Prevent double toggle
+      const checkbox = wrapper.querySelector('input[type="checkbox"]');
+      checkbox.checked = !checkbox.checked;
+      toggleBorder(wrapper, checkbox.checked);
+    }
+
+    // Called when checkbox itself is clicked
+    function onCheckboxChange(checkbox) {
+      const wrapper = checkbox.closest('.image-wrapper');
+      toggleBorder(wrapper, checkbox.checked);
+    }
+
+    function toggleBorder(wrapper, isChecked) {
+      wrapper.classList.toggle('border-primary', isChecked);
+      wrapper.classList.toggle('border-transparent', !isChecked);
+    }
+    // Filter logic
+    document.getElementById('woundFilter').addEventListener('change', function () {
+      const selectedValue = this.value;
+      document.querySelectorAll('.wound-item').forEach(item => {
+        item.style.display = (selectedValue === 'all' || item.dataset.wound === selectedValue) ? '' : 'none';
+      });
+    });
+  </script>
+</body>
+
+</html>
