@@ -84,6 +84,12 @@
             </button>
           </li>
           <li class="nav-item" role="presentation">
+            <button class="nav-link" id="wound-tab" data-bs-toggle="tab" data-bs-target="#wound" type="button"
+              role="tab" aria-controls="wound" aria-selected="false">
+              TRUE-Wound
+            </button>
+          </li>
+          <li class="nav-item" role="presentation">
             <button class="nav-link" id="access-tab" data-bs-toggle="tab" data-bs-target="#access" type="button"
               role="tab" aria-controls="access" aria-selected="false">
               TRUE-Video
@@ -95,11 +101,9 @@
 
         <div class="tab-content p-0" id="minimalTabContent">
           <div class="tab-pane fade show active" id="report" role="tabpanel" aria-labelledby="report-tab">
-
             <div class="mx-3 my-3 border-bottom">
               <h6><strong>Problems</strong></h6>
             </div>
-
             <div class="px-3">
               <ul class="list-group mb-5">
                 <li class="d-flex align-items-center justify-content-start py-2">
@@ -112,7 +116,8 @@
                     <strong>Type:</strong><small> Contusion</small>
                   </div>
                 </li>
-                <li class="d-flex align-items-center justify-content-start py-2 bg-light" onclick="location.href='true-view.html'">
+                <li class="d-flex align-items-center justify-content-start py-2 bg-light"
+                  onclick="location.href='true-view.html'">
                   <img src="assets/images/problem2.png" class="img-fluid rounded-1" style="width: 110px;">
                   <div class="px-3">
                     <strong>Problem #2</strong>
@@ -144,17 +149,36 @@
                 </li>
               </ul>
             </div>
+          </div>
 
-            <footer class="fixed-bottom bg-white border-top">
-              <div class="container-xxl">
-                <div class="row">
-                  <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                    <button class="btn btn-primary mb-3 mb-sm-0 text-nowrap">Compare Images</button>
+          <div class="tab-pane fade" id="wound" role="tabpanel" aria-labelledby="wound-tab">
+            <div class="mx-3 my-3 border-bottom">
+              <h6><strong>Problems</strong></h6>
+            </div>
+            <div class="px-3">
+              <ul class="list-group mb-5">
+                <li class="d-flex align-items-center justify-content-start py-2">
+                  <img src="assets/images/problem2.png" class="img-fluid rounded-1" style="width: 110px;">
+                  <div class="px-3">
+                    <strong>Wound #2</strong>
+                    <br>
+                    <strong>Location:</strong><small> Left Knee</small>
+                    <br>
+                    <strong>Type:</strong><small> Skin Tear</small>
                   </div>
-                </div>
-              </div>
-            </footer>
+                </li>
+                <li class="d-flex align-items-center justify-content-start py-2 bg-light">
+                  <img src="assets/images/problem3.png" class="img-fluid rounded-1" style="width: 110px;">
+                  <div class="px-3">
+                    <strong>Wound #3</strong>
+                    <br>
+                    <strong>Location:</strong><small> Lower Left Leg</small>
+                    <br>
+                    <strong>Type:</strong><small> Lesion</small>
+                  </div>
+                </li>
+              </ul>
+            </div>
           </div>
 
           <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
@@ -185,18 +209,21 @@
                 </li>
               </ul>
             </div>
-            <footer class="fixed-bottom bg-white border-top">
-              <div class="container-xxl">
-                <div class="row">
-                  <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                    <button class="btn btn-primary my-2 text-nowrap">Compare Images</button>
-                  </div>
-                </div>
-              </div>
-            </footer>
+
           </div>
         </div>
+
+        <footer class="fixed-bottom bg-white border-top">
+          <div class="container-xxl">
+            <div class="row">
+              <div
+                class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
+                <button class="btn btn-primary my-2 text-nowrap">Compare Images</button>
+              </div>
+            </div>
+          </div>
+        </footer>
+
       </div>
     </div>
   </div>

@@ -1,6 +1,7 @@
 :root {
   --bs-primary: #2196F3;
   --bs-secondary: #00BFFF;
+  --bs-danger: #F44B4E;
 }
 
 body {
@@ -24,6 +25,14 @@ body {
   color: var(--bs-secondary) !important;
 }
 
+.bg-danger,
+.btn-danger {
+  background-color: var(--bs-danger) !important;
+}
+
+.text-danger {
+  color: var(--bs-danger) !important;
+}
 
 /* General custom button style */
 .btn-success,
@@ -187,7 +196,7 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 
 
 .list-group-item {
-  border: none !important;
+  /* border: none !important; */
 }
 
 /* Remove default caret on dropdown-toggle */
@@ -278,8 +287,76 @@ body:has(.offcanvas-backdrop.show) .open-pill {
   color: #000;
   text-decoration: none;
 }
+
 .patient-btn {
   font-size: 14px;
   white-space: nowrap;
   margin-left: 5px;
 }
+
+textarea {
+   resize: none;
+}
+
+
+
+
+
+.partial.problem-pic-drawer{
+    height: calc(100vh - 300px);
+}
+
+    .custom-carousel-wrapper {
+      max-width: 100%;
+    }
+
+    .custom-carousel-wrapper .carousel {
+      position: relative;
+      width: 100%;
+      max-width: 450px;
+      margin: auto;
+      aspect-ratio: 3 / 2; /* 375x250 ratio */
+    }
+
+    .custom-carousel-wrapper .carousel-inner,
+    .custom-carousel-wrapper .carousel-item,
+    .custom-carousel-wrapper .carousel-item img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 6px;
+    }
+
+    .custom-carousel-wrapper .carousel-control-prev,
+    .custom-carousel-wrapper .carousel-control-next {
+      width: 40px;
+      top: 0;
+      bottom: 0;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .custom-carousel-wrapper .carousel-control-prev {
+      left: 0;
+    }
+
+    .custom-carousel-wrapper .carousel-control-next {
+      right: 0;
+    }
+
+    .custom-carousel-wrapper .carousel-indicators {
+      bottom: -25px;
+    }
+
+    .custom-carousel-wrapper .carousel-icon {
+      font-size: 1.5rem;
+      color: #000;
+    }
+
+    @media (max-width: 400px) {
+      .custom-carousel-wrapper .carousel-control-prev,
+      .custom-carousel-wrapper .carousel-control-next {
+        width: 30px;
+      }
+    }
