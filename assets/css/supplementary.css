@@ -360,3 +360,69 @@ textarea {
         width: 30px;
       }
     }
+
+    
+.thumb {
+  width: 70px;
+  height: 45px;
+  cursor: pointer;
+  border: 2px solid transparent;
+}
+
+.thumb.active {
+  border-color: #198754;
+}
+
+#main {
+  transition: opacity .3s;
+}
+
+#date1,
+#date2 {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #21252999;
+}
+
+/* Transparent Offcanvas Styles */
+.offcanvas.problem-pic-drawer {
+    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+    background-color: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(5px);
+}
+
+.problem-pic-drawer .offcanvas-body {
+    background: transparent;
+}
+
+.carousel-navigation-info {
+    z-index: 5;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+}
+
+/* Ensure graph remains visible */
+.chart-container {
+    position: relative;
+    z-index: 0;
+}
+
+/* Add subtle border to separate from background */
+.problem-pic-drawer {
+    border-top: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+/* Offcanvas Close Button Styles */
+.problem-pic-drawer .btn-close {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 0.75rem;
+    border-radius: 50%;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    z-index: 1060;
+}
+
+.problem-pic-drawer .btn-close:hover {
+    background-color: #fff;
+    transform: scale(1.1);
+    transition: all 0.2s ease;
+}
