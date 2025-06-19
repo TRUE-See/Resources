@@ -471,3 +471,18 @@ textarea {
 .custom-dropdown .dropdown-toggle-icon[aria-expanded="true"] .transition-rotate {
     transform: rotate(-180deg);
 }
+
+
+/* sticky bottom */
+#woundListWrapper {
+  scrollbar-width: thin;
+}
+
+#woundListWrapper::-webkit-scrollbar {
+  width: 6px;
+}
+
+#woundListWrapper::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.2);
+  border-radius: 3px;
+}

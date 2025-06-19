@@ -161,13 +161,13 @@
   </div>
   <!-- edit patient details model popup end -->
 
-    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
-        <div class="container-xxl">
-            <a class="navbar-brand border-end pe-3" href="index.html">
-                <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
-            </a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+  <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+    <div class="container-xxl">
+      <a class="navbar-brand border-end pe-3" href="#">
+        <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+           <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
                                 class="bi bi-person-fill"></i> Patients</a>
@@ -213,14 +213,13 @@
                         </ul>
                     </li>
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
-
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
   <div class="p-2 bg-danger text-white text-center mb-2 d-flex justify-content-center" data-bs-toggle="offcanvas"
     data-bs-target="#offcanvasBottom-assign-photo-1" aria-controls="offcanvasBottom-assign-photo-1">
     <small>
@@ -359,7 +358,7 @@
   </div>
   <!-- assign-photos-1 drawer end-->
 
-  <div class="container-xxl mt-4 mb-5 pb-5">
+  <div class="container-xxl mt-4">
     <div class="row">
       <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
         <!-- Tabs -->
@@ -379,10 +378,11 @@
         </ul>
 
         <!-- Tab Content -->
-        <div class="tab-content container-xxl mt-4 mb-5 pb-5" id="searchTabsContent">
+        <div class="tab-content container-xxl mt-4" id="searchTabsContent">
           <!-- true-wound Tab -->
           <div class="tab-pane fade show active" id="true-wound" role="tabpanel" aria-labelledby="true-wound-tab">
 
+            <div id="woundListWrapper" style="max-height: 70vh; overflow-y: auto;">
             <div id="woundList">
               <div class="list-group mb-2 wound-item" data-wound="wound1">
                 <label
@@ -478,11 +478,12 @@
                                   Concern for necrotic ulcer with possible underlying infection.
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
-                                  <strong>Hashtag: <small>#ulcer</small></strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Hashtag"
+                                  <strong>Hashtag: <small
+                                      class="ms-1 px-2 py-1 bg-light rounded">#ulcer</small></strong> <span
+                                    class="text-primary"><a href="" class="text-decoration-none"
+                                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-Add-Hashtag"
                                       aria-controls="offcanvasBottom-Add-Hashtag">+ Add
-                                      Hashtag</a></span>
+                                      Hashtag</a></span>s
                                 </div>
                               </div>
                             </div>
@@ -607,9 +608,10 @@
                                   Concern for necrotic ulcer with possible underlying infection.
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
-                                  <strong>Hashtag: <small>#ulcer</small></strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Hashtag"
+                                  <strong>Hashtag: <small
+                                      class="ms-1 px-2 py-1 bg-light rounded">#ulcer</small></strong> <span
+                                    class="text-primary"><a href="" class="text-decoration-none"
+                                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-Add-Hashtag"
                                       aria-controls="offcanvasBottom-Add-Hashtag">+ Add
                                       Hashtag</a></span>
                                 </div>
@@ -836,9 +838,10 @@
                                   Concern for necrotic ulcer with possible underlying infection.
                                 </div>
                                 <div class="d-flex justify-content-between align-items-center mt-3">
-                                  <strong>Hashtag: <small>#ulcer</small></strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Hashtag"
+                                  <strong>Hashtag: <small
+                                      class="ms-1 px-2 py-1 bg-light rounded">#ulcer</small></strong> <span
+                                    class="text-primary"><a href="" class="text-decoration-none"
+                                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-Add-Hashtag"
                                       aria-controls="offcanvasBottom-Add-Hashtag">+ Add
                                       Hashtag</a></span>
                                 </div>
@@ -930,7 +933,7 @@
                                   placeholder="#ulcer"></textarea>
                               </div>
                               <div class="d-flex justify-content-between align-items-center">
-                                <small class="pe-3">#ulcer </small>
+                                <small class="me-3 px-2 py-1 rounded bg-light">#ulcer </small>
                                 <button class="btn bg-success text-white btn-sm me-2 rounded px-3">
                                   Save
                                 </button>
@@ -939,10 +942,10 @@
                                 <strong>Existing Hashtags: </strong>
                               </div>
                               <div class="mt-2">
-                                <small class="pe-3">#diabetes </small>
-                                <small class="pe-3">#newpatient </small>
-                                <small class="pe-3">#acne </small>
-                                <small class="pe-3">#karla </small>
+                                <small class="me-3 px-2 py-1 rounded bg-light">#diabetes </small>
+                                <small class="me-3 px-2 py-1 rounded bg-light">#newpatient </small>
+                                <small class="me-3 px-2 py-1 rounded bg-light">#acne </small>
+                                <small class="me-3 px-2 py-1 rounded bg-light">#karla </small>
                               </div>
                             </div>
                           </div>
@@ -954,15 +957,30 @@
               </div>
               <!-- add hashtag popup end -->
             </div>
+            </div>
 
-            <footer class="bg-white border-top">
+            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
               <div class="container-xxl">
                 <div class="row">
                   <div
                     class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Wound <i class="fs-4 bi bi-person-standing"></i></button>
+                      Wound <i class="bi bi-person-standing"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
+              <div class="container-xxl">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
+                      New
+                      Wound <i class="bi bi-person-standing"></i></button>
                     <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
                       type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
                   </div>
@@ -974,7 +992,9 @@
 
           <!-- true-photo Tab -->
           <div class="tab-pane fade" id="true-photo" role="tabpanel" aria-labelledby="true-photo-tab">
-            <div id="woundList">
+           
+            <div id="woundListWrapper" style="max-height: 70vh; overflow-y: auto;">
+              <div id="woundList">
               <div class="list-group mb-2 wound-item" data-wound="wound1">
                 <label
                   class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0 "
@@ -1039,15 +1059,30 @@
                 </label>
               </div>
             </div>
+            </div>
 
-            <footer class="bg-white border-top">
+            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
               <div class="container-xxl">
                 <div class="row">
                   <div
                     class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Subject <i class="fs-4 bi bi-person-fill"></i></button>
+                      Subject <i class="bi bi-person-fill"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
+              <div class="container-xxl">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
+                      New
+                      Subject <i class="bi bi-person-fill"></i></button>
                     <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
                       type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
                   </div>
@@ -1058,79 +1093,96 @@
 
           <!-- true-video Tab -->
           <div class="tab-pane fade" id="true-video" role="tabpanel" aria-labelledby="true-video-tab">
-            <div id="woundList">
-              <div class="list-group mb-2 wound-item" data-wound="wound1">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0 "
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Video #1</strong><br><small>Left Foot<br>Pressure Injury</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera-video text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <img src="assets/images/true-video-1.png" class="rounded-end" style="width: 150px;">
-                  </div>
-                </label>
-              </div>
 
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Video #2</strong><br><small>Left Lower Leg<br>Necrotic Ulcer</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera-video text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
+            <div id="woundListWrapper" style="max-height: 70vh; overflow-y: auto;">
+              <div id="woundList">
+                <div class="list-group mb-2 wound-item" data-wound="wound1">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0 "
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Video #1</strong><br><small>Left Foot<br>Pressure Injury</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera-video text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
                       </div>
+                      <img src="assets/images/true-video-1.png" class="rounded-end" style="width: 150px;">
                     </div>
-                    <img src="assets/images/true-video-2.png" class="rounded-end" style="width: 150px;">
-                    <!-- <div class="form-check position-absolute top-0 end-0 rounded">
+                  </label>
+                </div>
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Video #2</strong><br><small>Left Lower Leg<br>Necrotic Ulcer</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera-video text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/true-video-2.png" class="rounded-end" style="width: 150px;">
+                      <!-- <div class="form-check position-absolute top-0 end-0 rounded">
                       <span class="badge rounded text-bg-danger draggable" draggable="true" id="drag-text" data-text="Unmeasured">Unmeasured</span>
                     </div> -->
-                  </div>
-                </label>
-              </div>
-
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Video #3</strong><br><small>Right Foot<br>Necrotic Ulcer</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera-video text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
-                      </div>
                     </div>
-                    <img src="assets/images/true-video-3.png" class="rounded-end" style="width: 150px;">
-                  </div>
-                </label>
+                  </label>
+                </div>
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Video #3</strong><br><small>Right Foot<br>Necrotic Ulcer</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera-video text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/true-video-3.png" class="rounded-end" style="width: 150px;">
+                    </div>
+                  </label>
+                </div>
               </div>
             </div>
-
-            <footer class="bg-white border-top">
+            <!-- Sticky Footer -->
+            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
               <div class="container-xxl">
                 <div class="row">
                   <div
                     class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Video &nbsp<i class="fs-4 bi bi-camera-video"></i></button>
+                      Video &nbsp<i class="bi bi-camera-video"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button> -->
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
+              <div class="container-xxl">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
+                      New
+                      Video &nbsp<i class="bi bi-camera-video"></i></button>
                     <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
                       type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button> -->
                   </div>
@@ -1138,6 +1190,7 @@
               </div>
             </footer>
           </div>
+
         </div>
       </div>
     </div>
@@ -1161,6 +1214,21 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- JavaScript -->
+
+  <script>
+    // sticky bottom
+    document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll("#woundList .list-group");
+      const footer = document.getElementById("stickyFooter");
+
+      if (items.length > 3) {
+        footer.classList.remove("d-none");
+      } else {
+        footer.classList.add("d-none");
+      }
+    });
+  </script>
+
   <script>
     let selectedItem = null;
     let currentTab = "problem";
