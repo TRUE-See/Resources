@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Assign Wound</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="assets/css/supplementary.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+  <!-- Chart.js -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+
+<body>
+
+  <!--log in account -->
+
+  <div class="container-xxl min-vh-100 d-flex align-items-center">
+    <div class="row w-100">
+      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-4">
+        <div class="text-center mb-4">
+          <h1 class="fw-bold mb-2 text-dark">Log in to your account</h1>
+          <p class="text-muted mb-4">Welcome back! Please enter your details.</p>
+        </div>
+
+        <form>
+          <div class="mb-3">
+            <label for="email" class="form-label">Email</label>
+            <input type="email" class="form-control form-control" id="email" placeholder="Enter your email">
+          </div>
+
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <div class="position-relative">
+              <input type="password" class="form-control form-control" id="password"
+                placeholder="Enter your password">
+              <button
+                class="btn position-absolute top-50 end-0 translate-middle-y bg-transparent border-0 text-primary pe-3"
+                type="button" id="togglePassword">
+                <i class="bi bi-eye-slash" id="toggleIcon"></i>
+              </button>
+            </div>
+          </div>
+
+          <div class="d-flex justify-content-between align-items-center mb-4">
+            <div class="form-check">
+              <input type="checkbox" class="form-check-input" id="remember">
+              <label class="form-check-label" for="remember">Remember me</label>
+            </div>
+            <a href="#" class="text-decoration-none text-secondary">Forgot password?</a>
+          </div>
+
+          <button type="button" class="btn btn-primary w-100 btn-lg mb-4" onclick="window.location.href='index.html'">Sign in</button>
+
+          <div class="text-center">
+            <span class="text-muted">Don't have an account? </span>
+            <a href="index.html" class="text-secondary">Sign up</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- Custom JS -->
+  <script src="script.js"></script>
+  <script>
+    // Password visibility toggle
+    document.getElementById('togglePassword').addEventListener('click', function () {
+      const passwordInput = document.getElementById('password');
+      const toggleIcon = document.getElementById('toggleIcon');
+
+      if (passwordInput.type === 'password') {
+        passwordInput.type = 'text';
+        toggleIcon.classList.remove('bi-eye-slash');
+        toggleIcon.classList.add('bi-eye');
+      } else {
+        passwordInput.type = 'password';
+        toggleIcon.classList.remove('bi-eye');
+        toggleIcon.classList.add('bi-eye-slash');
+      }
+    });
+  </script>
+
+</body>
+
+</html>

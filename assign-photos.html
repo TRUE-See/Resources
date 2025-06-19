@@ -21,7 +21,7 @@
       <span></span>
     </div>
   </nav>
- <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
         <div class="container-xxl">
             <a class="navbar-brand border-end pe-3" href="index.html">
                 <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
@@ -29,35 +29,49 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i> Patients</a>
+                        <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
+                        <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i class="bi bi-person-plus-fill"></i> Invite User</a>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="#"><i class="bi bi-person-fill-gear"></i>
                             Manage
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="index.html">My Patients</a></li>
                             <li><a class="dropdown-item" href="index.html">All Patients</a></li>
                             <li><a class="dropdown-item" href="#">Access</a></li>
                             <li><a class="dropdown-item" href="#">Stats</a></li>
-
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="settings.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
                             Settings
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Application</a></li>
                             <li><a class="dropdown-item" href="#">Connection</a></li>
-                            <li><a class="dropdown-item" href="#">Log Out</a></li>
-
+                            <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
                         </ul>
                     </li>
-
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -67,7 +81,7 @@
         </div>
     </nav>
 
-<div class="container-xxl mt-3 mb-5 pb-5">
+  <div class="container-xxl mt-3 mb-5 pb-5">
     <div class="row">
       <div class="col-12 mx-auto">
 
@@ -80,30 +94,33 @@
 
             <!-- Image Block -->
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-1.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-1.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-2.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-2.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-               <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-3.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-3.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -116,30 +133,33 @@
           <div class="row g-2">
 
             <div class="col-6 col-md-4 position-relative">
-               <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-5.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-5.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-6.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-6.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
           </div>
@@ -149,101 +169,102 @@
     </div>
   </div>
 
-  
-<!-- Toast Notification -->
-<div class="position-fixed end-0 p-3" style="top:10%; width: 220px">
-  <div id="photoToast" class="toast align-items-center text-bg-light border-0 bg-success" role="alert" aria-live="assertive" aria-atomic="true">
-    <div class="d-flex align-items-center">
-      <div class="toast-body text-white">
-        <div class="text-white" id="photoCountBtn" type="button">
-          Photos Selected (0)
+
+  <!-- Toast Notification -->
+  <div class="position-fixed end-0 p-3" style="top:10%; width: 220px">
+    <div id="photoToast" class="toast align-items-center text-bg-light border-0 bg-success" role="alert"
+      aria-live="assertive" aria-atomic="true">
+      <div class="d-flex align-items-center">
+        <div class="toast-body text-white">
+          <div class="text-white" id="photoCountBtn" type="button">
+            Photos Selected (0)
+          </div>
         </div>
+        <button type="button" class="btn-close text-white me-2 m-auto" data-bs-dismiss="toast"></button>
       </div>
-      <button type="button" class="btn-close text-white me-2 m-auto" data-bs-dismiss="toast"></button>
     </div>
   </div>
-</div>
 
 
   <!-- Bottom Navbar -->
-    <nav class="navbar navbar-light bg-white fixed-bottom border-top d-xl-none">
-        <div class="container-fluid d-flex justify-content-around">
-            <a href="index.html" class="text-center text-primary text-decoration-none ">
-                <i class="fs-4 bi bi-people-fill"></i><br>
-                <small>Patients</small>
-            </a>
-            <a href="assign-photos-selected.html" class="text-center text-secondary text-decoration-none ">
-                <i class="fs-4 bi bi-image"></i><br>
-                <small>Assign</small>
-            </a>
-            <a href="#" class="rounded-circle text-center text-decoration-none bg-primary text-white px-3 py-2">
-                <i class="fs-1 bi bi-camera-fill px-0"></i><br>
+  <nav class="navbar navbar-light bg-white fixed-bottom border-top d-xl-none">
+    <div class="container-fluid d-flex justify-content-around">
+      <a href="index.html" class="text-center text-primary text-decoration-none ">
+        <i class="fs-4 bi bi-people-fill"></i><br>
+        <small>Patients</small>
+      </a>
+      <a href="assign-photos-selected.html" class="text-center text-secondary text-decoration-none ">
+        <i class="fs-4 bi bi-image"></i><br>
+        <small>Assign</small>
+      </a>
+      <a href="#" class="rounded-circle text-center text-decoration-none bg-primary text-white px-3 py-2">
+        <i class="fs-1 bi bi-camera-fill px-0"></i><br>
 
-            </a>
-            <a href="#" class="text-center text-secondary text-decoration-none ">
-                <i class="fs-4 bi bi-person-fill-gear"></i><br>
-                <small>Manage</small>
-            </a>
-            <a href="settings.html" class="text-center text-secondary text-decoration-none ">
-                <i class="fs-4 bi bi-gear-fill"></i><br>
-                <small>Settings</small>
-            </a>
-        </div>
-    </nav>
+      </a>
+      <a href="#" class="text-center text-secondary text-decoration-none ">
+        <i class="fs-4 bi bi-person-fill-gear"></i><br>
+        <small>Manage</small>
+      </a>
+      <a href="settings.html" class="text-center text-secondary text-decoration-none ">
+        <i class="fs-4 bi bi-gear-fill"></i><br>
+        <small>Settings</small>
+      </a>
+    </div>
+  </nav>
 
-<script>
-  // Initialize Toast and set up functions after DOM is fully loaded
-  document.addEventListener('DOMContentLoaded', () => {
-    // Initialize Toast
-    const toastEl = document.getElementById('photoToast');
-    const toast = new bootstrap.Toast(toastEl); // Bootstrap Toast initialization
-    let toastTimeout;
+  <script>
+    // Initialize Toast and set up functions after DOM is fully loaded
+    document.addEventListener('DOMContentLoaded', () => {
+      // Initialize Toast
+      const toastEl = document.getElementById('photoToast');
+      const toast = new bootstrap.Toast(toastEl); // Bootstrap Toast initialization
+      let toastTimeout;
 
-    // Called when image-wrapper is clicked (not the checkbox itself)
-    window.toggleCheckbox = function(wrapper, event) {
-      if (event.target.tagName === 'INPUT') return; // Prevent double toggle
-      const checkbox = wrapper.querySelector('input[type="checkbox"]');
-      checkbox.checked = !checkbox.checked;
-      toggleBorder(wrapper, checkbox.checked);
-      updateSelectedCount();
-    };
+      // Called when image-wrapper is clicked (not the checkbox itself)
+      window.toggleCheckbox = function (wrapper, event) {
+        if (event.target.tagName === 'INPUT') return; // Prevent double toggle
+        const checkbox = wrapper.querySelector('input[type="checkbox"]');
+        checkbox.checked = !checkbox.checked;
+        toggleBorder(wrapper, checkbox.checked);
+        updateSelectedCount();
+      };
 
-    // Called when checkbox itself is clicked
-    window.onCheckboxChange = function(checkbox) {
-      const wrapper = checkbox.closest('.image-wrapper');
-      toggleBorder(wrapper, checkbox.checked);
-      updateSelectedCount();
-    };
+      // Called when checkbox itself is clicked
+      window.onCheckboxChange = function (checkbox) {
+        const wrapper = checkbox.closest('.image-wrapper');
+        toggleBorder(wrapper, checkbox.checked);
+        updateSelectedCount();
+      };
 
-    function toggleBorder(wrapper, isChecked) {
-      wrapper.classList.toggle('border-primary', isChecked);
-      wrapper.classList.toggle('border-transparent', !isChecked);
-    }
-
-    // Update the selected count and show the toast notification
-    function updateSelectedCount() {
-      const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
-      const button = document.getElementById('photoCountBtn');
-      button.textContent = `Photos Selected (${checkedCount})`;
-
-      // Show toast notification only if some photos are selected
-      if (checkedCount > 0) {
-        toast.show();  // Show the toast
-      } else {
-        toast.hide();  // Hide the toast if no photos are selected
+      function toggleBorder(wrapper, isChecked) {
+        wrapper.classList.toggle('border-primary', isChecked);
+        wrapper.classList.toggle('border-transparent', !isChecked);
       }
 
-      // Hide toast after 2 seconds
-      clearTimeout(toastTimeout);
-      toastTimeout = setTimeout(() => {
-        toast.hide();
-      }, 2000);
-    }
+      // Update the selected count and show the toast notification
+      function updateSelectedCount() {
+        const checkedCount = document.querySelectorAll('input[type="checkbox"]:checked').length;
+        const button = document.getElementById('photoCountBtn');
+        button.textContent = `Photos Selected (${checkedCount})`;
 
-    // Initialize count on page load
-    updateSelectedCount();
-  });
-</script>
+        // Show toast notification only if some photos are selected
+        if (checkedCount > 0) {
+          toast.show();  // Show the toast
+        } else {
+          toast.hide();  // Hide the toast if no photos are selected
+        }
+
+        // Hide toast after 2 seconds
+        clearTimeout(toastTimeout);
+        toastTimeout = setTimeout(() => {
+          toast.hide();
+        }, 2000);
+      }
+
+      // Initialize count on page load
+      updateSelectedCount();
+    });
+  </script>
 
 
 

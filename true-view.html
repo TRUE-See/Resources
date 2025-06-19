@@ -28,46 +28,71 @@
 
       <div class="position-absolute end-0 top-50 translate-middle-y">
         <button class="btn btn-link text-white" data-bs-toggle="modal" data-bs-target="#staticBackdrop1">
-          <i class="fs-4 bi bi-info-circle-fill"></i>
+          <i class="fs-4 bi bi-share-fill"></i>
         </button>
       </div>
     </div>
   </nav>
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
-    <div class="container-xxl">
-      <a class="navbar-brand border-end pe-3" href="#">
-        <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person-fill"></i> Patients</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-images"></i> Assign</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Manage</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">My Patients</a></li>
-              <li><a class="dropdown-item" href="#">All Patients</a></li>
-              <li><a class="dropdown-item" href="#">healing</a></li>
-              <li><a class="dropdown-item" href="#">Stats</a></li>
-            </ul>
-          </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Settings</a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Application</a></li>
-              <li><a class="dropdown-item" href="#">Connection</a></li>
-              <li><a class="dropdown-item" href="#">Log Out</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form>
-      </div>
-    </div>
-  </nav>
+     <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+        <div class="container-xxl">
+            <a class="navbar-brand border-end pe-3" href="index.html">
+                <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i class="bi bi-person-plus-fill"></i> Invite User</a>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="#"><i class="bi bi-person-fill-gear"></i>
+                            Manage
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">My Patients</a></li>
+                            <li><a class="dropdown-item" href="index.html">All Patients</a></li>
+                            <li><a class="dropdown-item" href="#">Access</a></li>
+                            <li><a class="dropdown-item" href="#">Stats</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
+                            Settings
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Application</a></li>
+                            <li><a class="dropdown-item" href="#">Connection</a></li>
+                            <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
 
 
   <!-- Drawer content -->
@@ -134,7 +159,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -149,7 +174,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -164,7 +189,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -179,7 +204,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
               </div>
@@ -204,7 +229,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -218,7 +243,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -232,7 +257,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -246,7 +271,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
               </div>
@@ -297,7 +322,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -311,7 +336,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -325,7 +350,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -339,7 +364,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
               </div>
@@ -386,7 +411,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -400,7 +425,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -414,7 +439,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
                 <a href="#"
@@ -428,7 +453,7 @@
                     <strong>L: </strong><small>1.95</small> <strong>W: </strong><small>3.25</small> <strong>D:
                     </strong><small>0.88</small>
                     <br>
-                    <strong>Cert#:</strong><small> 1901283</small>
+                    <small>Cert #:</small><small> 1901283</small>
                   </div>
                 </a>
               </div>
@@ -450,10 +475,7 @@
                     <div id="offcanvasVolume" class="small">Volume: 63.396</div>
                   </div>
 
-                  <div class="wound-image mb-3">
-                    <!-- <img src="assets/images/assign-img-1.png" class="img-fluid rounded" id="offcanvasImage"
-                      alt="Wound Image"> -->
-
+                  <div class="wound-image my-3">
                     <div class="custom-carousel-wrapper">
                       <div id="customCarousel" class="carousel slide" data-ride="carousel">
                         <div class="carousel-inner">
@@ -580,7 +602,7 @@
             <div class="row">
               <div
                 class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                <button class="btn btn-primary mb-3 mb-sm-0 text-nowrap" onclick="location.href='analyze-problems.html'">Compare Images</button>
+                <button class="btn btn-primary mb-3 mb-sm-0 text-nowrap" onclick="location.href='compare-problems-wound.html'">Compare Images</button>
               </div>
             </div>
           </div>

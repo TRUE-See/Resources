@@ -83,7 +83,7 @@ document.addEventListener('DOMContentLoaded', function() {
                     <strong>W: </strong><small>${data.measurements.width}</small> 
                     <strong>D: </strong><small>${data.measurements.depth}</small>
                     <br>
-                    <strong>Cert#:</strong><small> ${data.certNumber}</small>
+                    <small>Cert #:</small><small> ${data.certNumber}</small>
                 </div>
             </a>
         `;

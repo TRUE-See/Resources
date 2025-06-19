@@ -426,3 +426,48 @@ textarea {
     transform: scale(1.1);
     transition: all 0.2s ease;
 }
+
+.list-group-item.active {
+    border-color: green !important;
+}
+
+
+
+
+
+.custom-dropdown {
+    position: relative;
+}
+
+.custom-dropdown .dropdown-toggle-icon::after {
+    display: none;
+}
+
+.custom-dropdown .dropdown-toggle-icon {
+    padding: 0.5rem 0.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+}
+
+.custom-dropdown .dropdown-toggle-icon:hover {
+    background-color: transparent ;
+}
+
+.custom-dropdown .dropdown-menu {
+    margin-top: 0.5rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+}
+
+.custom-dropdown .bi-chevron-down {
+    font-size: 0.875rem;
+}
+
+.custom-dropdown .transition-rotate {
+    display: inline-block;
+    transition: transform 0.3s ease;
+}
+
+.custom-dropdown .dropdown-toggle-icon[aria-expanded="true"] .transition-rotate {
+    transform: rotate(-180deg);
+}

@@ -25,8 +25,7 @@
     </div>
   </nav>
 
-  <!-- Desktop Navbar -->
- <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
         <div class="container-xxl">
             <a class="navbar-brand border-end pe-3" href="index.html">
                 <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
@@ -34,35 +33,49 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i> Patients</a>
+                        <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
+                        <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i class="bi bi-person-plus-fill"></i> Invite User</a>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="#"><i class="bi bi-person-fill-gear"></i>
                             Manage
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="index.html">My Patients</a></li>
                             <li><a class="dropdown-item" href="index.html">All Patients</a></li>
                             <li><a class="dropdown-item" href="#">Access</a></li>
                             <li><a class="dropdown-item" href="#">Stats</a></li>
-
                         </ul>
                     </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="settings.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
                             Settings
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
                         </a>
                         <ul class="dropdown-menu">
                             <li><a class="dropdown-item" href="#">Application</a></li>
                             <li><a class="dropdown-item" href="#">Connection</a></li>
-                            <li><a class="dropdown-item" href="#">Log Out</a></li>
-
+                            <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
                         </ul>
                     </li>
-
                 </ul>
                 <form class="d-flex" role="search">
                     <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
@@ -71,7 +84,6 @@
             </div>
         </div>
     </nav>
-
   <!-- Main Container -->
   <div class="container-xxl mt-3 mb-5 pb-5">
     <div class="row">
@@ -86,30 +98,33 @@
 
             <!-- Image Block -->
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-1.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-1.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-2.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-2.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-               <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-3.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-3.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -122,30 +137,33 @@
           <div class="row g-2">
 
             <div class="col-6 col-md-4 position-relative">
-               <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-5.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-5.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
             <div class="col-6 col-md-4 position-relative">
-              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
-    <img src="assets/images/assign-img-6.png" class="img-fluid w-100">
-    <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
-      <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
-    </div>
-  </div>
+              <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                onclick="toggleCheckbox(this, event)">
+                <img src="assets/images/assign-img-6.png" class="img-fluid w-100">
+                <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                  <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                </div>
+              </div>
             </div>
 
           </div>
@@ -170,52 +188,52 @@
 
   <!-- Scripts -->
   <script>
-  // Toggle checkbox when clicking the image-wrapper (except if clicking the checkbox directly)
-  function toggleCheckbox(wrapper, event) {
-    if (event.target.tagName === 'INPUT') return;
+    // Toggle checkbox when clicking the image-wrapper (except if clicking the checkbox directly)
+    function toggleCheckbox(wrapper, event) {
+      if (event.target.tagName === 'INPUT') return;
 
-    const checkbox = wrapper.querySelector('.form-check-input');
-    checkbox.checked = !checkbox.checked;
-    updateSelectionCount();
-  }
-
-  // Called when checkbox is directly changed
-  function onCheckboxChange(checkbox) {
-    updateSelectionCount();
-  }
-
-  // Updates the count and border class
-  function updateSelectionCount() {
-    const checkboxes = document.querySelectorAll('.form-check-input');
-    let count = 0;
-    checkboxes.forEach(cb => {
-      const wrapper = cb.closest('.image-wrapper');
-      if (cb.checked) {
-        wrapper.classList.add('border-primary');
-        wrapper.classList.remove('border-transparent');
-        count++;
-      } else {
-        wrapper.classList.remove('border-primary');
-        wrapper.classList.add('border-transparent');
-      }
-    });
-
-    // Update count display
-    const countLabel = document.getElementById('photoCount');
-    if (countLabel) {
-      countLabel.textContent = `(${count}) Photos Selected`;
+      const checkbox = wrapper.querySelector('.form-check-input');
+      checkbox.checked = !checkbox.checked;
+      updateSelectionCount();
     }
-  }
 
-  // Register change events on all checkboxes
-  document.addEventListener('DOMContentLoaded', () => {
-    document.querySelectorAll('.form-check-input').forEach(cb => {
-      cb.addEventListener('change', () => onCheckboxChange(cb));
+    // Called when checkbox is directly changed
+    function onCheckboxChange(checkbox) {
+      updateSelectionCount();
+    }
+
+    // Updates the count and border class
+    function updateSelectionCount() {
+      const checkboxes = document.querySelectorAll('.form-check-input');
+      let count = 0;
+      checkboxes.forEach(cb => {
+        const wrapper = cb.closest('.image-wrapper');
+        if (cb.checked) {
+          wrapper.classList.add('border-primary');
+          wrapper.classList.remove('border-transparent');
+          count++;
+        } else {
+          wrapper.classList.remove('border-primary');
+          wrapper.classList.add('border-transparent');
+        }
+      });
+
+      // Update count display
+      const countLabel = document.getElementById('photoCount');
+      if (countLabel) {
+        countLabel.textContent = `(${count}) Photos Selected`;
+      }
+    }
+
+    // Register change events on all checkboxes
+    document.addEventListener('DOMContentLoaded', () => {
+      document.querySelectorAll('.form-check-input').forEach(cb => {
+        cb.addEventListener('change', () => onCheckboxChange(cb));
+      });
+
+      updateSelectionCount();
     });
-
-    updateSelectionCount();
-  });
-</script>
+  </script>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </body>
