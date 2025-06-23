@@ -71,7 +71,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Function to create list item HTML
     function createListItemHTML(data, index) {
         return `
-            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-start align-items-center" 
+            <a href="#" class="list-group-item list-group-item-action d-flex justify-content-start align-items-center border-0 rounded-0" 
                data-date="${data.date}" data-index="${index}">
                 <div>
                     <img src="${data.thumbnail}" class="img-fluid rounded-1" style="width: 110px;">
