@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Patients</title>
+    <link rel="icon" type="image/png" href="assets/favicon/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/supplementary.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+
+
+</head>
+
+<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white d-xl-none">
+        <div class="container-fluid position-relative">
+            <span class="navbar-brand text-white mx-auto">Manage</span>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+        <div class="container-xxl">
+            <a class="navbar-brand border-end pe-3" href="index.html">
+                <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i>
+                            Assign</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i
+                                class="bi bi-person-plus-fill"></i> Invite User</a>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="manage.html"><i class="bi bi-person-fill-gear"></i>
+                            Manage
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="index.html">My Patients</a></li>
+                            <li><a class="dropdown-item" href="index.html">All Patients</a></li>
+                            <li><a class="dropdown-item" href="#">Access</a></li>
+                            <li><a class="dropdown-item" href="#">Stats</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
+                            Settings
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Application</a></li>
+                            <li><a class="dropdown-item" href="#">Connection</a></li>
+                            <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-xxl mt-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs justify-content mt-2 w-100" id="manageTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active w-100" id="mypatients-tab" data-bs-toggle="tab"
+                            data-bs-target="#mypatients" type="button" role="tab" aria-controls="mypatients"
+                            aria-selected="true">My Patients</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link w-100" id="allpatients-tab" data-bs-toggle="tab"
+                            data-bs-target="#allpatients" type="button" role="tab" aria-controls="allpatients"
+                            aria-selected="false">All Patients</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link w-100" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats"
+                            type="button" role="tab" aria-controls="stats" aria-selected="false">Stats</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link w-100" id="access-tab" data-bs-toggle="tab" data-bs-target="#access"
+                            type="button" role="tab" aria-controls="access" aria-selected="false">Access</button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content mt-4" id="manageTabsContent">
+
+                    <!-- My Patients Tab -->
+                    <div class="tab-pane fade show active" id="mypatients" role="tabpanel" aria-labelledby="mypatients-tab">
+                        <div class="my-3 border-bottom border-1 border-dark">
+                            <h6><strong>My Patients</strong></h6>
+                        </div>
+                        <ul class="list-group" id="myPatientsList"></ul>
+                    </div>
+
+                    <!-- All Patients Tab -->
+                    <div class="tab-pane fade" id="allpatients" role="tabpanel" aria-labelledby="allpatients-tab">
+                        <div class="input-group mb-3 rounded">
+                            <input type="text" class="form-control" placeholder="Search..." id="searchAllPatients">
+                            <span class="input-group-text bg-secondary border-0 text-white">
+                                <i class="bi bi-search pe-2"></i>
+                                Search
+                            </span>
+                        </div>
+                        <ul class="list-group" id="allPatientsList"></ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                       Stats
+                    </div>
+
+                    <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
+                        Access
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Navbar -->
+            <nav class="navbar navbar-light bg-white fixed-bottom border-top d-xl-none">
+                <div class="container-fluid d-flex justify-content-around">
+                    <a href="index.html" class="text-center text-primary text-decoration-none ">
+                        <i class="fs-4 bi bi-people-fill"></i><br>
+                        <small>Patients</small>
+                    </a>
+                    <a href="assign-photos-selected.html" class="text-center text-secondary text-decoration-none ">
+                        <i class="fs-4 bi bi-image"></i><br>
+                        <small>Assign</small>
+                    </a>
+                    <a href="#" class="rounded-circle text-center text-decoration-none bg-primary text-white px-3 py-2">
+                        <i class="fs-1 bi bi-camera-fill px-0"></i><br>
+
+                    </a>
+                    <a href="manage.html" class="text-center text-secondary text-decoration-none ">
+                        <i class="fs-4 bi bi-person-fill-gear"></i><br>
+                        <small>Manage</small>
+                    </a>
+                    <a href="settings.html" class="text-center text-secondary text-decoration-none ">
+                        <i class="fs-4 bi bi-gear-fill"></i><br>
+                        <small>Settings</small>
+                    </a>
+                </div>
+            </nav>
+        </div>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+
+            let myPatients = [
+                { name: "Doe", city: "Jane", number: "10081928", date: "04/02/1958" },
+                { name: "Pearson", city: "Karla", number: "1109238", date: "03/05/1998" }
+            ];
+            let allPatients = [
+                { name: "Holloway", city: "Harmony", number: "1209238", date: "03/05/1998" },
+                { name: "Jordan", city: "Angeline", number: "12049276", date: "12/12/1970" },
+                { name: "Blanchard", city: "Bonnie", number: "099929461", date: "04/29/2001" },
+                { name: "David Black", city: "Chicago", number: "990123123", date: "12/30/1978" },
+                { name: "James", city: "Jordan", number: "109123123", date: "01/30/1960" },
+                { name: "Harper", city: "Olivia", number: "100261108", date: "03/03/1998" },
+            ];
+
+            function renderLists(filter = "") {
+                // My Patients
+                const myList = document.getElementById('myPatientsList');
+                myList.innerHTML = myPatients.map((p, i) => `
+                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i%2===0?'bg-light':''}" style="border-radius:0;">
+                        <div>
+                            <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                            <div class="text-muted small">${p.number} - ${p.date}</div>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="remove">
+                            <i class="bi bi-dash fs-3"></i>
+                        </button>
+                    </li>
+                `).join('');
+
+                // All Patients (filtered by name)
+                const allList = document.getElementById('allPatientsList');
+                let filtered = allPatients;
+                if (filter) {
+                    filtered = allPatients.filter(p => p.name.toLowerCase().includes(filter));
+                }
+                allList.innerHTML = filtered.map((p, i) => `
+                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i%2===0?'bg-light':''}" style="border-radius:0;">
+                        <div>
+                            <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                            <div class="text-muted small">${p.number} - ${p.date}</div>
+                        </div>
+                        <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${allPatients.indexOf(p)}" data-type="add">
+                            <i class="bi bi-plus fs-3"></i>
+                        </button>
+                    </li>
+                `).join('');
+            }
+            renderLists();
+
+            // Remove from My Patients
+            document.getElementById('myPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="remove"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    allPatients.push(myPatients[i]);
+                    myPatients.splice(i, 1);
+                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+                }
+            };
+
+            // Add to My Patients
+            document.getElementById('allPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="add"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    myPatients.push(allPatients[i]);
+                    allPatients.splice(i, 1);
+                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+                }
+            };
+
+            // Search All Patients by name only
+            document.getElementById('searchAllPatients').oninput = function() {
+                renderLists(this.value.toLowerCase());
+            };
+        </script>
+</body>
+
+</html>

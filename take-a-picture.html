@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TrueSee - Take a Picture</title>
+    <style>
+        html, body {
+            height: 100%;
+            margin: 0;
+            padding: 0;
+            background: #000;
+            font-family: Arial, sans-serif;
+        }
+        body {
+            width: 100vw;
+            height: 100vh;
+            overflow: hidden;
+        }
+        #camera-view {
+            position: fixed;
+            top: 0; left: 0;
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .mask-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            width: 100vw;
+            height: 100vh;
+            z-index: 2;
+            pointer-events: none;
+            /* The clip-path will be set by JS for responsiveness */
+            background: rgba(30,34,38,0.5);
+        }
+        .camera-area-wrapper, .right-controls-bg, .right-controls, .top-left-controls {
+            position: relative;
+            z-index: 3;
+        }
+        .camera-area-wrapper {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            right: 260px;
+            bottom: 32px;
+            z-index: 3;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            pointer-events: none;
+        }
+        #camera-view {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 24px;
+            box-shadow: none;
+            border: none;
+            position: relative;
+            z-index: 2;
+        }
+        .camera-border {
+            width: 100%;
+            height: 100%;
+            border-radius: 24px;
+            border: 6px solid #fff;
+            box-sizing: border-box;
+            pointer-events: none;
+            background: none;
+        }
+        /* Mask overlay with transparent center */
+        .camera-mask {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            z-index: 3;
+            pointer-events: none;
+            background: rgba(0,0,0,0.3);
+            /* The clip-path will be set by JS for responsiveness */
+        }
+        .main-frame {
+            display: none; /* Remove the bordered frame */
+        }
+        .right-controls-bg {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: 260px;
+            height: 100vh;
+            background: rgba(30,34,38,0.92);
+            z-index: 3;
+            transition: width 0.2s;
+        }
+        .right-controls {
+            position: fixed;
+            right: 0;
+            top: 0;
+            width: 260px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            z-index: 4;
+            transition: width 0.2s;
+            padding: 0 0 24px 0;
+        }
+        .photo-preview {
+            margin-top: 48px;
+            margin-bottom: 0;
+            width: 120px;
+            height: 80px;
+            border-radius: 10px;
+            overflow: hidden;
+            background: #23272c;
+            border: 2px solid #fff;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        #no-photo {
+            color: #b0b0b0;
+            opacity: 1;
+            font-size: 14px;
+            font-weight: 500;
+            text-align: center;
+            width: 100%;
+        }
+        .photo-preview img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .photo-count {
+            position: absolute;
+            top: 6px;
+            right: 6px;
+            background: #23272c;
+            color: #fff;
+            border-radius: 50%;
+            width: 22px;
+            height: 22px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 13px;
+            border: 2px solid #fff;
+            font-weight: bold;
+        }
+        .capture-btn {
+            margin: 0;
+            width: 70px;
+            height: 70px;
+            background: #222;
+            border: 4px solid #fff;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+        }
+        .capture-btn-inner {
+            width: 48px;
+            height: 48px;
+            background: #fff;
+            border-radius: 50%;
+        }
+        .end-session-btn {
+            margin-top: 0;
+            margin-bottom: 0;
+            background: #006B54;
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 14px 36px;
+            font-size: 18px;
+            cursor: pointer;
+            z-index: 6;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.18);
+            width: 90%;
+            max-width: 200px;
+            display: block;
+        }
+        .right-controls > *:not(:last-child) {
+            margin-bottom: 32px;
+        }
+        /* Calibration overlay */
+        .calibration-overlay {
+            position: fixed;
+            top: 0; left: 0; right: 0; bottom: 0;
+            background: rgba(30,34,38,0.92);
+            z-index: 100;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            display: none;
+        }
+        .calibration-overlay.active {
+            display: flex;
+        }
+        .calibration-box {
+            background: #23272c;
+            border-radius: 8px;
+            padding: 32px 36px 24px 36px;
+            box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+            text-align: center;
+            min-width: 260px;
+        }
+        .spinner {
+            margin: 0 auto 18px auto;
+            width: 38px;
+            height: 38px;
+            border: 4px solid #eee;
+            border-top: 4px solid #006B54;
+            border-radius: 50%;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .calibration-box p {
+            color: #fff;
+            font-size: 18px;
+            margin-bottom: 18px;
+        }
+        .calibration-cancel {
+            background: none;
+            border: 2px solid #3fa3ff;
+            color: #3fa3ff;
+            border-radius: 6px;
+            padding: 8px 32px;
+            font-size: 16px;
+            cursor: pointer;
+        }
+        @media (max-width: 1200px) {
+            .right-controls-bg, .right-controls { width: 160px; }
+            .photo-preview { width: 70px; height: 46px; margin-top: 16px; }
+            .capture-btn { width: 44px; height: 44px; }
+            .capture-btn-inner { width: 28px; height: 28px; }
+            .end-session-btn { font-size: 14px; padding: 10px 10px; max-width: 110px; }
+            .right-controls > *:not(:last-child) { margin-bottom: 18px; }
+        }
+        @media (max-width: 900px) {
+            .right-controls-bg, .right-controls { width: 120px; }
+            .photo-preview { width: 60px; height: 40px; margin-right: 8px; margin-top: 16px; }
+            .capture-btn, .end-session-btn { right: 10px; }
+        }
+        @media (max-width: 700px) {
+            .right-controls-bg, .right-controls { width: 90px; }
+            .photo-preview { width: 36px; height: 24px; margin-top: 8px; }
+            .capture-btn { width: 28px; height: 28px; }
+            .capture-btn-inner { width: 14px; height: 14px; }
+            .end-session-btn { font-size: 10px; padding: 6px 4px; max-width: 60px; }
+            .right-controls > *:not(:last-child) { margin-bottom: 8px; }
+        }
+        .camera-area-wrapper {
+            position: absolute;
+            top: 32px;
+            left: 32px;
+            right: 260px;
+            bottom: 32px;
+            z-index: 3;
+            display: flex;
+            align-items: stretch;
+            justify-content: stretch;
+            pointer-events: none;
+        }
+        @media (max-width: 1200px) {
+            .camera-area-wrapper { top: 16px; left: 16px; right: 160px; bottom: 16px; }
+            .camera-border { border-radius: 16px; border-width: 4px; }
+        }
+        @media (max-width: 700px) {
+            .camera-area-wrapper { top: 4px; left: 4px; right: 90px; bottom: 4px; }
+            .camera-border { border-radius: 8px; border-width: 2px; }
+        }
+    </style>
+</head>
+<body>
+    <video id="camera-view" autoplay playsinline></video>
+    <div class="mask-overlay" id="mask-overlay"></div>
+    <div class="camera-area-wrapper" id="camera-area-wrapper">
+        <div class="camera-border" id="camera-border"></div>
+    </div>
+    <div class="top-left-controls">
+        <button class="timer-btn" title="Timer">
+            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/><path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"/></svg>
+        </button>
+    </div>
+    <div class="right-controls-bg"></div>
+    <div class="right-controls">
+        <div class="photo-preview" id="photo-preview">
+            <img id="preview-img" src="" alt="Preview" style="display:none;">
+            <span id="no-photo">No photo</span>
+            <span class="photo-count" id="photo-count" style="display:none;">1</span>
+        </div>
+        <button class="capture-btn" onclick="captureImage()">
+            <div class="capture-btn-inner"></div>
+        </button>
+        <button class="end-session-btn" onclick="endSession()">End Session</button>
+    </div>
+    <div class="calibration-overlay" id="calibration-overlay">
+        <div class="calibration-box">
+            <div class="spinner"></div>
+            <p>Calibrating and certifying</p>
+            <button class="calibration-cancel" onclick="cancelCalibration()">Cancel</button>
+        </div>
+    </div>
+    <script>
+        let stream;
+        let capturedImages = [];
+        // Camera init
+        async function initCamera() {
+            try {
+                stream = await navigator.mediaDevices.getUserMedia({
+                    video: { facingMode: 'environment' },
+                    audio: false
+                });
+                document.getElementById('camera-view').srcObject = stream;
+            } catch (err) {
+                alert('Unable to access camera. Please check permissions.');
+            }
+        }
+        // Capture
+        function captureImage() {
+            const calibrationOverlay = document.getElementById('calibration-overlay');
+            calibrationOverlay.classList.add('active');
+            setTimeout(() => {
+                const video = document.getElementById('camera-view');
+                const canvas = document.createElement('canvas');
+                canvas.width = video.videoWidth;
+                canvas.height = video.videoHeight;
+                canvas.getContext('2d').drawImage(video, 0, 0);
+                const imgData = canvas.toDataURL('image/jpeg');
+                capturedImages.push(imgData);
+                updatePreview();
+                calibrationOverlay.classList.remove('active');
+            }, 1800);
+        }
+        function updatePreview() {
+            const previewImg = document.getElementById('preview-img');
+            const noPhoto = document.getElementById('no-photo');
+            const photoCount = document.getElementById('photo-count');
+            if (capturedImages.length > 0) {
+                previewImg.src = capturedImages[capturedImages.length-1];
+                previewImg.style.display = 'block';
+                noPhoto.style.display = 'none';
+                photoCount.textContent = capturedImages.length;
+                photoCount.style.display = 'flex';
+            } else {
+                previewImg.style.display = 'none';
+                noPhoto.style.display = 'block';
+                photoCount.style.display = 'none';
+            }
+        }
+        function endSession() {
+            if (stream) {
+                stream.getTracks().forEach(track => track.stop());
+            }
+            window.location.href = 'patient-list-without-notifications.html';
+        }
+        function cancelCalibration() {
+            document.getElementById('calibration-overlay').classList.remove('active');
+        }
+        // Dynamically set the mask's clip-path to match the frame (outer dark, center clear)
+        function updateMask() {
+            const mask = document.getElementById('mask-overlay');
+            const frame = document.getElementById('camera-area-wrapper');
+            if (!mask || !frame) return;
+            const rect = frame.getBoundingClientRect();
+            const w = window.innerWidth;
+            const h = window.innerHeight;
+            const r = rect;
+            // Use even-odd rule to cut out the frame area (center is clear)
+            mask.style.clipPath = `polygon(
+                0 0, ${w}px 0, ${w}px ${h}px, 0 ${h}px, 0 0,
+                ${r.left}px ${r.top}px, ${r.right}px ${r.top}px, ${r.right}px ${r.bottom}px, ${r.left}px ${r.bottom}px, ${r.left}px ${r.top}px
+            )`;
+        }
+        window.addEventListener('resize', updateMask);
+        window.addEventListener('DOMContentLoaded', () => {
+            updateMask();
+            initCamera();
+            updatePreview();
+        });
+    </script>
+</body>
+</html>
