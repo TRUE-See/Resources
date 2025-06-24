@@ -147,7 +147,7 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 .notification-badge {
   position: absolute;
   top: -2px;
-  left: -10px;
+  right: -5px;
   font-size: 0.65rem;
   padding: 3px 6px;
   font-weight: 500;
@@ -473,6 +473,7 @@ textarea {
     transform: rotate(-180deg);
 }
 
+.nav.nav-tabs button{ color:inherit; }
 
 /* sticky bottom */
 #woundListWrapper {
@@ -486,4 +487,14 @@ textarea {
 #woundListWrapper::-webkit-scrollbar-thumb {
   background-color: rgba(0, 0, 0, 0.2);
   border-radius: 3px;
+}
+
+@media screen and (max-width: 400px) {
+
+}
+
+@media only screen and (max-width: 400px) {
+  #shareTab .nav-link {
+    font-weight: 300;
+  }
 }

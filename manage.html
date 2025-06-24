@@ -70,8 +70,8 @@
                             <i class="bi bi-chevron-down transition-rotate"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Application</a></li>
-                            <li><a class="dropdown-item" href="#">Connection</a></li>
+                            <li><a class="dropdown-item" href="settings.html#patients-tab">Application</a></li>
+                            <li><a class="dropdown-item" href="settings.html#hashtags-tab">Connection</a></li>
                             <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
                         </ul>
                     </li>
@@ -90,7 +90,7 @@
             <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
 
                 <!-- Tabs -->
-                <ul class="nav nav-tabs justify-content mt-2 w-100" id="manageTabs" role="tablist">
+                <ul class="nav nav-tabs justify-content gap-1 mt-2 w-100" id="manageTabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active w-100" id="mypatients-tab" data-bs-toggle="tab"
                             data-bs-target="#mypatients" type="button" role="tab" aria-controls="mypatients"
@@ -116,7 +116,8 @@
                 <div class="tab-content mt-4" id="manageTabsContent">
 
                     <!-- My Patients Tab -->
-                    <div class="tab-pane fade show active" id="mypatients" role="tabpanel" aria-labelledby="mypatients-tab">
+                    <div class="tab-pane fade show active" id="mypatients" role="tabpanel"
+                        aria-labelledby="mypatients-tab">
                         <div class="my-3 border-bottom border-1 border-dark">
                             <h6><strong>My Patients</strong></h6>
                         </div>
@@ -127,7 +128,7 @@
                     <div class="tab-pane fade" id="allpatients" role="tabpanel" aria-labelledby="allpatients-tab">
                         <div class="input-group mb-3 rounded">
                             <input type="text" class="form-control" placeholder="Search..." id="searchAllPatients">
-                            <span class="input-group-text bg-secondary border-0 text-white">
+                            <span class="input-group-text bg-primary border-0 text-white">
                                 <i class="bi bi-search pe-2"></i>
                                 Search
                             </span>
@@ -136,7 +137,62 @@
                     </div>
 
                     <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
-                       Stats
+                        <table class="table">
+              <thead>
+                <tr>
+                  <th style="border-bottom: 2px solid;" scope="col"># of Problems</th>
+                  <th style="border-bottom: 2px solid;" scope="col">Problem Type</th>
+                  <th style="border-bottom: 2px solid;" scope="col">% of Total</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>68</td>
+                  <td>All</td>
+                  <td>100</td>
+                </tr>
+                <tr class="bg-light">
+                  <td>16</td>
+                  <td>Dermatologic</td>
+                  <td>23.5</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Abrasion</td>
+                  <td>14.7</td>
+                </tr>
+                <tr>
+                  <td>68</td>
+                  <td>All</td>
+                  <td>100</td>
+                </tr>
+                <tr class="bg-light">
+                  <td>16</td>
+                  <td>Dermatologic</td>
+                  <td>23.5</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Abrasion</td>
+                  <td>14.7</td>
+                </tr>
+                <tr>
+                  <td>68</td>
+                  <td>All</td>
+                  <td>100</td>
+                </tr>
+                <tr class="bg-light">
+                  <td>16</td>
+                  <td>Dermatologic</td>
+                  <td>23.5</td>
+                </tr>
+                <tr>
+                  <td>10</td>
+                  <td>Abrasion</td>
+                  <td>14.7</td>
+                </tr>
+              </tbody>
+            </table>
                     </div>
 
                     <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
@@ -172,83 +228,196 @@
                 </div>
             </nav>
         </div>
+
+
+
+        <!-- edit patient details model popup -->
+        <div class="modal fade" id="staticBackdrop-edit-patient" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel1">Edit Patient Details </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="">
+                            <form class="mt-1">
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">First Name</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control drop-input" placeholder="Jane">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Middle Name</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control drop-input" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Last Name</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control drop-input" placeholder="Doe">
+                                    </div>
+                                </div>
+
+                                <!-- MRN -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">MRN</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control" placeholder="1002611108">
+                                    </div>
+                                </div>
+
+                                <!-- Date of Birth -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Date of Birth</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Gender</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="female"
+                                                checked="">
+                                            <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="male">
+                                            <label class="form-check-label" for="male">Male</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Visit Type -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Visit Type</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control" placeholder="example">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container-xxl px-0">                            
+                            <div class="d-grid w-100 mb-3">
+                                <button class="btn btn-primary w-100">Add to My Patients</button>
+                            </div>
+                            <div class="d-grid w-100">
+                                <button class="btn btn-light w-100 rounded-5" data-bs-dismiss="modal">Save Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
-        <script>
 
-            let myPatients = [
-                { name: "Doe", city: "Jane", number: "10081928", date: "04/02/1958" },
-                { name: "Pearson", city: "Karla", number: "1109238", date: "03/05/1998" }
-            ];
-            let allPatients = [
-                { name: "Holloway", city: "Harmony", number: "1209238", date: "03/05/1998" },
-                { name: "Jordan", city: "Angeline", number: "12049276", date: "12/12/1970" },
-                { name: "Blanchard", city: "Bonnie", number: "099929461", date: "04/29/2001" },
-                { name: "David Black", city: "Chicago", number: "990123123", date: "12/30/1978" },
-                { name: "James", city: "Jordan", number: "109123123", date: "01/30/1960" },
-                { name: "Harper", city: "Olivia", number: "100261108", date: "03/03/1998" },
-            ];
 
-            function renderLists(filter = "") {
-                // My Patients
-                const myList = document.getElementById('myPatientsList');
-                myList.innerHTML = myPatients.map((p, i) => `
-                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i%2===0?'bg-light':''}" style="border-radius:0;">
-                        <div>
-                            <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
-                            <div class="text-muted small">${p.number} - ${p.date}</div>
-                        </div>
-                        <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="remove">
-                            <i class="bi bi-dash fs-3"></i>
-                        </button>
-                    </li>
-                `).join('');
+<script>
+    let myPatients = [
+        { name: "Doe", city: "Jane", number: "10081928", date: "1958-02-04" },
+        { name: "Pearson", city: "Karla", number: "1109238", date: "1998-05-03" }
+    ];
+    let allPatients = [
+        { name: "Holloway", city: "Harmony", number: "1209238", date: "1998-05-03" },
+        { name: "Jordan", city: "Angeline", number: "12049276", date: "1970-12-12" },
+        { name: "Blanchard", city: "Bonnie", number: "099929461", date: "2001-04-29" },
+        { name: "David Black", city: "Chicago", number: "990123123", date: "1978-12-30" },
+        { name: "James", city: "Jordan", number: "109123123", date: "1960-01-30" },
+        { name: "Harper", city: "Olivia", number: "100261108", date: "1998-03-03" },
+    ];
 
-                // All Patients (filtered by name)
-                const allList = document.getElementById('allPatientsList');
-                let filtered = allPatients;
-                if (filter) {
-                    filtered = allPatients.filter(p => p.name.toLowerCase().includes(filter));
-                }
-                allList.innerHTML = filtered.map((p, i) => `
-                    <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i%2===0?'bg-light':''}" style="border-radius:0;">
-                        <div>
-                            <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
-                            <div class="text-muted small">${p.number} - ${p.date}</div>
-                        </div>
-                        <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${allPatients.indexOf(p)}" data-type="add">
-                            <i class="bi bi-plus fs-3"></i>
-                        </button>
-                    </li>
-                `).join('');
-            }
-            renderLists();
+    function renderLists(filter = "") {
+        // My Patients
+        const myList = document.getElementById('myPatientsList');
+        myList.innerHTML = myPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}" style="border-radius:0;">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="remove">
+                    <i class="bi bi-dash fs-3"></i>
+                </button>
+            </li>
+        `).join('');
 
-            // Remove from My Patients
-            document.getElementById('myPatientsList').onclick = e => {
-                if (e.target.closest('button[data-type="remove"]')) {
-                    const i = +e.target.closest('button').dataset.i;
-                    allPatients.push(myPatients[i]);
-                    myPatients.splice(i, 1);
-                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
-                }
-            };
+        // All Patients (filtered by name)
+        const allList = document.getElementById('allPatientsList');
+        let filtered = allPatients;
+        if (filter) {
+            filtered = allPatients.filter(p => p.name.toLowerCase().includes(filter));
+        }
+        allList.innerHTML = filtered.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}" style="border-radius:0;">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-patient" data-i="${allPatients.indexOf(p)}" data-type="edit">
+                        <i class="bi bi-pencil fs-6 p-1"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${allPatients.indexOf(p)}" data-type="add">
+                        <i class="bi bi-plus fs-3"></i>
+                    </button>
+                </div>
+            </li>
+        `).join('');
+    }
+    renderLists();
 
-            // Add to My Patients
-            document.getElementById('allPatientsList').onclick = e => {
-                if (e.target.closest('button[data-type="add"]')) {
-                    const i = +e.target.closest('button').dataset.i;
-                    myPatients.push(allPatients[i]);
-                    allPatients.splice(i, 1);
-                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
-                }
-            };
+    // Remove from My Patients
+    document.getElementById('myPatientsList').onclick = e => {
+        if (e.target.closest('button[data-type="remove"]')) {
+            const i = +e.target.closest('button').dataset.i;
+            allPatients.push(myPatients[i]);
+            myPatients.splice(i, 1);
+            renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+        }
+    };
 
-            // Search All Patients by name only
-            document.getElementById('searchAllPatients').oninput = function() {
-                renderLists(this.value.toLowerCase());
-            };
-        </script>
+    // Add to My Patients and Open Edit Modal
+    document.getElementById('allPatientsList').onclick = e => {
+        const addBtn = e.target.closest('button[data-type="add"]');
+        const editBtn = e.target.closest('button[data-type="edit"]');
+
+        if (addBtn) {
+            const i = +addBtn.dataset.i;
+            myPatients.push(allPatients[i]);
+            allPatients.splice(i, 1);
+            renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+        }
+
+        if (editBtn) {
+            const i = +editBtn.dataset.i;
+            const p = allPatients[i];
+
+            // ✅ Prefill modal fields
+            document.querySelector('#staticBackdrop-edit-patient input[placeholder="Jane"]').value = p.city;
+            document.querySelector('#staticBackdrop-edit-patient input[placeholder="Doe"]').value = p.name;
+            document.querySelector('#staticBackdrop-edit-patient input[placeholder="1002611108"]').value = p.number;
+            document.querySelector('#staticBackdrop-edit-patient input[type="date"]').value = p.date;
+        }
+    };
+
+    // Search All Patients
+    document.getElementById('searchAllPatients').oninput = function () {
+        renderLists(this.value.toLowerCase());
+    };
+</script>
+
 </body>
 
 </html>
