@@ -314,10 +314,33 @@
             /* border-top-left-radius: 24px;
             border-bottom-left-radius: 24px; */
         }
-        
+        .top-left-controls {
+            position: fixed;
+            top: 42px;
+            left: 42px;
+            z-index: 10;
+        }
+        .timer-btn {
+            width: clamp(32px, 6vw, 48px);
+            height: clamp(32px, 6vw, 48px);
+            border-radius: 50%;
+            background: rgba(30,34,38,0.8);
+            border: none;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+        .timer-btn svg {
+            width: 60%;
+            height: 60%;
+        }
     </style>
 </head>
 <body>
+    <div id="calibrated-banner" style="display:none;position:fixed;top:24px;left:50%;transform:translateX(-50%);background:#d2f5e3;color:#2d5c3b;padding:12px 32px;border-radius:8px;font-size:20px;z-index:1000;font-weight:500;box-shadow:0 2px 8px rgba(0,0,0,0.12);">
+      Image calibrated & certified
+    </div>
     <video id="camera-view" autoplay playsinline></video>
     <div class="camera-area-wrapper" id="camera-area-wrapper">
         <div class="camera-border" id="camera-border"></div>
@@ -329,14 +352,16 @@
     </div>
     <div class="top-left-controls">
         <button class="timer-btn" title="Timer">
-            <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/><path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"/></svg>
+            <svg viewBox="0 0 24 24">
+                <circle cx="12" cy="12" r="10" stroke="white" stroke-width="2" fill="none"/>
+                <path d="M12 6v6l4 2" stroke="white" stroke-width="2" fill="none"/>
+            </svg>
         </button>
     </div>
     <div class="right-controls-bg"></div>
     <div class="right-controls">
         <div class="photo-preview" id="photo-preview">
             <img id="preview-img" src="" alt="Preview" style="display:none;">
-            <span id="no-photo">No photo</span>
             <span class="photo-count" id="photo-count" style="display:none;">1</span>
         </div>
         <button class="capture-btn" onclick="captureImage()">
@@ -350,6 +375,15 @@
             <p>Calibrating and certifying</p>
             <button class="calibration-cancel" onclick="cancelCalibration()">Cancel</button>
         </div>
+    </div>
+    <div id="no-pictures-modal" style="display:none;position:fixed;top:0;left:0;width:100vw;height:100vh;background:rgba(30,34,38,0.96);z-index:2000;align-items:center;justify-content:center;">
+      <div style="background:#32363a;padding:36px 32px 28px 32px;border-radius:12px;box-shadow:0 2px 16px rgba(0,0,0,0.25);text-align:center;min-width:260px;">
+        <div style="margin-bottom:18px;">
+          <svg width="48" height="48" fill="none" viewBox="0 0 24 24"><rect x="4" y="7" width="16" height="10" rx="2" fill="#fff" fill-opacity="0.12"/><rect x="8" y="3" width="8" height="4" rx="1" fill="#fff" fill-opacity="0.12"/><rect x="4" y="7" width="16" height="10" rx="2" stroke="#fff" stroke-width="2"/><rect x="8" y="3" width="8" height="4" rx="1" stroke="#fff" stroke-width="2"/></svg>
+        </div>
+        <div style="color:#fff;font-size:18px;margin-bottom:18px;">No pictures taken</div>
+        <button onclick="exitToPatients()" style="background:none;border:1.5px solid #3fa3ff;color:#3fa3ff;border-radius:6px;padding:10px 36px;font-size:17px;cursor:pointer;">Exit to Patients</button>
+      </div>
     </div>
     <script>
         let stream;
@@ -380,6 +414,7 @@
                 capturedImages.push(imgData);
                 updatePreview();
                 calibrationOverlay.classList.remove('active');
+                showCalibratedBanner();
             }, 1800);
         }
         function updatePreview() {
@@ -394,11 +429,15 @@
                 photoCount.style.display = 'flex';
             } else {
                 previewImg.style.display = 'none';
-                noPhoto.style.display = 'block';
+                noPhoto.style.display = 'none';
                 photoCount.style.display = 'none';
             }
         }
         function endSession() {
+            if (capturedImages.length === 0) {
+                showNoPicturesModal();
+                return;
+            }
             if (stream) {
                 stream.getTracks().forEach(track => track.stop());
             }
@@ -406,6 +445,22 @@
         }
         function cancelCalibration() {
             document.getElementById('calibration-overlay').classList.remove('active');
+        }
+        function showCalibratedBanner() {
+            const banner = document.getElementById('calibrated-banner');
+            banner.style.display = 'block';
+            setTimeout(() => {
+                banner.style.display = 'none';
+            }, 2000); // Show for 2 seconds
+        }
+        function showNoPicturesModal() {
+            document.getElementById('no-pictures-modal').style.display = 'flex';
+        }
+        function hideNoPicturesModal() {
+            document.getElementById('no-pictures-modal').style.display = 'none';
+        }
+        function exitToPatients() {
+            window.location.href = 'patient-list-without-notifications.html';
         }
         window.addEventListener('DOMContentLoaded', () => {
             initCamera();
