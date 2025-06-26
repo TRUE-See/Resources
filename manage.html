@@ -9,8 +9,6 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
     <link href="assets/css/supplementary.css" rel="stylesheet">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
-
-
 </head>
 
 <body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
@@ -54,10 +52,10 @@
                             <i class="bi bi-chevron-down transition-rotate"></i>
                         </a>
                         <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="index.html">My Patients</a></li>
-                            <li><a class="dropdown-item" href="index.html">All Patients</a></li>
-                            <li><a class="dropdown-item" href="#">Access</a></li>
-                            <li><a class="dropdown-item" href="#">Stats</a></li>
+                            <li><a class="dropdown-item" href="#mypatients-tab">My Patients</a></li>
+                            <li><a class="dropdown-item" href="#allpatients-tab">All Patients</a></li>
+                            <li><a class="dropdown-item" href="#stats-tab">Stats</a></li>
+                            <li><a class="dropdown-item" href="#access-tab">Access</a></li>
                         </ul>
                     </li>
 
@@ -90,7 +88,7 @@
             <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
 
                 <!-- Tabs -->
-                <ul class="nav nav-tabs justify-content gap-1 mt-2 w-100" id="manageTabs" role="tablist">
+                <ul class="nav nav-tabs justify-content-between gap-1 mt-2 w-100" id="manageTabs" role="tablist">
                     <li class="nav-item" role="presentation">
                         <button class="nav-link active w-100" id="mypatients-tab" data-bs-toggle="tab"
                             data-bs-target="#mypatients" type="button" role="tab" aria-controls="mypatients"
@@ -116,8 +114,7 @@
                 <div class="tab-content mt-4" id="manageTabsContent">
 
                     <!-- My Patients Tab -->
-                    <div class="tab-pane fade show active" id="mypatients" role="tabpanel"
-                        aria-labelledby="mypatients-tab">
+                    <div class="tab-pane fade show active" id="mypatients" role="tabpanel" aria-labelledby="mypatients-tab">
                         <div class="my-3 border-bottom border-1 border-dark">
                             <h6><strong>My Patients</strong></h6>
                         </div>
@@ -138,65 +135,97 @@
 
                     <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
                         <table class="table">
-              <thead>
-                <tr>
-                  <th style="border-bottom: 2px solid;" scope="col"># of Problems</th>
-                  <th style="border-bottom: 2px solid;" scope="col">Problem Type</th>
-                  <th style="border-bottom: 2px solid;" scope="col">% of Total</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <td>68</td>
-                  <td>All</td>
-                  <td>100</td>
-                </tr>
-                <tr class="bg-light">
-                  <td>16</td>
-                  <td>Dermatologic</td>
-                  <td>23.5</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Abrasion</td>
-                  <td>14.7</td>
-                </tr>
-                <tr>
-                  <td>68</td>
-                  <td>All</td>
-                  <td>100</td>
-                </tr>
-                <tr class="bg-light">
-                  <td>16</td>
-                  <td>Dermatologic</td>
-                  <td>23.5</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Abrasion</td>
-                  <td>14.7</td>
-                </tr>
-                <tr>
-                  <td>68</td>
-                  <td>All</td>
-                  <td>100</td>
-                </tr>
-                <tr class="bg-light">
-                  <td>16</td>
-                  <td>Dermatologic</td>
-                  <td>23.5</td>
-                </tr>
-                <tr>
-                  <td>10</td>
-                  <td>Abrasion</td>
-                  <td>14.7</td>
-                </tr>
-              </tbody>
-            </table>
+                            <thead>
+                                <tr>
+                                    <th style="border-bottom: 2px solid;" scope="col"># of Problems</th>
+                                    <th style="border-bottom: 2px solid;" scope="col">Problem Type</th>
+                                    <th style="border-bottom: 2px solid;" scope="col">% of Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>68</td>
+                                    <td>All</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>16</td>
+                                    <td>Dermatologic</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Abrasion</td>
+                                    <td>14.7</td>
+                                </tr>
+                                <tr>
+                                    <td>68</td>
+                                    <td>All</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>16</td>
+                                    <td>Dermatologic</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Abrasion</td>
+                                    <td>14.7</td>
+                                </tr>
+                                <tr>
+                                    <td>68</td>
+                                    <td>All</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>16</td>
+                                    <td>Dermatologic</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Abrasion</td>
+                                    <td>14.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
 
-                    <div class="tab-pane fade" id="access" role="tabpanel" aria-labelledby="access-tab">
-                        Access
+                    <div class="tab-pane fade mb-5 pb-5" id="access" role="tabpanel" aria-labelledby="access-tab">
+                        <h6><strong>Select User</strong></h6>
+                        <div class="mb-3">
+                            <select class="form-select" id="woundFilter">
+                                <option value="all" selected>Brooks, Peter</option>
+                                <option value="doe">Doe, Jane</option>
+                                <option value="pearson">Pearson, Karla</option>
+                                <option value="harmony">Holloway, Harmony</option>
+                            </select>
+                        </div>
+                        <!-- User Patients (Removed) -->
+                        <div
+                            class="bg-dark text-white px-3 py-2 d-flex justify-content-between align-items-center mt-4 border-1 bg-opacity-75">
+                            <div class="d-flex align-items-center gap-1">
+                                <span id="removedCount" class="text-white">0</span>
+                                <small>Patients</small>
+                            </div>
+                            <h6 class="mb-0">User Patients</h6>
+                        </div>
+                        <ul class="list-group rounded-0 border border-bottom-0" id="removedPatientsList"></ul>
+
+                        <!-- All Patients (Added) -->
+                        <hr class="my-4 border-top border-5 border-dark rounded-4">
+
+                        <div
+                            class="bg-dark text-white px-3 py-2 d-flex justify-content-between align-items-center mt-4 border-1 bg-opacity-75">
+                            <div class="d-flex align-items-center gap-1">
+                                <span id="addedCount" class="text-white">0</span>
+                                <small>Patients</small>
+                            </div>
+                            <h6 class="mb-0">All Patients</h6>
+                        </div>
+
+                        <ul class="list-group rounded-0 border border-bottom-0" id="addedPatientsList"></ul>
                     </div>
 
                 </div>
@@ -307,12 +336,13 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <div class="container-xxl px-0">                            
+                        <div class="container-xxl px-0">
                             <div class="d-grid w-100 mb-3">
                                 <button class="btn btn-primary w-100">Add to My Patients</button>
                             </div>
                             <div class="d-grid w-100">
-                                <button class="btn btn-light w-100 rounded-5" data-bs-dismiss="modal">Save Changes</button>
+                                <button class="btn btn-light w-100 rounded-5" data-bs-dismiss="modal">Save
+                                    Changes</button>
                             </div>
                         </div>
                     </div>
@@ -322,27 +352,38 @@
 
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
+        <script>
+            let myPatients = [
+                { name: "Doe", city: "Jane", number: "10081928", date: "1958-02-04" },
+                { name: "Pearson", city: "Karla", number: "1109238", date: "1998-05-03" }
+            ];
+            let allPatients = [
+                { name: "Holloway", city: "Harmony", number: "1209238", date: "1998-05-03" },
+                { name: "Jordan", city: "Angeline", number: "12049276", date: "1970-12-12" },
+                { name: "Blanchard", city: "Bonnie", number: "099929461", date: "2001-04-29" },
+                { name: "David Black", city: "Chicago", number: "990123123", date: "1978-12-30" },
+                { name: "James", city: "Jordan", number: "109123123", date: "1960-01-30" },
+                { name: "Harper", city: "Olivia", number: "100261108", date: "1998-03-03" }
+            ];
 
+            let removedPatients = [
+                { name: "Taylor", city: "Sam", number: "900001", date: "April 2, 1958" },
+                { name: "Clark", city: "Eva", number: "900002", date: "03/05/1998" },
+                { name: "Taylor", city: "Sam", number: "900001", date: "April 2, 1958" },
+                { name: "Clark", city: "Eva", number: "900002", date: "03/05/1998" }
+            ];
+            let addedPatients = [
+                { name: "Lee", city: "Ryan", number: "900003", date: "April 3, 1988" },
+                { name: "Kim", city: "Sophie", number: "900004", date: "1994-04-03" },
+                { name: "Lee", city: "Ryan", number: "900003", date: "April 3, 1988" },
+                { name: "Kim", city: "Sophie", number: "900004", date: "1994-04-03" }
+            ];
 
-<script>
-    let myPatients = [
-        { name: "Doe", city: "Jane", number: "10081928", date: "1958-02-04" },
-        { name: "Pearson", city: "Karla", number: "1109238", date: "1998-05-03" }
-    ];
-    let allPatients = [
-        { name: "Holloway", city: "Harmony", number: "1209238", date: "1998-05-03" },
-        { name: "Jordan", city: "Angeline", number: "12049276", date: "1970-12-12" },
-        { name: "Blanchard", city: "Bonnie", number: "099929461", date: "2001-04-29" },
-        { name: "David Black", city: "Chicago", number: "990123123", date: "1978-12-30" },
-        { name: "James", city: "Jordan", number: "109123123", date: "1960-01-30" },
-        { name: "Harper", city: "Olivia", number: "100261108", date: "1998-03-03" },
-    ];
-
-    function renderLists(filter = "") {
-        // My Patients
-        const myList = document.getElementById('myPatientsList');
-        myList.innerHTML = myPatients.map((p, i) => `
-            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}" style="border-radius:0;">
+            function renderLists(filter = "") {
+                // My Patients
+                const myList = document.getElementById('myPatientsList');
+                myList.innerHTML = myPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
                 <div>
                     <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
                     <div class="text-muted small">${p.number} - ${p.date}</div>
@@ -353,14 +394,14 @@
             </li>
         `).join('');
 
-        // All Patients (filtered by name)
-        const allList = document.getElementById('allPatientsList');
-        let filtered = allPatients;
-        if (filter) {
-            filtered = allPatients.filter(p => p.name.toLowerCase().includes(filter));
-        }
-        allList.innerHTML = filtered.map((p, i) => `
-            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}" style="border-radius:0;">
+                // All Patients
+                const allList = document.getElementById('allPatientsList');
+                let filtered = allPatients;
+                if (filter) {
+                    filtered = allPatients.filter(p => p.name.toLowerCase().includes(filter));
+                }
+                allList.innerHTML = filtered.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
                 <div>
                     <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
                     <div class="text-muted small">${p.number} - ${p.date}</div>
@@ -375,48 +416,156 @@
                 </div>
             </li>
         `).join('');
-    }
-    renderLists();
 
-    // Remove from My Patients
-    document.getElementById('myPatientsList').onclick = e => {
-        if (e.target.closest('button[data-type="remove"]')) {
-            const i = +e.target.closest('button').dataset.i;
-            allPatients.push(myPatients[i]);
-            myPatients.splice(i, 1);
-            renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
-        }
-    };
+                // Access Tab: Removed Patients
+                const removedList = document.getElementById('removedPatientsList');
+                removedList.innerHTML = removedPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="remove-access">
+                    <i class="bi bi-dash fs-3"></i>
+                </button>
+            </li>
+        `).join('');
+                document.getElementById('removedCount').textContent = removedPatients.length;
 
-    // Add to My Patients and Open Edit Modal
-    document.getElementById('allPatientsList').onclick = e => {
-        const addBtn = e.target.closest('button[data-type="add"]');
-        const editBtn = e.target.closest('button[data-type="edit"]');
+                // Access Tab: Added Patients
+                const addedList = document.getElementById('addedPatientsList');
+                addedList.innerHTML = addedPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="add-access">
+                    <i class="bi bi-plus fs-3"></i>
+                </button>
+            </li>
+        `).join('');
+                document.getElementById('addedCount').textContent = addedPatients.length;
+            }
 
-        if (addBtn) {
-            const i = +addBtn.dataset.i;
-            myPatients.push(allPatients[i]);
-            allPatients.splice(i, 1);
-            renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
-        }
+            renderLists();
 
-        if (editBtn) {
-            const i = +editBtn.dataset.i;
-            const p = allPatients[i];
+            // Handle My Patients tab
+            document.getElementById('myPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="remove"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    removedPatients.push(myPatients[i]);
+                    allPatients.push(myPatients[i]);
+                    myPatients.splice(i, 1);
+                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+                }
+            };
 
-            // ✅ Prefill modal fields
-            document.querySelector('#staticBackdrop-edit-patient input[placeholder="Jane"]').value = p.city;
-            document.querySelector('#staticBackdrop-edit-patient input[placeholder="Doe"]').value = p.name;
-            document.querySelector('#staticBackdrop-edit-patient input[placeholder="1002611108"]').value = p.number;
-            document.querySelector('#staticBackdrop-edit-patient input[type="date"]').value = p.date;
-        }
-    };
+            // Handle All Patients tab
+            document.getElementById('allPatientsList').onclick = e => {
+                const addBtn = e.target.closest('button[data-type="add"]');
+                const editBtn = e.target.closest('button[data-type="edit"]');
 
-    // Search All Patients
-    document.getElementById('searchAllPatients').oninput = function () {
-        renderLists(this.value.toLowerCase());
-    };
-</script>
+                if (addBtn) {
+                    const i = +addBtn.dataset.i;
+                    addedPatients.push(allPatients[i]);
+                    myPatients.push(allPatients[i]);
+                    allPatients.splice(i, 1);
+                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+                }
+
+                if (editBtn) {
+                    const i = +editBtn.dataset.i;
+                    const p = allPatients[i];
+
+                    document.querySelector('#staticBackdrop-edit-patient input[placeholder="Jane"]').value = p.city;
+                    document.querySelector('#staticBackdrop-edit-patient input[placeholder="Doe"]').value = p.name;
+                    document.querySelector('#staticBackdrop-edit-patient input[placeholder="1002611108"]').value = p.number;
+                    document.querySelector('#staticBackdrop-edit-patient input[type="date"]').value = p.date;
+                }
+            };
+
+            // Handle Access Tab Clicks
+            document.getElementById('removedPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="remove-access"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    addedPatients.push(removedPatients[i]);
+                    removedPatients.splice(i, 1);
+                    renderLists();
+                }
+            };
+
+            document.getElementById('addedPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="add-access"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    removedPatients.push(addedPatients[i]);
+                    addedPatients.splice(i, 1);
+                    renderLists();
+                }
+            };
+
+            document.getElementById('searchAllPatients').oninput = function () {
+                renderLists(this.value.toLowerCase());
+            };
+        </script>
+
+
+        <script>
+            // Smooth tab switching based on hash, without scrolling
+            document.addEventListener('DOMContentLoaded', function () {
+                if (window.location.hash === '#patients-tab' || window.location.hash === '#hashtags-tab') {
+                    var tabId = window.location.hash;
+                    var tabButton = document.querySelector(tabId);
+                    if (tabButton) {
+                        var tab = new bootstrap.Tab(tabButton);
+                        tab.show();
+                        // Prevent scroll to tab content
+                        setTimeout(function () { window.scrollTo({ top: 0, behavior: 'auto' }); }, 10);
+                    }
+                }
+                // Listen for hash changes (if user navigates back/forward)
+                window.addEventListener('hashchange', function () {
+                    if (window.location.hash === '#patients-tab' || window.location.hash === '#hashtags-tab') {
+                        var tabId = window.location.hash;
+                        var tabButton = document.querySelector(tabId);
+                        if (tabButton) {
+                            var tab = new bootstrap.Tab(tabButton);
+                            tab.show();
+                            setTimeout(function () { window.scrollTo({ top: 0, behavior: 'auto' }); }, 10);
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // 1. Activate tab from URL hash
+                if (window.location.hash) {
+                    const hash = window.location.hash;
+                    const tabTrigger = document.querySelector(hash);
+                    if (tabTrigger) {
+                        new bootstrap.Tab(tabTrigger).show();
+                    }
+                }
+
+                // 2. If user clicks a tab link on same page, handle it
+                document.querySelectorAll('a.dropdown-item[href^="#"]').forEach(link => {
+                    link.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        const hash = this.getAttribute("href");
+                        const tabTrigger = document.querySelector(hash);
+                        if (tabTrigger) {
+                            new bootstrap.Tab(tabTrigger).show();
+                            history.pushState(null, null, hash); // Update URL hash
+                        }
+                    });
+                });
+            });
+        </script>
+
+
+
 
 </body>
 

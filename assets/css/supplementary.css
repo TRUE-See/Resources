@@ -194,11 +194,6 @@ body:has(.offcanvas-backdrop.show) .open-pill {
   background-color: #F8F9FA;
 }
 
-
-.list-group-item {
-  /* border: none !important; */
-}
-
 /* Remove default caret on dropdown-toggle */
 .can-edit-custom::after {
   display: none;
@@ -295,73 +290,75 @@ body:has(.offcanvas-backdrop.show) .open-pill {
 }
 
 textarea {
-   resize: none;
+  resize: none;
 }
 
 
 
 
 
-.partial.problem-pic-drawer{
-    height: calc(100vh - 300px);
+.partial.problem-pic-drawer {
+  height: calc(100vh - 300px);
 }
 
-    .custom-carousel-wrapper {
-      max-width: 100%;
-    }
+.custom-carousel-wrapper {
+  max-width: 100%;
+}
 
-    .custom-carousel-wrapper .carousel {
-      position: relative;
-      width: 100%;
-      max-width: 450px;
-      margin: auto;
-      aspect-ratio: 3 / 2; /* 375x250 ratio */
-    }
+.custom-carousel-wrapper .carousel {
+  position: relative;
+  width: 100%;
+  max-width: 450px;
+  margin: auto;
+  aspect-ratio: 3 / 2;
+  /* 375x250 ratio */
+}
 
-    .custom-carousel-wrapper .carousel-inner,
-    .custom-carousel-wrapper .carousel-item,
-    .custom-carousel-wrapper .carousel-item img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      border-radius: 6px;
-    }
+.custom-carousel-wrapper .carousel-inner,
+.custom-carousel-wrapper .carousel-item,
+.custom-carousel-wrapper .carousel-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 6px;
+}
 
-    .custom-carousel-wrapper .carousel-control-prev,
-    .custom-carousel-wrapper .carousel-control-next {
-      width: 40px;
-      top: 0;
-      bottom: 0;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
+.custom-carousel-wrapper .carousel-control-prev,
+.custom-carousel-wrapper .carousel-control-next {
+  width: 40px;
+  top: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 
-    .custom-carousel-wrapper .carousel-control-prev {
-      left: 0;
-    }
+.custom-carousel-wrapper .carousel-control-prev {
+  left: 0;
+}
 
-    .custom-carousel-wrapper .carousel-control-next {
-      right: 0;
-    }
+.custom-carousel-wrapper .carousel-control-next {
+  right: 0;
+}
 
-    .custom-carousel-wrapper .carousel-indicators {
-      bottom: -25px;
-    }
+.custom-carousel-wrapper .carousel-indicators {
+  bottom: -25px;
+}
 
-    .custom-carousel-wrapper .carousel-icon {
-      font-size: 1.5rem;
-      color: #000;
-    }
+.custom-carousel-wrapper .carousel-icon {
+  font-size: 1.5rem;
+  color: #000;
+}
 
-    @media (max-width: 400px) {
-      .custom-carousel-wrapper .carousel-control-prev,
-      .custom-carousel-wrapper .carousel-control-next {
-        width: 30px;
-      }
-    }
+@media (max-width: 400px) {
 
-    
+  .custom-carousel-wrapper .carousel-control-prev,
+  .custom-carousel-wrapper .carousel-control-next {
+    width: 30px;
+  }
+}
+
+
 .thumb {
   width: 70px;
   height: 45px;
@@ -387,49 +384,49 @@ textarea {
 
 /* Transparent Offcanvas Styles */
 .offcanvas.problem-pic-drawer {
-    box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
-    background-color: rgba(255, 255, 255, 0.95);
-    backdrop-filter: blur(5px);
+  box-shadow: 0 -4px 12px rgba(0, 0, 0, 0.1);
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(5px);
 }
 
 .problem-pic-drawer .offcanvas-body {
-    background: transparent;
+  background: transparent;
 }
 
 .carousel-navigation-info {
-    z-index: 5;
-    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+  z-index: 5;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
 /* Ensure graph remains visible */
 .chart-container {
-    position: relative;
-    z-index: 0;
+  position: relative;
+  z-index: 0;
 }
 
 /* Add subtle border to separate from background */
 .problem-pic-drawer {
-    border-top: 1px solid rgba(0, 0, 0, 0.1);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 /* Offcanvas Close Button Styles */
 .problem-pic-drawer .btn-close {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 0.75rem;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    z-index: 1060;
+  background-color: rgba(255, 255, 255, 0.9);
+  padding: 0.75rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  z-index: 1060;
 }
 
 .problem-pic-drawer .btn-close:hover {
-    background-color: #fff;
-    transform: scale(1.1);
-    transition: all 0.2s ease;
+  background-color: #fff;
+  transform: scale(1.1);
+  transition: all 0.2s ease;
 }
 
 .list-group-item.active {
-    background-color: #E9ECEF;
-    color: initial;
+  background-color: #E9ECEF;
+  color: initial;
 }
 
 
@@ -437,43 +434,45 @@ textarea {
 
 
 .custom-dropdown {
-    position: relative;
+  position: relative;
 }
 
 .custom-dropdown .dropdown-toggle-icon::after {
-    display: none;
+  display: none;
 }
 
 .custom-dropdown .dropdown-toggle-icon {
-    padding: 0.5rem 0.5rem;
-    cursor: pointer;
-    transition: all 0.2s ease;
+  padding: 0.5rem 0.5rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
 }
 
 .custom-dropdown .dropdown-toggle-icon:hover {
-    background-color: transparent ;
+  background-color: transparent;
 }
 
 .custom-dropdown .dropdown-menu {
-    margin-top: 0.5rem;
-    border-radius: 0.375rem;
-    box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
+  margin-top: 0.5rem;
+  border-radius: 0.375rem;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15);
 }
 
 .custom-dropdown .bi-chevron-down {
-    font-size: 0.875rem;
+  font-size: 0.875rem;
 }
 
 .custom-dropdown .transition-rotate {
-    display: inline-block;
-    transition: transform 0.3s ease;
+  display: inline-block;
+  transition: transform 0.3s ease;
 }
 
 .custom-dropdown .dropdown-toggle-icon[aria-expanded="true"] .transition-rotate {
-    transform: rotate(-180deg);
+  transform: rotate(-180deg);
 }
 
-.nav.nav-tabs button{ color:inherit; }
+.nav.nav-tabs button {
+  color: inherit;
+}
 
 /* sticky bottom */
 #woundListWrapper {
@@ -489,12 +488,20 @@ textarea {
   border-radius: 3px;
 }
 
-@media screen and (max-width: 400px) {
-
-}
+@media screen and (max-width: 400px) {}
 
 @media only screen and (max-width: 400px) {
   #shareTab .nav-link {
     font-weight: 300;
   }
+}
+
+
+
+.custom-select-with-icon {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  padding-right: 2.5rem;
+  /* space for the icon */
 }
