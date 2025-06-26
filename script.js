@@ -5,64 +5,64 @@ document.addEventListener('DOMContentLoaded', function() {
     const woundData = [
         {
             date: '2025-03-20',
-            formattedDate: '03/20/2025',
-            time: '10:26:30 AM',
+            formattedDate: '26/03/2025',
+            time: '11:26:30 AM',
             certNumber: '1901283',
-            ref: 'ref #1919206',
+            ref: 'ref #1919226',
             measurements: {
-                length: 1.95,
-                width: 3.25,
-                depth: 0.88,
-                area: 6.34,
-                volume: 5.58,
+                length: 2.95,
+                width: 1.25,
+                depth: 0.08,
+                area: 8.34,
+                volume: 1.58,
                 par: 17
             },
             graphValue: 7.0,
             volumeValue: '70.396',
-            thumbnail: 'assets/images/true-photo-1.png',
-            images: ['assets/images/problem1.png', 'assets/images/problem2.png', 'assets/images/problem3.png'],
+            thumbnail: 'assets/images/problem1.png',
+            images: ['assets/images/problem1.png'],
             notes: 'Right Knee skin tear of unknown origin',
             isReference: false
         },
         {
             date: '2025-03-05',
-            formattedDate: '03/05/2025',
-            time: '10:26:30 AM',
+            formattedDate: '27/05/2025',
+            time: '12:26:45 AM',
             certNumber: '1890120',
-            ref: 'ref #10081929',
+            ref: 'ref #10081927',
             measurements: {
-                length: 1.95,
-                width: 3.25,
-                depth: 0.88,
-                area: 6.34,
-                volume: 5.58,
-                par: 17
+                length: 5.95,
+                width: 1.25,
+                depth: 2.88,
+                area: 8.34,
+                volume: 1.58,
+                par: 15
             },
             graphValue: 6.0,
             volumeValue: '63.396',
-            thumbnail: 'assets/images/true-photo-1.png',
-            images: ['assets/images/problem1.png', 'assets/images/problem2.png', 'assets/images/problem3.png'],
+            thumbnail: 'assets/images/problem2.png',
+            images: ['assets/images/problem2.png'],
             notes: 'Right Knee skin tear of unknown origin',
             isReference: true
         },
         {
             date: '2025-02-25',
-            formattedDate: '02/25/2025',
-            time: '10:26:30 AM',
+            formattedDate: '28/05/2025',
+            time: '01:20:34 AM',
             certNumber: '1991203',
-            ref: 'ref #1991203',
+            ref: 'ref #1991228',
             measurements: {
                 length: 1.95,
-                width: 3.25,
-                depth: 0.88,
-                area: 6.34,
-                volume: 5.58,
-                par: 17
+                width: 4.25,
+                depth: 2.88,
+                area: 1.34,
+                volume: 3.58,
+                par: 20
             },
             graphValue: 5.5,
             volumeValue: '55.396',
-            thumbnail: 'assets/images/true-photo-1.png',
-            images: ['assets/images/problem1.png', 'assets/images/problem2.png', 'assets/images/problem3.png'],
+            thumbnail: 'assets/images/problem3.png',
+            images: ['assets/images/problem3.png'],
             notes: 'Right Knee skin tear of unknown origin',
             isReference: false
         }
@@ -439,3 +439,5 @@ document.addEventListener('DOMContentLoaded', function() {
         }
     }, false);
 });
+
+
