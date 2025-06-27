@@ -505,3 +505,7 @@ textarea {
   padding-right: 2.5rem;
   /* space for the icon */
 }
+
+.bg-notes {
+  background-color: #FD9843;
+}
