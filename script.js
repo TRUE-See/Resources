@@ -326,12 +326,12 @@ document.addEventListener('DOMContentLoaded', function() {
         document.getElementById('offcanvasVolume').textContent = `Volume: ${data.volumeValue}`;
         document.getElementById('offcanvasDateTime').innerHTML = `<strong>${data.formattedDate}</strong> ${data.time}`;
         document.getElementById('offcanvasRef').textContent = data.ref;
-        document.getElementById('offcanvasLength').textContent = `L: ${data.measurements.length}`;
-        document.getElementById('offcanvasWidth').textContent = `W: ${data.measurements.width}`;
-        document.getElementById('offcanvasDepth').textContent = `D: ${data.measurements.depth}`;
-        document.getElementById('offcanvasArea').textContent = `A: ${data.measurements.area}`;
-        document.getElementById('offcanvasVolumeDetail').textContent = `V: ${data.measurements.volume}`;
-        document.getElementById('offcanvasPar').textContent = `PAR: ${data.measurements.par}%`;
+        document.getElementById('offcanvasLength').textContent = `${data.measurements.length}`;
+        document.getElementById('offcanvasWidth').textContent = `${data.measurements.width}`;
+        document.getElementById('offcanvasDepth').textContent = `${data.measurements.depth}`;
+        document.getElementById('offcanvasArea').textContent = `${data.measurements.area}`;
+        document.getElementById('offcanvasVolumeDetail').textContent = `${data.measurements.volume}`;
+        document.getElementById('offcanvasPar').textContent = `${data.measurements.par}%`;
         document.getElementById('clinicalNotes').innerHTML = `<p>${data.notes}</p>`;
         
         // Update carousel

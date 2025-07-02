@@ -430,9 +430,6 @@ textarea {
 }
 
 
-
-
-
 .custom-dropdown {
   position: relative;
 }
@@ -474,6 +471,11 @@ textarea {
   color: inherit;
 }
 
+
+.nav.nav-tabs .nav-link.active {
+  font-weight: 600;
+}
+
 /* sticky bottom */
 #woundListWrapper {
   scrollbar-width: thin;
@@ -508,4 +510,8 @@ textarea {
 
 .bg-notes {
   background-color: #FD9843;
+}
+
+.reference-bg {
+  background-color: #D3D3D4;
 }
