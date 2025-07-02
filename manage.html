@@ -1,0 +1,573 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Manage</title>
+    <link rel="icon" type="image/png" href="assets/favicon/favicon.png">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/css/supplementary.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+</head>
+
+<body style="font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;">
+
+    <!-- Top Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-primary bg-primary text-white d-xl-none">
+        <div class="container-fluid position-relative">
+            <span class="navbar-brand text-white mx-auto">Manage</span>
+        </div>
+    </nav>
+
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+        <div class="container-xxl">
+            <a class="navbar-brand border-end pe-3" href="index.html">
+                <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i>
+                            Assign</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i
+                                class="bi bi-person-plus-fill"></i> Invite User</a>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="manage.html"><i class="bi bi-person-fill-gear"></i>
+                            Manage
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#mypatients-tab">My Patients</a></li>
+                            <li><a class="dropdown-item" href="#allpatients-tab">All Patients</a></li>
+                            <li><a class="dropdown-item" href="#stats-tab">Stats</a></li>
+                            <li><a class="dropdown-item" href="#access-tab">Access</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
+                            Settings
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="settings.html#patients-tab">Application</a></li>
+                            <li><a class="dropdown-item" href="settings.html#hashtags-tab">Connection</a></li>
+                            <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <div class="container-xxl mt-3">
+        <div class="row">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+
+                <!-- Tabs -->
+                <ul class="nav nav-tabs justify-content-center mt-2 w-100" id="manageTabs" role="tablist">
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link active w-100" id="mypatients-tab" data-bs-toggle="tab"
+                            data-bs-target="#mypatients" type="button" role="tab" aria-controls="mypatients"
+                            aria-selected="true">My Patients</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link w-100" id="allpatients-tab" data-bs-toggle="tab"
+                            data-bs-target="#allpatients" type="button" role="tab" aria-controls="allpatients"
+                            aria-selected="false">All Patients</button>
+                    </li>
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link w-100" id="stats-tab" data-bs-toggle="tab" data-bs-target="#stats"
+                            type="button" role="tab" aria-controls="stats" aria-selected="false">Stats</button>
+                    </li>
+
+                    <li class="nav-item" role="presentation">
+                        <button class="nav-link w-100" id="access-tab" data-bs-toggle="tab" data-bs-target="#access"
+                            type="button" role="tab" aria-controls="access" aria-selected="false">Access</button>
+                    </li>
+                </ul>
+
+                <!-- Tab Content -->
+                <div class="tab-content mt-4" id="manageTabsContent">
+
+                    <!-- My Patients Tab -->
+                    <div class="tab-pane fade show active" id="mypatients" role="tabpanel"
+                        aria-labelledby="mypatients-tab">
+                        <div class="my-3 border-bottom border-1 border-dark">
+                            <h6><strong>My Patients</strong></h6>
+                        </div>
+                        <ul class="list-group" id="myPatientsList"></ul>
+                    </div>
+
+                    <!-- All Patients Tab -->
+                    <div class="tab-pane fade" id="allpatients" role="tabpanel" aria-labelledby="allpatients-tab">
+                        <div class="input-group mb-3 rounded">
+                            <input type="text" class="form-control" placeholder="Search..." id="searchAllPatients">
+                            <span class="input-group-text bg-primary border-0 text-white">
+                                <i class="bi bi-search pe-2"></i>
+                                Search
+                            </span>
+                        </div>
+                        <ul class="list-group" id="allPatientsList"></ul>
+                    </div>
+
+                    <div class="tab-pane fade" id="stats" role="tabpanel" aria-labelledby="stats-tab">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th style="border-bottom: 2px solid;" scope="col"># of Problems</th>
+                                    <th style="border-bottom: 2px solid;" scope="col">Problem Type</th>
+                                    <th style="border-bottom: 2px solid;" scope="col">% of Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>68</td>
+                                    <td>All</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>16</td>
+                                    <td>Dermatologic</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Abrasion</td>
+                                    <td>14.7</td>
+                                </tr>
+                                <tr>
+                                    <td>68</td>
+                                    <td>All</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>16</td>
+                                    <td>Dermatologic</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Abrasion</td>
+                                    <td>14.7</td>
+                                </tr>
+                                <tr>
+                                    <td>68</td>
+                                    <td>All</td>
+                                    <td>100</td>
+                                </tr>
+                                <tr class="bg-light">
+                                    <td>16</td>
+                                    <td>Dermatologic</td>
+                                    <td>23.5</td>
+                                </tr>
+                                <tr>
+                                    <td>10</td>
+                                    <td>Abrasion</td>
+                                    <td>14.7</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <div class="tab-pane fade mb-5 pb-5" id="access" role="tabpanel" aria-labelledby="access-tab">
+                        <h6><strong>Select User</strong></h6>
+                        <div class="mb-3">
+                            <select class="form-select" id="woundFilter">
+                                <option value="all" selected>Brooks, Peter</option>
+                                <option value="doe">Doe, Jane</option>
+                                <option value="pearson">Pearson, Karla</option>
+                                <option value="harmony">Holloway, Harmony</option>
+                            </select>
+                        </div>
+                        <!-- User Patients (Removed) -->
+                        <div
+                            class="bg-dark text-white px-3 py-2 d-flex justify-content-between align-items-center mt-4 border-1 bg-opacity-75">
+                            <div class="d-flex align-items-center gap-1">
+                                <span id="removedCount" class="text-white">0</span>
+                                <small>Patients</small>
+                            </div>
+                            <h6 class="mb-0">User Patients</h6>
+                        </div>
+                        <ul class="list-group rounded-0 border border-bottom-0" id="removedPatientsList"></ul>
+
+                        <!-- All Patients (Added) -->
+                        <hr class="my-4 border-top border-5 border-dark rounded-4">
+
+                        <div
+                            class="bg-dark text-white px-3 py-2 d-flex justify-content-between align-items-center mt-4 border-1 bg-opacity-75">
+                            <div class="d-flex align-items-center gap-1">
+                                <span id="addedCount" class="text-white">0</span>
+                                <small>Patients</small>
+                            </div>
+                            <h6 class="mb-0">All Patients</h6>
+                        </div>
+
+                        <ul class="list-group rounded-0 border border-bottom-0" id="addedPatientsList"></ul>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- Bottom Navbar -->
+            <nav class="navbar navbar-light bg-white fixed-bottom border-top d-xl-none">
+                <div class="container-fluid d-flex justify-content-around">
+                    <a href="index.html" class="text-center text-black-50 text-decoration-none ">
+                        <i class="fs-4 bi bi-people-fill"></i><br>
+                        <small>Patients</small>
+                    </a>
+                    <a href="assign-photos-selected.html" class="text-center text-black-50 text-decoration-none ">
+                        <i class="fs-4 bi bi-image"></i><br>
+                        <small>Assign</small>
+                    </a>
+                    <a href="#" class="rounded-circle text-center text-decoration-none bg-primary text-white px-3 py-2">
+                        <i class="fs-1 bi bi-camera-fill px-0"></i><br>
+
+                    </a>
+                    <a href="manage.html" class="text-center text-primary text-decoration-none ">
+                        <i class="fs-4 bi bi-person-fill-gear"></i><br>
+                        <small>Manage</small>
+                    </a>
+                    <a href="settings.html" class="text-center text-black-50 text-decoration-none ">
+                        <i class="fs-4 bi bi-gear-fill"></i><br>
+                        <small>Settings</small>
+                    </a>
+                </div>
+            </nav>
+        </div>
+
+
+
+        <!-- edit patient details model popup -->
+        <div class="modal fade" id="staticBackdrop-edit-patient" data-bs-backdrop="static" data-bs-keyboard="false"
+            tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+            <div class="modal-dialog modal-dialog-centered modal-lg">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h1 class="modal-title fs-5" id="staticBackdropLabel1">Edit Patient Details </h1>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="">
+                            <form class="mt-1">
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">First Name</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control drop-input" placeholder="Jane">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Middle Name</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control drop-input" placeholder="">
+                                    </div>
+                                </div>
+
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Last Name</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control drop-input" placeholder="Doe">
+                                    </div>
+                                </div>
+
+                                <!-- MRN -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">MRN</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control" placeholder="1002611108">
+                                    </div>
+                                </div>
+
+                                <!-- Date of Birth -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Date of Birth</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="date" class="form-control">
+                                    </div>
+                                </div>
+
+                                <!-- Gender -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Gender</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="female"
+                                                checked="">
+                                            <label class="form-check-label" for="female">Female</label>
+                                        </div>
+                                        <div class="form-check form-check-inline">
+                                            <input class="form-check-input" type="radio" name="gender" id="male">
+                                            <label class="form-check-label" for="male">Male</label>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <!-- Visit Type -->
+                                <div class="row mb-3">
+                                    <label class="col-4 col-md-4 col-lg-4 col-form-label">Visit Type</label>
+                                    <div class="col-8 col-md-8 col-lg-8">
+                                        <input type="text" class="form-control" placeholder="example">
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <div class="container-xxl px-0">
+                            <div class="d-grid w-100 mb-3">
+                                <button class="btn btn-primary w-100">Add to My Patients</button>
+                            </div>
+                            <div class="d-grid w-100">
+                                <button class="btn btn-light w-100 rounded-5" data-bs-dismiss="modal">Save
+                                    Changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+        <script>
+            let myPatients = [
+                { name: "Doe", city: "Jane", number: "10081928", date: "04/02/1958" },
+                { name: "Pearson", city: "Karla", number: "1109238", date: "03/05/1998" }
+            ];
+            let allPatients = [
+                { name: "Holloway", city: "Harmony", number: "1209238", date: "03/05/1998" },
+                { name: "Jordan", city: "Angeline", number: "12049276", date: "12/12/1970" },
+                { name: "Blanchard", city: "Bonnie", number: "099929461", date: "04/29/2001" },
+                { name: "Holloway", city: "Harmony", number: "1209238", date: "03/05/1998" },
+                { name: "Jordan", city: "Angeline", number: "12049276", date: "12/12/1970" },
+                { name: "Blanchard", city: "Bonnie", number: "099929461", date: "04/29/2001" },
+            ];
+
+            let removedPatients = [
+                { name: "Taylor", city: "Sam", number: "900001", date: "April 2, 1958" },
+                { name: "Clark", city: "Eva", number: "900002", date: "03/05/1998" },
+                { name: "Taylor", city: "Sam", number: "900001", date: "April 2, 1958" },
+                { name: "Clark", city: "Eva", number: "900002", date: "03/05/1998" }
+            ];
+            let addedPatients = [
+                { name: "Lee", city: "Ryan", number: "900003", date: "April 3, 1988" },
+                { name: "Kim", city: "Sophie", number: "900004", date: "April 5, 1994" },
+                { name: "Lee", city: "Ryan", number: "900003", date: "April 3, 1988" },
+                { name: "Kim", city: "Sophie", number: "900004", date: "April 8, 1990" }
+            ];
+
+            function renderLists(filter = "") {
+                // My Patients
+                const myList = document.getElementById('myPatientsList');
+                myList.innerHTML = myPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="remove">
+                    <i class="bi bi-dash fs-3"></i>
+                </button>
+            </li>
+        `).join('');
+
+                // All Patients
+                const allList = document.getElementById('allPatientsList');
+                let filtered = allPatients;
+                if (filter) {
+                    filtered = allPatients.filter(p => p.name.toLowerCase().includes(filter));
+                }
+                allList.innerHTML = filtered.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <div class="d-flex gap-2">
+                    <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-bs-toggle="modal" data-bs-target="#staticBackdrop-edit-patient" data-i="${allPatients.indexOf(p)}" data-type="edit">
+                        <i class="bi bi-pencil fs-6 p-1"></i>
+                    </button>
+                    <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${allPatients.indexOf(p)}" data-type="add">
+                        <i class="bi bi-plus fs-3"></i>
+                    </button>
+                </div>
+            </li>
+        `).join('');
+
+                // Access Tab: Removed Patients
+                const removedList = document.getElementById('removedPatientsList');
+                removedList.innerHTML = removedPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="remove-access">
+                    <i class="bi bi-dash fs-3"></i>
+                </button>
+            </li>
+        `).join('');
+                document.getElementById('removedCount').textContent = removedPatients.length;
+
+                // Access Tab: Added Patients
+                const addedList = document.getElementById('addedPatientsList');
+                addedList.innerHTML = addedPatients.map((p, i) => `
+            <li class="list-group-item d-flex justify-content-between align-items-center border-0 border-bottom ${i % 2 === 0 ? 'bg-light' : ''}">
+                <div>
+                    <div><strong>${p.name},</strong> <strong>${p.city}</strong></div>
+                    <div class="text-muted small">${p.number} - ${p.date}</div>
+                </div>
+                <button class="btn btn-outline-secondary btn-sm rounded px-2 py-0" data-i="${i}" data-type="add-access">
+                    <i class="bi bi-plus fs-3"></i>
+                </button>
+            </li>
+        `).join('');
+                document.getElementById('addedCount').textContent = addedPatients.length;
+            }
+
+            renderLists();
+
+            // Handle My Patients tab
+            document.getElementById('myPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="remove"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    removedPatients.push(myPatients[i]);
+                    allPatients.push(myPatients[i]);
+                    myPatients.splice(i, 1);
+                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+                }
+            };
+
+            // Handle All Patients tab
+            document.getElementById('allPatientsList').onclick = e => {
+                const addBtn = e.target.closest('button[data-type="add"]');
+                const editBtn = e.target.closest('button[data-type="edit"]');
+
+                if (addBtn) {
+                    const i = +addBtn.dataset.i;
+                    addedPatients.push(allPatients[i]);
+                    myPatients.push(allPatients[i]);
+                    allPatients.splice(i, 1);
+                    renderLists(document.getElementById('searchAllPatients').value.toLowerCase());
+                }
+
+                if (editBtn) {
+                    const i = +editBtn.dataset.i;
+                    const p = allPatients[i];
+
+                    document.querySelector('#staticBackdrop-edit-patient input[placeholder="Jane"]').value = p.city;
+                    document.querySelector('#staticBackdrop-edit-patient input[placeholder="Doe"]').value = p.name;
+                    document.querySelector('#staticBackdrop-edit-patient input[placeholder="1002611108"]').value = p.number;
+                    document.querySelector('#staticBackdrop-edit-patient input[type="date"]').value = p.date;
+                }
+            };
+
+            // Handle Access Tab Clicks
+            document.getElementById('removedPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="remove-access"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    addedPatients.push(removedPatients[i]);
+                    removedPatients.splice(i, 1);
+                    renderLists();
+                }
+            };
+
+            document.getElementById('addedPatientsList').onclick = e => {
+                if (e.target.closest('button[data-type="add-access"]')) {
+                    const i = +e.target.closest('button').dataset.i;
+                    removedPatients.push(addedPatients[i]);
+                    addedPatients.splice(i, 1);
+                    renderLists();
+                }
+            };
+
+            document.getElementById('searchAllPatients').oninput = function () {
+                renderLists(this.value.toLowerCase());
+            };
+        </script>
+
+
+        <script>
+            // Smooth tab switching based on hash, without scrolling
+            document.addEventListener('DOMContentLoaded', function () {
+                if (window.location.hash === '#patients-tab' || window.location.hash === '#hashtags-tab') {
+                    var tabId = window.location.hash;
+                    var tabButton = document.querySelector(tabId);
+                    if (tabButton) {
+                        var tab = new bootstrap.Tab(tabButton);
+                        tab.show();
+                        // Prevent scroll to tab content
+                        setTimeout(function () { window.scrollTo({ top: 0, behavior: 'auto' }); }, 10);
+                    }
+                }
+                // Listen for hash changes (if user navigates back/forward)
+                window.addEventListener('hashchange', function () {
+                    if (window.location.hash === '#patients-tab' || window.location.hash === '#hashtags-tab') {
+                        var tabId = window.location.hash;
+                        var tabButton = document.querySelector(tabId);
+                        if (tabButton) {
+                            var tab = new bootstrap.Tab(tabButton);
+                            tab.show();
+                            setTimeout(function () { window.scrollTo({ top: 0, behavior: 'auto' }); }, 10);
+                        }
+                    }
+                });
+            });
+        </script>
+
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                // 1. Activate tab from URL hash
+                if (window.location.hash) {
+                    const hash = window.location.hash;
+                    const tabTrigger = document.querySelector(hash);
+                    if (tabTrigger) {
+                        new bootstrap.Tab(tabTrigger).show();
+                    }
+                }
+
+                // 2. If user clicks a tab link on same page, handle it
+                document.querySelectorAll('a.dropdown-item[href^="#"]').forEach(link => {
+                    link.addEventListener("click", function (e) {
+                        e.preventDefault();
+                        const hash = this.getAttribute("href");
+                        const tabTrigger = document.querySelector(hash);
+                        if (tabTrigger) {
+                            new bootstrap.Tab(tabTrigger).show();
+                            history.pushState(null, null, hash); // Update URL hash
+                        }
+                    });
+                });
+            });
+        </script>
+
+
+
+
+</body>
+
+</html>

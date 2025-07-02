@@ -161,67 +161,202 @@
   </div>
   <!-- edit patient details model popup end -->
 
-  <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
-    <div class="container-xxl">
-      <a class="navbar-brand border-end pe-3" href="#">
-        <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
-      </a>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item">
-            <a class="nav-link px-3 active" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i>
-              Patients</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i
-                class="bi bi-person-plus-fill"></i> Invite User</a>
-          </li>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+        <div class="container-xxl">
+            <a class="navbar-brand border-end pe-3" href="index.html">
+                <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+            </a>
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item">
+                        <a class="nav-link px-3 active" aria-current="page" href="index.html"><i
+                                class="bi bi-person-fill"></i> Patients</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i class="bi bi-person-plus-fill"></i> Invite User</a>
+                    </li>
 
-          <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
-            <a class="nav-link ps-3 pe-2" href="manage.html"><i class="bi bi-person-fill-gear"></i>
-              Manage
-            </a>
-            <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="bi bi-chevron-down transition-rotate"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="manage.html#mypatients-tab">My Patients</a></li>
-              <li><a class="dropdown-item" href="manage.html#allpatients-tab">All Patients</a></li>
-              <li><a class="dropdown-item" href="manage.html#stats-tab">Stats</a></li>
-              <li><a class="dropdown-item" href="manage.html#access-tab">Access</a></li>
-            </ul>
-          </li>
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="manage.html"><i class="bi bi-person-fill-gear"></i>
+                            Manage
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="manage.html#mypatients-tab">My Patients</a></li>
+                            <li><a class="dropdown-item" href="manage.html#allpatients-tab">All Patients</a></li>
+                            <li><a class="dropdown-item" href="manage.html#stats-tab">Stats</a></li>
+                            <li><a class="dropdown-item" href="manage.html#access-tab">Access</a></li>
+                        </ul>
+                    </li>
 
-          <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
-            <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
-              Settings
-            </a>
-            <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button" data-bs-toggle="dropdown"
-              aria-expanded="false">
-              <i class="bi bi-chevron-down transition-rotate"></i>
-            </a>
-            <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">Application</a></li>
-              <li><a class="dropdown-item" href="#">Connection</a></li>
-              <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
-            </ul>
-          </li>
-        </ul>
-        <form class="d-flex" role="search">
-          <input class="form-control me-2" type="search" placeholder="Search">
-          <button class="btn btn-outline-dark" type="submit">Search</button>
-        </form>
+                    <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+                        <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
+                            Settings
+                        </a>
+                        <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button"
+                            data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-chevron-down transition-rotate"></i>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="settings.html#patients-tab">Application</a></li>
+                            <li><a class="dropdown-item" href="settings.html#hashtags-tab">Connection</a></li>
+                            <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <form class="d-flex" role="search">
+                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                    <button class="btn btn-outline-dark" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+  <div class="p-2 bg-danger text-white text-center mb-2 d-flex justify-content-center" data-bs-toggle="offcanvas"
+    data-bs-target="#offcanvasBottom-assign-photo-1" aria-controls="offcanvasBottom-assign-photo-1">
+    <small>
+      <span class="badge rounded-pill bg-white text-danger">2</span>
+    </small>
+    <span class="px-2"> Unassigned Photos</span>
+    <i class="bi bi-chevron-down"></i>
+  </div>
+  <!-- assign-photos-1 drawer -->
+  <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-assign-photo-1"
+    aria-labelledby="offcanvasBottomLabeoffcanvasBottom-assign-photo-1">
+    <div class="offcanvas-header d-flex justify-content-center p-0">
+      <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+    </div>
+    <div class="container-xxl mt-4 minimal-tabs overflow-auto">
+      <div class="row">
+        <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+          <div class="offcanvas-body small pt-0">
+            <div class="modal-body">
+              <div class="text-center text-danger border-bottom">
+                <div class="p-2 pt-0">
+                  <strong> Unassigned Photos</strong>
+                </div>
+              </div>
+              <div class="">
+                <div class="mb-2 mt-1">
+                  <div class="row g-2">
+                    <div class="col-6 col-md-6 position-relative">
+                      <div
+                        class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                        onclick="toggleCheckbox(this, event)">
+                        <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
+                        <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                          <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                        </div>
+                      </div>
+                    </div>
+                    <div class="col-6 col-md-6 position-relative">
+                      <div
+                        class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                        onclick="toggleCheckbox(this, event)">
+                        <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
+                        <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
+                          <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="bg-light p-3">
+                  <!-- Dropdown Filter -->
+                  <div class="w-50 mb-3">
+                    <select class="form-select" id="woundFilter">
+                      <option value="all" selected>All Wounds</option>
+                      <option value="wound1">Wound #1</option>
+                      <option value="wound2">Wound #2</option>
+                      <option value="wound2">Wound #3</option>
+                      <option value="wound2">Wound #4</option>
+                      <option value="wound2">Wound #5</option>
+                      <option value="wound2">Wound #6</option>
+                      <option value="wound2">Wound #7</option>
+                      <option value="wound2">Wound #8</option>
+                      <option value="wound2">Wound #9</option>
+                      <option value="wound2">Wound #10</option>
+                      <option value="wound2">Wound #11</option>
+                      <option value="wound2">Wound #12</option>
+                    </select>
+                  </div>
+                  <!-- Combined Wound List -->
+                  <div id="woundList">
+                    <div class="list-group mb-2 wound-item" data-wound="wound1">
+                      <label
+                        class="list-group-item list-group-item-action position-relative mb-3 border-2 border-white shadow-sm rounded p-0"
+                        onclick="toggleWound(this)">
+                        <div class="d-flex justify-content-between">
+                          <div class="p-3"><strong>Wound #1</strong><br><small>Sacrum<br>Pressure Injury</small></div>
+                          <img src="assets/images/assign-img-1.png" class="rounded-end" style="width: 150px;">
+                        </div>
+                        <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
+                          <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
+                        </span>
+                      </label>
+                    </div>
+
+                    <div class="list-group mb-2 wound-item" data-wound="wound2">
+                      <label
+                        class="list-group-item list-group-item-action position-relative mb-3 border-2 border-white shadow-sm rounded p-0"
+                        onclick="toggleWound(this)">
+                        <div class="d-flex justify-content-between">
+                          <div class="p-3"><strong>Wound #2</strong><br><small>Left Leg<br>Ulcer</small></div>
+                          <img src="assets/images/assign-img-2.png" class="rounded-end" style="width: 150px;">
+                        </div>
+                        <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
+                          <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
+                        </span>
+                      </label>
+                    </div>
+
+                    <div class="list-group mb-2 wound-item" data-wound="wound2">
+                      <label
+                        class="list-group-item list-group-item-action position-relative mb-3 border-2 border-white shadow-sm rounded p-0"
+                        onclick="toggleWound(this)">
+                        <div class="d-flex justify-content-between">
+                          <div class="p-3"><strong>Wound #3</strong><br><small>Right Foot<br>Necrotic Ulcer</small>
+                          </div>
+                          <img src="assets/images/assign-img-3.png" class="rounded-end" style="width: 150px;">
+                        </div>
+                        <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
+                          <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
+                        </span>
+                      </label>
+                    </div>
+
+                  </div>
+                </div>
+                <br> <br> <br> <br>
+                <!-- Sticky bottom navbar -->
+                <footer class="fixed-bottom bg-white border-top">
+                  <div class="container-xxl">
+                    <div class="row">
+                      <div
+                        class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+                        <button id="assignBtn" class="btn btn-success mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button"
+                          disabled>Assign to Wound</button>
+                        <button class="btn btn-outline-dark text-nowrap" type="button">Create New Wound</button>
+                      </div>
+                    </div>
+                  </div>
+                </footer>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-  </nav>
-
+  </div>
+  <!-- assign-photos-1 drawer end-->
 
   <div class="container-xxl mt-4 mb-5 pb-5">
     <div class="row">
@@ -355,7 +490,7 @@
                                 <div class="row">
                                   <div
                                     class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                                    <button class="btn mb-3 mb-sm-0 text-nowrap " data-bs-toggle="offcanvas"
+                                    <button class="btn mb-3 mb-sm-0 text-nowrap" data-bs-toggle="offcanvas"
                                       data-bs-target="#offcanvasBottom-edit-wound-details"
                                       aria-controls="offcanvasBottom-edit-wound-details"> <i
                                         class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
@@ -502,15 +637,9 @@
               <!-- edit wound details popup -->
               <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-edit-wound-details"
                 aria-labelledby="offcanvasBottomLabel">
-                <div class="container-xxl minimal-tabs ">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-header border-bottom p-3">
-                        <h5 class="offcanvas-title" id="offcanvasBottomLabel">Edit Wound Details</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                      </div>
-                    </div>
-                  </div>
+                <div class="offcanvas-header border-bottom p-3">
+                  <h5 class="offcanvas-title" id="offcanvasBottomLabel">Edit Location & Type</h5>
+                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
                 <div class="container-xxl minimal-tabs overflow-auto">
                   <div class="row">
@@ -825,30 +954,16 @@
               <!-- add hashtag popup end -->
             </div>
 
-            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
+            <footer class="fixed-bottom bg-white border-top">
               <div class="container-xxl">
                 <div class="row">
                   <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Wound <i class="bi bi-person-standing"></i></button>
-                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
-                  </div>
-                </div>
-              </div>
-            </footer>
-            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
-              <div class="container-xxl">
-                <div class="row">
-                  <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
-                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
-                      New
-                      Wound <i class="bi bi-person-standing"></i></button>
-                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
+                      Wound <i class="fs-4 bi bi-person-standing"></i></button>
+                    <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button>
                   </div>
                 </div>
               </div>
@@ -924,30 +1039,16 @@
               </div>
             </div>
 
-            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
+            <footer class="fixed-bottom bg-white border-top">
               <div class="container-xxl">
                 <div class="row">
                   <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Subject <i class="bi bi-person-fill"></i></button>
-                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
-                  </div>
-                </div>
-              </div>
-            </footer>
-            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
-              <div class="container-xxl">
-                <div class="row">
-                  <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
-                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
-                      New
-                      Subject <i class="bi bi-person-fill"></i></button>
-                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
+                      Subject <i class="fs-4 bi bi-person-fill"></i></button>
+                    <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button>
                   </div>
                 </div>
               </div>
@@ -1021,30 +1122,16 @@
               </div>
             </div>
 
-            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
+            <footer class="fixed-bottom bg-white border-top">
               <div class="container-xxl">
                 <div class="row">
                   <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Video &nbsp<i class="bi bi-camera-video"></i></button>
-                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button> -->
-                  </div>
-                </div>
-              </div>
-            </footer>
-            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
-              <div class="container-xxl">
-                <div class="row">
-                  <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
-                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
-                      New
-                      Video &nbsp<i class="bi bi-camera-video"></i></button>
-                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button> -->
+                      Video &nbsp<i class="fs-4 bi bi-camera-video"></i></button>
+                    <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button>
                   </div>
                 </div>
               </div>

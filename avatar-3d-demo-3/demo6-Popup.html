@@ -245,6 +245,11 @@
             padding-top: 50px;
             display: block;
         }
+        @media (max-width: 991px) {
+    .modal-dialog {
+        max-width: 755px;
+    }
+}
     </style>
 </head>
 
@@ -324,86 +329,129 @@
         </div>
     </nav>
 
+    <!-- 3D avatar popup -->
     <div class="container-xxl mt-4 mb-5 pb-5">
         <div class="row">
-            <div class="container-fluid">
-                <div class="row">
-                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6">
-                        <div class="container-flude" style=" overflow: hidden;">
-                            <div class="row">
-                                <div class="col-12">
+            <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
+                <h5 class="mb-3 fs-6 fw-semibold">3D Avatar</h5>
+                <div class="d-flex">
+                    <button class="btn btn-outline-primary w-50 me-2" type="button" data-bs-toggle="modal"
+                        data-bs-target="#avatar-popup">Assign Location</button>
 
-                                    <div id="canvas-container">
-                                        <div class="scrollblock"></div>
-                                        <h5 class="noteforuser">Click on Region</h5>
-                                        <div id="model-holder">
-                                            <canvas id="modelCanvas"></canvas>
-                                            <!-- <div id="orientation-label"> Anterior 
-                                          <img id="orientation-icon" src="orientation.svg" />
-                                         </div> -->
+                    <!-- 3D Avatar model popup -->
+                    <div class="modal fade" id="avatar-popup" data-bs-backdrop="static" data-bs-keyboard="false"
+                        tabindex="-1" aria-labelledby="staticBackdropLabel1" aria-hidden="true">
+                        <div class="modal-dialog modal-dialog-centered modal-xl">
+                            <div class="modal-content">
+                                <div class="modal-header">
+
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Orientation </h1>
+                                    <button type="button" class="btn-close" data-bs-dismiss="modal"
+                                        aria-label="Close"></button>
+                                </div>
+                                <div class="modal-body">
+                                    <div class="container-fluid">
+                                        <div class="row">
+                                            <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12">
+                                                <div class="container-flude mt-3" style="overflow: hidden;">
+                                                    <div class="row">
+                                                        <div class="col-12">
+                                                            
+                                                            <div id="canvas-container">
+                                                                <div class="scrollblock"></div>
+                                                                <h5 class="noteforuser">Click on Region</h5>
+                                                                <div id="model-holder">
+                                                                    <canvas id="modelCanvas"></canvas>
+                                                                    <!-- <div id="orientation-label"> Anterior 
+                                                                <img id="orientation-icon" src="orientation.svg" />
+                                                         </div> -->
+                                                                </div>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div
+                                                class="col-lg-6 col-md-6 col-xl-6 col-sm-12 align-items-center">
+                                                <div class="pb-2 border-bottom text-center mt-3">
+                                                    <strong>Click to Change Position &nbsp;&nbsp; <button
+                                                            id="orientation" class="btn btn-success"><img
+                                                                src="orientation.svg" /> &nbsp;Anterior
+                                                        </button></strong>
+                                                </div>
+
+                                                <footer class="footer container-xxl">
+                                                    <div class="row">
+                                                        <div
+                                                            class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
+                                                            <!-- <h2 class="action-title">Create New Wound</h2> -->
+                                                            <form class="footer-form">
+                                                                <div class="row g-3">
+                                                                    <div class="col-md-6 col-6">
+                                                                        <label class="form-label"
+                                                                            for="body-region-footer">Region</label>
+                                                                        <select class="form-select"
+                                                                            id="body-region-footer">
+                                                                            <option value="">Select Region</option>
+                                                                            <option value="head_neck">Head &amp; Neck
+                                                                            </option>
+                                                                            <option value="chest">Chest</option>
+                                                                            <option value="abdomen">Abdomen</option>
+                                                                            <option value="pelvis">Pelvis</option>
+                                                                            <option value="left_upper_extremity">Left
+                                                                                Upper Extremity</option>
+                                                                            <option value="right_upper_extremity">Right
+                                                                                Upper Extremity</option>
+                                                                            <option value="left_lower_extremity">Left
+                                                                                Lower Extremity</option>
+                                                                            <option value="right_lower_extremity">Right
+                                                                                Lower Extremity</option>
+                                                                            <option value="back_region">Back Region
+                                                                            </option>
+                                                                        </select>
+                                                                    </div>
+                                                                    <div class="col-md-6 col-6">
+                                                                        <label class="form-label"
+                                                                            for="sub-region-footer">Sub Region</label>
+                                                                        <select class="form-select"
+                                                                            id="sub-region-footer">
+                                                                            <option value="">Select Sub Region</option>
+                                                                        </select>
+                                                                    </div>
+                                                                </div>
+                                                                <br>
+                                                                <div class="row g-2 justify-content-end">
+                                                                    <div class="col-6 col-lg-auto  ms-auto">
+                                                                        <button
+                                                                            class="btn btn-outline-secondary w-100">Cancel</button>
+                                                                    </div>
+                                                                    <div class="col-6 col-lg-auto">
+                                                                        <a href="../../add-new-wound-type.html">
+                                                                            <button type="reset"
+                                                                                class="btn btn-success w-100 next-btn">Next</button>
+                                                                        </a>
+                                                                    </div>
+                                                                </div>
+                                                            </form>
+
+                                                        </div>
+                                                    </div>
+                                                </footer>
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-                    <div class="col-lg-6 col-md-6 col-xl-6 col-sm-6 align-items-center">
-                        <div class="pb-2 border-bottom text-center mt-3">
-                            <strong>Click to Change Position &nbsp;&nbsp; <button id="orientation"
-                                    class="btn btn-success"><img src="orientation.svg" /> &nbsp;Anterior
-                                </button></strong>
-                        </div>
+                    <!-- 3D Avatar model popup end -->
 
-                        <footer class="footer container-xxl">
-                            <div class="row">
-                                <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
-                                    <!-- <h2 class="action-title">Create New Wound</h2> -->
-                                    <form class="footer-form">
-                                        <div class="row g-3">
-                                            <div class="col-md-6 col-6">
-                                                <label class="form-label" for="body-region-footer">Region</label>
-                                                <select class="form-select" id="body-region-footer">
-                                                    <option value="">Select Region</option>
-                                                    <option value="head_neck">Head &amp; Neck</option>
-                                                    <option value="chest">Chest</option>
-                                                    <option value="abdomen">Abdomen</option>
-                                                    <option value="pelvis">Pelvis</option>
-                                                    <option value="left_upper_extremity">Left Upper Extremity</option>
-                                                    <option value="right_upper_extremity">Right Upper Extremity</option>
-                                                    <option value="left_lower_extremity">Left Lower Extremity</option>
-                                                    <option value="right_lower_extremity">Right Lower Extremity</option>
-                                                    <option value="back_region">Back Region</option>
-                                                </select>
-                                            </div>
-                                            <div class="col-md-6 col-6">
-                                                <label class="form-label" for="sub-region-footer">Sub Region</label>
-                                                <select class="form-select" id="sub-region-footer">
-                                                    <option value="">Select Sub Region</option>
-                                                </select>
-                                            </div>
-                                        </div>
-                                        <br>
-                                        <div class="row g-2 justify-content-end">
-                                            <div class="col-6 col-lg-auto  ms-auto">
-                                                <button class="btn btn-outline-secondary w-100">Cancel</button>
-                                            </div>
-                                            <div class="col-6 col-lg-auto">
-                                                <a href="../../add-new-wound-type.html">
-                                                    <button type="reset"
-                                                        class="btn btn-success w-100 next-btn">Next</button>
-                                                </a>
-                                            </div>
-                                        </div>
-                                    </form>
-
-                                </div>
-                            </div>
-                        </footer>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+    <!-- 3D avatar popup end -->
+
 
 
 
@@ -1197,7 +1245,7 @@
                 ViewManager.changeOrientation('next');
             });
 
-            // Handle window resize
+            // Handle window resize and modal events
             window.addEventListener('resize', () => {
                 SceneManager.onWindowResize();
                 // Update camera aspect ratio on modal open
@@ -1205,6 +1253,13 @@
                     prevWidth = window.innerWidth;
                     setTimeout(SceneManager.onWindowResize, 100);
                 }
+            });
+
+            // Handle modal open/close
+            const modal = document.getElementById('avatar-popup');
+            modal.addEventListener('shown.bs.modal', () => {
+                SceneManager.onWindowResize();
+                setTimeout(SceneManager.onWindowResize, 100); // Additional resize after animation
             });
 
             // Trigger initial resize

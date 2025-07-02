@@ -117,7 +117,7 @@
               <div class="row mb-3">
                 <label class="col-4 col-md-4 col-lg-4 col-form-label">Date of Birth</label>
                 <div class="col-8 col-md-8 col-lg-8">
-                  <input type="date" class="form-control" >
+                  <input type="date" class="form-control">
                 </div>
               </div>
 
@@ -149,7 +149,7 @@
         <div class="modal-footer">
           <div class="container-xxl d-flex px-0">
             <div class="d-grid w-50 pe-2">
-              <button class="btn btn-outline-danger w-100"> Cancle</button>
+              <button class="btn btn-outline-danger w-100" data-bs-dismiss="modal"> Cancle</button>
             </div>
             <div class="d-grid w-50">
               <button class="btn btn-primary w-100"> Save Changes</button>
@@ -163,28 +163,54 @@
 
   <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
     <div class="container-xxl">
-      <a class="navbar-brand border-end pe-3" href="#">
+      <a class="navbar-brand border-end pe-3" href="index.html">
         <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
       </a>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-          <li class="nav-item"><a class="nav-link active" href="#"><i class="bi bi-person-fill"></i> Patients</a></li>
-          <li class="nav-item"><a class="nav-link" href="#"><i class="bi bi-images"></i> Assign</a></li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Manage</a>
+          <li class="nav-item">
+            <a class="nav-link px-3 active" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i>
+              Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i
+                class="bi bi-person-plus-fill"></i> Invite User</a>
+          </li>
+
+          <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+            <a class="nav-link ps-3 pe-2" href="manage.html"><i class="bi bi-person-fill-gear"></i>
+              Manage
+            </a>
+            <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-chevron-down transition-rotate"></i>
+            </a>
             <ul class="dropdown-menu">
-              <li><a class="dropdown-item" href="#">My Patients</a></li>
-              <li><a class="dropdown-item" href="#">All Patients</a></li>
-              <li><a class="dropdown-item" href="#">Access</a></li>
-              <li><a class="dropdown-item" href="#">Stats</a></li>
+              <li><a class="dropdown-item" href="manage.html#mypatients-tab">My Patients</a></li>
+              <li><a class="dropdown-item" href="manage.html#allpatients-tab">All Patients</a></li>
+              <li><a class="dropdown-item" href="manage.html#stats-tab">Stats</a></li>
+              <li><a class="dropdown-item" href="manage.html#access-tab">Access</a></li>
             </ul>
           </li>
-          <li class="nav-item dropdown">
-            <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">Settings</a>
+
+          <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+            <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
+              Settings
+            </a>
+            <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-chevron-down transition-rotate"></i>
+            </a>
             <ul class="dropdown-menu">
               <li><a class="dropdown-item" href="#">Application</a></li>
               <li><a class="dropdown-item" href="#">Connection</a></li>
-              <li><a class="dropdown-item" href="#">Log Out</a></li>
+              <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
             </ul>
           </li>
         </ul>
@@ -333,7 +359,7 @@
   </div>
   <!-- assign-photos-1 drawer end-->
 
-  <div class="container-xxl mt-4 mb-5 pb-5">
+  <div class="container-xxl mt-4">
     <div class="row">
       <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto">
         <!-- Tabs -->
@@ -353,412 +379,528 @@
         </ul>
 
         <!-- Tab Content -->
-        <div class="tab-content container-xxl mt-4 mb-5 pb-5" id="searchTabsContent">
+        <div class="tab-content container-xxl mt-4" id="searchTabsContent">
           <!-- true-wound Tab -->
           <div class="tab-pane fade show active" id="true-wound" role="tabpanel" aria-labelledby="true-wound-tab">
 
-            <div id="woundList">
-              <div class="list-group mb-2 wound-item" data-wound="wound1">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0 "
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom1"
-                        aria-controls="offcanvasBottom1">Wound #1</strong><br><small data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasBottom1" aria-controls="offcanvasBottom1">Sacrum<br>Pressure
-                        Injury</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
+            <div id="woundListWrapper" style="max-height: 70vh; overflow-y: auto;">
+              <div id="woundList">
+                <div class="list-group mb-2 wound-item" data-wound="wound1">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0 "
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom1"
+                          aria-controls="offcanvasBottom1">Wound #1</strong><br><small data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasBottom1" aria-controls="offcanvasBottom1">Sacrum<br>Pressure
+                          Injury</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
                       </div>
+                      <img src="assets/images/assign-img-1.png" class="rounded-end" style="width: 150px;"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom1" aria-controls="offcanvasBottom1">
                     </div>
-                    <img src="assets/images/assign-img-1.png" class="rounded-end" style="width: 150px;"
-                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom1" aria-controls="offcanvasBottom1">
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-              <!-- wound-1 drawer -->
-              <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom1"
-                aria-labelledby="offcanvasBottomLabel">
-                <div class="offcanvas-header d-flex justify-content-center p-0">
-                  <!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+
+                  </label>
+                </div>
+                <!-- wound-1 drawer -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom1"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="offcanvas-header d-flex justify-content-center p-0">
+                    <!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button> -->
-                  <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
-                </div>
-                <div class="container-xxl mt-4 minimal-tabs overflow-auto">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-body small">
-                        <div class="modal-body">
-                          <div class="">
-                            <div class="bg-light rounded border shadow-sm">
-                              <div class="row align-items-center">
-                                <!-- Text Section -->
-                                <div class="col-6 col-md-6">
-                                  <div class="ps-4">
-                                    <p class="mb-2 pt-2"><strong>Wound #1</strong></p>
-                                    <p class="mb-0">3/3/2025</p>
-                                    <p class="opacity-50 mb-0"><small>10:26:30 AM</small> </p>
-                                    <p class="opacity-50 mb-0"><small>Cart #10081929</small> </p>
+                    <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+                  </div>
+                  <div class="container-xxl mt-4 minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
+                              <div class="bg-light rounded border shadow-sm">
+                                <div class="row align-items-center">
+                                  <!-- Text Section -->
+                                  <div class="col-6 col-md-6">
+                                    <div class="ps-4">
+                                      <p class="mb-2 pt-2"><strong>Wound #1</strong></p>
+                                      <p class="mb-0">3/3/2025</p>
+                                      <p class="opacity-50 mb-0"><small>10:26:30 AM</small> </p>
+                                      <p class="opacity-50 mb-0"><small>Cart #10081929</small> </p>
+                                    </div>
+                                  </div>
+                                  <!-- Image Section -->
+                                  <div class="col-6 col-md-6">
+                                    <div class="text-center">
+                                      <img src="assets/images/assign-img-2.png" alt="hashtags-search2 Photo"
+                                        class="img-fluid">
+                                    </div>
                                   </div>
                                 </div>
-                                <!-- Image Section -->
-                                <div class="col-6 col-md-6">
-                                  <div class="text-center">
-                                    <img src="assets/images/assign-img-2.png" alt="hashtags-search2 Photo"
-                                      class="img-fluid">
-                                  </div>
+                              </div>
+                              <div>
+                                <div class="border-bottom p-3">
+                                  <strong>Location: </strong> Sacrum
                                 </div>
-                              </div>
-                            </div>
-                            <div>
-                              <div class="border-bottom p-3">
-                                <strong>Location: </strong> Sacrum
-                              </div>
-                              <div class="border-bottom p-3">
-                                <strong>Type: </strong> Pressure Injury
-                              </div>
-                              <!-- <div class="border-bottom text-danger  d-flex align-items-center p-3">
+                                <div class="border-bottom p-3">
+                                  <strong>Type: </strong> Pressure Injury
+                                </div>
+                                <!-- <div class="border-bottom text-danger  d-flex align-items-center p-3">
                           <div class="border border-danger px-2 rounded d-flex align-items-center">
                             <strong class="pe-2">Type: </strong> Pressure Injury <i
                               class="fs-4 bi bi-arrow-right-short ps-1"></i>
                           </div>
                         </div> -->
-                              <div class="border-bottom text-danger  d-flex align-items-center p-3">
-                                <div class="border border-danger px-2 rounded d-flex align-items-center">
-                                  <strong class="pe-2">Measurement: </strong> Missing <i
-                                    class="fs-4 bi bi-arrow-right-short ps-1"></i>
+                                <div class="border-bottom text-danger  d-flex align-items-center p-3">
+                                  <div class="border border-danger px-2 rounded d-flex align-items-center">
+                                    <strong class="pe-2">Measurement: </strong> Missing <i
+                                      class="fs-4 bi bi-arrow-right-short ps-1"></i>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="border-bottom p-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Note"
-                                      aria-controls="offcanvasBottom-Add-Note">+ Add Note</a></span>
-                                </div>
-                                <div class="mt-2">
-                                  <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
-                                  Slight decrease in wound size.
-                                </div>
-                                <div class="mt-2">
-                                  <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
-                                  Concern for necrotic ulcer with possible underlying infection.
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                  <strong>Hashtag: <small>#ulcer</small></strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Hashtag"
-                                      aria-controls="offcanvasBottom-Add-Hashtag">+ Add
-                                      Hashtag</a></span>
-                                </div>
-                              </div>
-                            </div>
-                            <footer class="fixed-bottom bg-white border-top">
-                              <div class="container-xxl">
-                                <div class="row">
-                                  <div
-                                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                                    <button class="btn mb-3 mb-sm-0 text-nowrap " data-bs-dismiss="offcanvas"> <i
-                                        class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
+                                <div class="border-bottom p-3">
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
+                                        class="text-decoration-none" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom-Add-Note"
+                                        aria-controls="offcanvasBottom-Add-Note">+ Add Note</a></span>
+                                  </div>
+                                  <div class="mt-2">
+                                    <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
+                                    Slight decrease in wound size.
+                                  </div>
+                                  <div class="mt-2">
+                                    <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
+                                    Concern for necrotic ulcer with possible underlying infection.
+                                  </div>
+                                  <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <strong>Hashtag: <small
+                                        class="ms-1 px-2 py-1 bg-light rounded">#ulcer</small></strong> <span
+                                      class="text-primary"><a href="" class="text-decoration-none"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-Add-Hashtag"
+                                        aria-controls="offcanvasBottom-Add-Hashtag">+ Add
+                                        Hashtag</a></span>
                                   </div>
                                 </div>
                               </div>
-                            </footer>
+                              <footer class="fixed-bottom bg-white border-top">
+                                <div class="container-xxl">
+                                  <div class="row">
+                                    <div
+                                      class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
+                                      <button class="btn mb-3 mb-sm-0 text-nowrap btn-light" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom-edit-wound-details"
+                                        aria-controls="offcanvasBottom-edit-wound-details"> <i
+                                          class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </footer>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
 
-              <!-- wound-1 drawer end-->
+                <!-- wound-1 drawer end-->
 
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2"
-                        aria-controls="offcanvasBottom2">Wound #2</strong><br><small data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom2">Left Leg<br><span
-                          class="text-danger">Type:
-                          Missing</span></small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2"
+                          aria-controls="offcanvasBottom2">Wound #2</strong><br><small data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom2">Left Leg<br><span
+                            class="text-danger">Type:
+                            Missing</span></small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/assign-img-2.png" class="rounded-end" style="width: 150px;"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom2">
+                      <div class="form-check position-absolute top-0 end-0 rounded">
+                        <span class="badge rounded text-bg-danger draggable" draggable="true" id="drag-text"
+                          data-text="Unmeasured">Unmeasured</span>
                       </div>
                     </div>
-                    <img src="assets/images/assign-img-2.png" class="rounded-end" style="width: 150px;"
-                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom2" aria-controls="offcanvasBottom2">
-                    <div class="form-check position-absolute top-0 end-0 rounded">
-                      <span class="badge rounded text-bg-danger draggable" draggable="true" id="drag-text"
-                        data-text="Unmeasured">Unmeasured</span>
-                    </div>
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-              <!-- wound-2 drawer -->
-              <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom2"
-                aria-labelledby="offcanvasBottomLabel">
-                <div class="offcanvas-header d-flex justify-content-center p-0">
-                  <!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                  </label>
+                </div>
+                <!-- wound-2 drawer -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom2"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="offcanvas-header d-flex justify-content-center p-0">
+                    <!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button> -->
-                  <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
-                </div>
+                    <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+                  </div>
 
-                <div class="container-xxl mt-4 minimal-tabs overflow-auto">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-body small">
-                        <div class="modal-body">
-                          <div class="">
-                            <div class="bg-light rounded border shadow-sm">
-                              <div class="row align-items-center">
-                                <!-- Text Section -->
-                                <div class="col-6 col-md-6">
-                                  <div class="ps-4">
-                                    <p class="mb-2 pt-2"><strong>Wound #2</strong></p>
-                                    <p class="mb-0">3/3/2025</p>
-                                    <p class="opacity-50 mb-0"><small>10:26:30 AM</small> </p>
-                                    <p class="opacity-50 mb-0"><small>Cart #10081929</small> </p>
+                  <div class="container-xxl mt-4 minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
+                              <div class="bg-light rounded border shadow-sm">
+                                <div class="row align-items-center">
+                                  <!-- Text Section -->
+                                  <div class="col-6 col-md-6">
+                                    <div class="ps-4">
+                                      <p class="mb-2 pt-2"><strong>Wound #2</strong></p>
+                                      <p class="mb-0">3/3/2025</p>
+                                      <p class="opacity-50 mb-0"><small>10:26:30 AM</small> </p>
+                                      <p class="opacity-50 mb-0"><small>Cart #10081929</small> </p>
+                                    </div>
                                   </div>
-                                </div>
-                                <!-- Image Section -->
-                                <div class="col-6 col-md-6">
-                                  <div class="text-center">
-                                    <img src="assets/images/assign-img-2.png" alt="hashtags-search2 Photo"
-                                      class="img-fluid">
+                                  <!-- Image Section -->
+                                  <div class="col-6 col-md-6">
+                                    <div class="text-center">
+                                      <img src="assets/images/assign-img-2.png" alt="hashtags-search2 Photo"
+                                        class="img-fluid">
+                                    </div>
                                   </div>
                                 </div>
                               </div>
+                              <div>
+                                <div class="border-bottom p-3">
+                                  <strong>Location: </strong> Left Leg
+                                </div>
+                                <div class="border-bottom text-danger  d-flex align-items-center p-3"
+                                  data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-typeMissing-wound2"
+                                  aria-controls="offcanvasBottom-typeMissing-wound2">
+                                  <div class="border border-danger px-2 rounded d-flex align-items-center">
+                                    <strong class="pe-2">Type: </strong> Missing <i
+                                      class="fs-4 bi bi-arrow-right-short ps-1"></i>
+                                  </div>
+                                </div>
+                                <div class="border-bottom text-danger  d-flex align-items-center p-3">
+                                  <div class="border border-danger px-2 rounded d-flex align-items-center">
+                                    <strong class="pe-2">Measurement: </strong> Missing <i
+                                      class="fs-4 bi bi-arrow-right-short ps-1"></i>
+                                  </div>
+                                </div>
+                                <div class="border-bottom p-3">
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
+                                        class="text-decoration-none" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom-Add-Note"
+                                        aria-controls="offcanvasBottom-Add-Note">+ Add Note</a></span>
+                                  </div>
+                                  <div class="mt-2">
+                                    <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
+                                    Slight decrease in wound size.
+                                  </div>
+                                  <div class="mt-2">
+                                    <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
+                                    Concern for necrotic ulcer with possible underlying infection.
+                                  </div>
+                                  <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <strong>Hashtag: <small
+                                        class="ms-1 px-2 py-1 bg-light rounded">#ulcer</small></strong> <span
+                                      class="text-primary"><a href="" class="text-decoration-none"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-Add-Hashtag"
+                                        aria-controls="offcanvasBottom-Add-Hashtag">+ Add
+                                        Hashtag</a></span>
+                                  </div>
+                                </div>
+                              </div>
+                              <footer class="fixed-bottom bg-white border-top">
+                                <div class="container-xxl">
+                                  <div class="row">
+                                    <div
+                                      class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
+                                      <button class="btn mb-3 mb-sm-0 text-nowrap btn-light" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom-edit-wound-details"
+                                        aria-controls="offcanvasBottom-edit-wound-details"> <i
+                                          class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </footer>
                             </div>
-                            <div>
-                              <div class="border-bottom p-3">
-                                <strong>Location: </strong> Left Leg
-                              </div>
-                              <div class="border-bottom text-danger  d-flex align-items-center p-3"
-                                data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-typeMissing-wound2"
-                                aria-controls="offcanvasBottom-typeMissing-wound2">
-                                <div class="border border-danger px-2 rounded d-flex align-items-center">
-                                  <strong class="pe-2">Type: </strong> Missing <i
-                                    class="fs-4 bi bi-arrow-right-short ps-1"></i>
-                                </div>
-                              </div>
-                              <div class="border-bottom text-danger  d-flex align-items-center p-3">
-                                <div class="border border-danger px-2 rounded d-flex align-items-center">
-                                  <strong class="pe-2">Measurement: </strong> Missing <i
-                                    class="fs-4 bi bi-arrow-right-short ps-1"></i>
-                                </div>
-                              </div>
-                              <div class="border-bottom p-3">
-                                <div class="d-flex justify-content-between align-items-center">
-                                  <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Note"
-                                      aria-controls="offcanvasBottom-Add-Note">+ Add Note</a></span>
-                                </div>
-                                <div class="mt-2">
-                                  <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
-                                  Slight decrease in wound size.
-                                </div>
-                                <div class="mt-2">
-                                  <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
-                                  Concern for necrotic ulcer with possible underlying infection.
-                                </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                  <strong>Hashtag: <small>#ulcer</small></strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Hashtag"
-                                      aria-controls="offcanvasBottom-Add-Hashtag">+ Add
-                                      Hashtag</a></span>
-                                </div>
-                              </div>
-                            </div>
-                            <footer class="fixed-bottom bg-white border-top">
-                              <div class="container-xxl">
-                                <div class="row">
-                                  <div
-                                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                                    <button class="btn mb-3 mb-sm-0 text-nowrap " data-bs-dismiss="offcanvas"> <i
-                                        class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
-                                  </div>
-                                </div>
-                              </div>
-                            </footer>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- type missing popup -->
-              <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-typeMissing-wound2"
-                aria-labelledby="offcanvasBottomLabel">
-                <div class="offcanvas-header border-bottom p-0">
-                  <h5 class="offcanvas-title" id="offcanvasBottomLabel">Edit Location & Type</h5>
-                  <button type="button" class="btn-close" data-bs-dismiss="offcanvas" aria-label="Close"></button>
-                </div>
-                <div class="container-xxl minimal-tabs overflow-auto">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-body small">
-                        <div class="modal-body">
-                          <div class="">
-                            <div class="mb-4 px-3">
-                              <label for="browser" class="form-label"><strong>Region</strong></label>
-                              <select class="form-select" id="regionSelect">
-                                <option selected="">Left Leg</option>
-                                <option value="">Right Leg </option>
-                              </select>
-                            </div>
-                            <div class="mb-4 px-3">
-                              <label for="browser" class="form-label"><strong>Type</strong></label>
-                              <select class="form-select" id="regionSelect">
-                                <option selected="">Select</option>
-                                <option value="">Ulcer</option>
-                                <option value="">Allergic Reaction</option>
-                                <option value="">Bite</option>
-                                <option value="">Burn</option>
-                                <option value="">Cellulitis</option>
-                              </select>
-                            </div>
-                            <footer class="fixed-bottom bg-white border-top">
-                              <div class="container-xxl">
-                                <div class="row">
-                                  <div
-                                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
-                                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button"
-                                      disabled>Save Changes</button>
-                                    <button class="btn btn-outline-danger text-nowrap" type="button">Cancel</button>
-                                  </div>
+                <!-- edit wound details popup -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-edit-wound-details"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="container-xxl minimal-tabs ">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-header border-bottom p-3">
+                          <h5 class="offcanvas-title" id="offcanvasBottomLabel">Edit Location & Type</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-xxl minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
+                              <div class="row mb-3">
+                                <label class="col-4 col-md-4 col-lg-4 col-form-label">Location</label>
+                                <div class="col-8 col-md-8 col-lg-8">
+                                  <input type="text" class="form-control" placeholder="lower Left Leg">
                                 </div>
                               </div>
-                            </footer>
+                              <div class="row mb-3">
+                                <label class="col-4 col-md-4 col-lg-4 col-form-label"> Type</label>
+                                <div class="col-8 col-md-8 col-lg-8">
+                                  <input type="text" class="form-control" placeholder="Necrotic Ulcer">
+                                </div>
+                              </div>
+                              <footer class="fixed-bottom bg-white border-top">
+                                <div class="container-xxl">
+                                  <div class="row">
+                                    <div
+                                      class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+                                      <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap"
+                                        type="button">Save Changes</button>
+                                      <button class="btn btn-outline-danger text-nowrap" type="button">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </footer>
+                            </div>
                           </div>
                         </div>
                       </div>
                     </div>
                   </div>
                 </div>
-              </div>
-              <!-- type missing popup end -->
-              <!-- wound-2 drawer end-->
+                <!-- edit wound details popup end -->
+                <!-- type missing popup -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-typeMissing-wound2"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="container-xxl minimal-tabs ">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-header border-bottom p-3">
 
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom3"
-                        aria-controls="offcanvasBottom3">Wound #3</strong><br><small data-bs-toggle="offcanvas"
-                        data-bs-target="#offcanvasBottom3" aria-controls="offcanvasBottom3">Roght Foot<br>Necrotic
-                        Ulcer</small>
-                      <!-- <div>                                          
+                          <h5 class="offcanvas-title" id="offcanvasBottomLabel">Edit Wound Details</h5>
+                          <button type="button" class="btn-close" data-bs-dismiss="offcanvas"
+                            aria-label="Close"></button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="container-xxl minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
+                              <div class="mb-4 px-3">
+                                <label for="browser" class="form-label"><strong>Region</strong></label>
+                                <select class="form-select" id="regionSelect">
+                                  <option selected="">Left Leg</option>
+                                  <option value="">Right Leg </option>
+                                </select>
+                              </div>
+                              <div class="mb-4 px-3">
+                                <label for="browser" class="form-label"><strong>Type</strong></label>
+                                <select class="form-select" id="regionSelect">
+                                  <option selected="">Select</option>
+                                  <option value="">Ulcer</option>
+                                  <option value="">Allergic Reaction</option>
+                                  <option value="">Bite</option>
+                                  <option value="">Burn</option>
+                                  <option value="">Cellulitis</option>
+                                </select>
+                              </div>
+                              <footer class="fixed-bottom bg-white border-top">
+                                <div class="container-xxl">
+                                  <div class="row">
+                                    <div
+                                      class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+                                      <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap"
+                                        type="button">Save Changes</button>
+                                      <button class="btn btn-outline-danger text-nowrap" type="button">Cancel</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </footer>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- type missing popup end -->
+                <!-- wound-2 drawer end-->
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom3"
+                          aria-controls="offcanvasBottom3">Wound #3</strong><br><small data-bs-toggle="offcanvas"
+                          data-bs-target="#offcanvasBottom3" aria-controls="offcanvasBottom3">Right Foot<br>Necrotic
+                          Ulcer</small>
+                        <!-- <div>                                          
                         <button class="btn bg-danger btn-sm me-2 rounded px-3">                        
                           <span>ref</span>
                         </button>
                       </div> -->
-                      <div class="mt-1">
-                        <div class="form-check position-absolute ref-txt">
-                          <span class="badge rounded draggable text-black bg-white py-0 px-2 border border-danger"
-                            draggable="true" id="drag-text" data-text="Unmeasured">ref</span>
+                        <div class="mt-1">
+                          <div class="form-check position-absolute ref-txt">
+                            <span class="badge rounded draggable text-black bg-white py-0 px-2 border border-danger"
+                              draggable="true" id="drag-text" data-text="Unmeasured">ref</span>
+                          </div>
+                          <button class="btn bg-danger btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
                         </div>
-                        <button class="btn bg-danger btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
                       </div>
+                      <img src="assets/images/assign-img-3.png" class="rounded-end" style="width: 150px;"
+                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom3" aria-controls="offcanvasBottom3">
                     </div>
-                    <img src="assets/images/assign-img-3.png" class="rounded-end" style="width: 150px;"
-                      data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom3" aria-controls="offcanvasBottom3">
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-              <!-- wound-3 drawer -->
-              <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom3"
-                aria-labelledby="offcanvasBottomLabel">
-                <div class="offcanvas-header d-flex justify-content-center p-0">
-                  <!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
+                  </label>
+                </div>
+                <!-- wound-3 drawer -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom3"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="offcanvas-header d-flex justify-content-center p-0">
+                    <!-- <h5 class="offcanvas-title" id="offcanvasBottomLabel">Offcanvas bottom</h5>
                   <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"
                     aria-label="Close"></button> -->
-                  <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
-                </div>
+                    <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+                  </div>
 
-                <div class="container-xxl mt-4 minimal-tabs overflow-auto">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-body small">
-                        <div class="modal-body">
-                          <div class="">
-                            <div class="bg-light rounded border shadow-sm">
-                              <div class="row align-items-center">
-                                <!-- Text Section -->
-                                <div class="col-6 col-md-6">
-                                  <div class="ps-4">
-                                    <p class="mb-2 pt-2"><strong>Wound #3</strong></p>
-                                    <p class="mb-0">3/3/2025</p>
-                                    <p class="opacity-50 mb-0"><small>10:26:30 AM</small> </p>
-                                    <p class="opacity-50 mb-0"><small>Cart #10081929</small> </p>
+                  <div class="container-xxl mt-4 minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
+                              <div class="bg-light rounded border shadow-sm">
+                                <div class="row align-items-center">
+                                  <!-- Text Section -->
+                                  <div class="col-6 col-md-6">
+                                    <div class="ps-4">
+                                      <p class="mb-2 pt-2"><strong>Wound #3</strong></p>
+                                      <p class="mb-0">3/3/2025</p>
+                                      <p class="opacity-50 mb-0"><small>10:26:30 AM</small> </p>
+                                      <p class="opacity-50 mb-0"><small>Cart #10081929</small> </p>
+                                    </div>
+                                  </div>
+                                  <!-- Image Section -->
+                                  <div class="col-6 col-md-6">
+                                    <div class="text-center">
+                                      <img src="assets/images/assign-img-2.png" alt="hashtags-search2 Photo"
+                                        class="img-fluid">
+                                    </div>
                                   </div>
                                 </div>
-                                <!-- Image Section -->
-                                <div class="col-6 col-md-6">
-                                  <div class="text-center">
-                                    <img src="assets/images/assign-img-2.png" alt="hashtags-search2 Photo"
-                                      class="img-fluid">
-                                  </div>
+                              </div>
+                              <div>
+                                <div class="border-bottom p-3">
+                                  <strong>Location: </strong> Right Foot
                                 </div>
-                              </div>
-                            </div>
-                            <div>
-                              <div class="border-bottom p-3">
-                                <strong>Location: </strong> Roght Foot
-                              </div>
-                              <div class="border-bottom p-3">
-                                <strong>Type: </strong> Necrotic Ulcer
-                              </div>
-                              <!-- <div class="border-bottom text-danger  d-flex align-items-center p-3">
+                                <div class="border-bottom p-3">
+                                  <strong>Type: </strong> Necrotic Ulcer
+                                </div>
+                                <!-- <div class="border-bottom text-danger  d-flex align-items-center p-3">
                           <div class="border border-danger px-2 rounded d-flex align-items-center">
                             <strong class="pe-2">Type: </strong> Pressure Injury <i
                               class="fs-4 bi bi-arrow-right-short ps-1"></i>
                           </div>
                         </div> -->
-                              <div class="border-bottom text-danger  d-flex align-items-center p-3">
-                                <div class="border border-danger px-2 rounded d-flex align-items-center">
-                                  <strong class="pe-2">Measurement: </strong> Missing <i
-                                    class="fs-4 bi bi-arrow-right-short ps-1"></i>
+                                <div class="border-bottom text-danger  d-flex align-items-center p-3">
+                                  <div class="border border-danger px-2 rounded d-flex align-items-center">
+                                    <strong class="pe-2">Measurement: </strong> Missing <i
+                                      class="fs-4 bi bi-arrow-right-short ps-1"></i>
+                                  </div>
+                                </div>
+                                <div class="border-bottom p-3">
+                                  <div class="d-flex justify-content-between align-items-center">
+                                    <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
+                                        class="text-decoration-none" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom-Add-Note"
+                                        aria-controls="offcanvasBottom-Add-Note">+ Add Note</a></span>
+                                  </div>
+                                  <div class="mt-2">
+                                    <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
+                                    Slight decrease in wound size.
+                                  </div>
+                                  <div class="mt-2">
+                                    <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
+                                    Concern for necrotic ulcer with possible underlying infection.
+                                  </div>
+                                  <div class="d-flex justify-content-between align-items-center mt-3">
+                                    <strong>Hashtag: <small
+                                        class="ms-1 px-2 py-1 bg-light rounded">#ulcer</small></strong> <span
+                                      class="text-primary"><a href="" class="text-decoration-none"
+                                        data-bs-toggle="offcanvas" data-bs-target="#offcanvasBottom-Add-Hashtag"
+                                        aria-controls="offcanvasBottom-Add-Hashtag">+ Add
+                                        Hashtag</a></span>
+                                  </div>
                                 </div>
                               </div>
+                              <footer class="fixed-bottom bg-white border-top">
+                                <div class="container-xxl">
+                                  <div class="row">
+                                    <div
+                                      class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
+                                      <button class="btn mb-3 mb-sm-0 text-nowrap btn-light" data-bs-toggle="offcanvas"
+                                        data-bs-target="#offcanvasBottom-edit-wound-details"
+                                        aria-controls="offcanvasBottom-edit-wound-details"> <i
+                                          class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
+                                    </div>
+                                  </div>
+                                </div>
+                              </footer>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- wound-3 drawer end-->
+                <!-- add note popup -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-Add-Note"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="offcanvas-header p-0">
+                    <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+                  </div>
+                  <div class="container-xxl minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
                               <div class="border-bottom p-3">
                                 <div class="d-flex justify-content-between align-items-center">
                                   <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Note"
-                                      aria-controls="offcanvasBottom-Add-Note">+ Add Note</a></span>
+                                      class="text-decoration-none" data-bs-dismiss="offcanvas">x Cancel Note</a> </span>
+
                                 </div>
                                 <div class="mt-2">
                                   <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
@@ -768,67 +910,60 @@
                                   <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
                                   Concern for necrotic ulcer with possible underlying infection.
                                 </div>
-                                <div class="d-flex justify-content-between align-items-center mt-3">
-                                  <strong>Hashtag: <small>#ulcer</small></strong> <span class="text-primary"><a href=""
-                                      class="text-decoration-none" data-bs-toggle="offcanvas"
-                                      data-bs-target="#offcanvasBottom-Add-Hashtag"
-                                      aria-controls="offcanvasBottom-Add-Hashtag">+ Add
-                                      Hashtag</a></span>
+                                <div class="mt-2">
+                                  <small class="opacity-50">3/3/2025 - 10:26:30 AM </small>
+                                </div>
+                                <div class="mb-3">
+                                  <textarea class="form-control" id="reportNotes" rows="5"
+                                    placeholder="Type clinical note"></textarea>
                                 </div>
                               </div>
                             </div>
-                            <footer class="fixed-bottom bg-white border-top">
-                              <div class="container-xxl">
-                                <div class="row">
-                                  <div
-                                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column justify-content-end py-2">
-                                    <button class="btn mb-3 mb-sm-0 text-nowrap " data-bs-dismiss="offcanvas"> <i
-                                        class="fs-4 bi bi-person-bounding-box pe-2"></i> Edit Location & Type</button>
-                                  </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <!-- add note popup end -->
+                <!-- add hashtag popup -->
+                <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-Add-Hashtag"
+                  aria-labelledby="offcanvasBottomLabel">
+                  <div class="offcanvas-header p-0">
+                    <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
+                  </div>
+                  <div class="container-xxl minimal-tabs overflow-auto">
+                    <div class="row">
+                      <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
+                        <div class="offcanvas-body small">
+                          <div class="modal-body">
+                            <div class="">
+                              <div class="border-bottom p-3 pt-0">
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <strong>Hashtag: </strong> <span class="text-primary"><a href=""
+                                      class="text-decoration-none" data-bs-dismiss="offcanvas">x Cancel Hashtag</a>
+                                  </span>
+                                </div>
+                                <div class="mb-3 mt-2">
+                                  <textarea class="form-control" id="reportNotes" rows="4"
+                                    placeholder="#ulcer"></textarea>
+                                </div>
+                                <div class="d-flex justify-content-between align-items-center">
+                                  <small class="me-3 px-2 py-1 rounded bg-light">#ulcer </small>
+                                  <button class="btn bg-success text-white btn-sm me-2 rounded px-3">
+                                    Save
+                                  </button>
+                                </div>
+                                <div class="mt-4">
+                                  <strong>Existing Hashtags: </strong>
+                                </div>
+                                <div class="mt-2">
+                                  <small class="me-3 px-2 py-1 rounded bg-light">#diabetes </small>
+                                  <small class="me-3 px-2 py-1 rounded bg-light">#newpatient </small>
+                                  <small class="me-3 px-2 py-1 rounded bg-light">#acne </small>
+                                  <small class="me-3 px-2 py-1 rounded bg-light">#karla </small>
                                 </div>
                               </div>
-                            </footer>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- wound-3 drawer end-->
-              <!-- add note popup -->
-              <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-Add-Note"
-                aria-labelledby="offcanvasBottomLabel">
-                <div class="offcanvas-header p-0">
-                  <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
-                </div>
-                <div class="container-xxl minimal-tabs overflow-auto">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-body small">
-                        <div class="modal-body">
-                          <div class="">
-                            <div class="border-bottom p-3">
-                              <div class="d-flex justify-content-between align-items-center">
-                                <strong>Clinical Notes: </strong> <span class="text-primary"><a href=""
-                                    class="text-decoration-none" data-bs-dismiss="offcanvas">x Cancel Note</a> </span>
-
-                              </div>
-                              <div class="mt-2">
-                                <small class="opacity-50">3/10/2025 - 8:10:00 AM </small><br>
-                                Slight decrease in wound size.
-                              </div>
-                              <div class="mt-2">
-                                <small class="opacity-50">3/3/2025 - 10:26:30 AM </small><br>
-                                Concern for necrotic ulcer with possible underlying infection.
-                              </div>
-                              <div class="mt-2">
-                                <small class="opacity-50">3/3/2025 - 10:26:30 AM </small>
-                              </div>
-                              <div class="mb-3">
-                                <textarea class="form-control" id="reportNotes" rows="5"
-                                  placeholder="Type clinical note"></textarea>
-                              </div>
                             </div>
                           </div>
                         </div>
@@ -836,66 +971,34 @@
                     </div>
                   </div>
                 </div>
+                <!-- add hashtag popup end -->
               </div>
-              <!-- add note popup end -->
-              <!-- add hashtag popup -->
-              <div class="offcanvas offcanvas-bottom partial" tabindex="-1" id="offcanvasBottom-Add-Hashtag"
-                aria-labelledby="offcanvasBottomLabel">
-                <div class="offcanvas-header p-0">
-                  <div class="drawer-pill" data-bs-dismiss="offcanvas" title="Close Drawer"></div>
-                </div>
-                <div class="container-xxl minimal-tabs overflow-auto">
-                  <div class="row">
-                    <div class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto p-0">
-                      <div class="offcanvas-body small">
-                        <div class="modal-body">
-                          <div class="">
-                            <div class="border-bottom p-3 pt-0">
-                              <div class="d-flex justify-content-between align-items-center">
-                                <strong>Hashtag: </strong> <span class="text-primary"><a href=""
-                                    class="text-decoration-none" data-bs-dismiss="offcanvas">x Cancel Hashtag</a>
-                                </span>
-                              </div>
-                              <div class="mb-3 mt-2">
-                                <textarea class="form-control" id="reportNotes" rows="4"
-                                  placeholder="#ulcer"></textarea>
-                              </div>
-                              <div class="d-flex justify-content-between align-items-center">
-                                <small class="pe-3">#ulcer </small>
-                                <button class="btn bg-success text-white btn-sm me-2 rounded px-3">
-                                  Save
-                                </button>
-                              </div>
-                              <div class="mt-4">
-                                <strong>Existing Hashtags: </strong>
-                              </div>
-                              <div class="mt-2">
-                                <small class="pe-3">#diabetes </small>
-                                <small class="pe-3">#newpatient </small>
-                                <small class="pe-3">#acne </small>
-                                <small class="pe-3">#karla </small>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-              <!-- add hashtag popup end -->
             </div>
 
-            <footer class="fixed-bottom bg-white border-top">
+            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
               <div class="container-xxl">
                 <div class="row">
                   <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Wound <i class="fs-4 bi bi-person-standing"></i></button>
-                    <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button>
+                      Wound <i class="bi bi-person-standing"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
+              <div class="container-xxl">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
+                      New
+                      Wound <i class="bi bi-person-standing"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
                   </div>
                 </div>
               </div>
@@ -905,92 +1008,100 @@
 
           <!-- true-photo Tab -->
           <div class="tab-pane fade" id="true-photo" role="tabpanel" aria-labelledby="true-photo-tab">
-            <div id="woundList">
-              <div class="list-group mb-2 wound-item" data-wound="wound1">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0 "
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Subject #1</strong><br><small>Right Knee<br>Abrasion</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <img src="assets/images/true-photo-1.png" class="rounded-end" style="width: 150px;">
-                  </div>
 
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Issue #2</strong><br><small>Left Knee<br><span class="text-danger">Type:
-                          Missing</span></small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
+            <div id="woundListWrapper" style="max-height: 70vh; overflow-y: auto;">
+              <div id="woundList">
+                <div class="list-group mb-2 wound-item" data-wound="wound1">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0 "
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Problem #1</strong><br><small>Right Knee<br>Abrasion</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
                       </div>
+                      <img src="assets/images/true-photo-1.png" class="rounded-end" style="width: 150px;">
                     </div>
-                    <img src="assets/images/true-photo-2.png" class="rounded-end" style="width: 150px;">
-                    <!-- <div class="form-check position-absolute top-0 end-0 rounded">
+                  </label>
+                </div>
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Problem #2</strong><br><small>Left Knee<br><span
+                            class="text-danger">Type:
+                            Missing</span></small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/true-photo-2.png" class="rounded-end" style="width: 150px;">
+                      <!-- <div class="form-check position-absolute top-0 end-0 rounded">
                       <span class="badge rounded text-bg-danger draggable" draggable="true" id="drag-text" data-text="Unmeasured">Unmeasured</span>
                     </div> -->
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Condition #3</strong><br><small>Left Lower Leg<br>Lesion</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
-                      </div>
                     </div>
-                    <img src="assets/images/true-photo-3.png" class="rounded-end" style="width: 150px;">
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
+                  </label>
+                </div>
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Problem #3</strong><br><small>Left Lower Leg<br>Lesion</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/true-photo-3.png" class="rounded-end" style="width: 150px;">
+                    </div>
+                  </label>
+                </div>
               </div>
             </div>
 
-            <footer class="fixed-bottom bg-white border-top">
+            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
               <div class="container-xxl">
                 <div class="row">
                   <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Subject <i class="fs-4 bi bi-person-fill"></i></button>
-                    <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button>
+                      Problem <i class="bi bi-person-fill"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
+              <div class="container-xxl">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
+                      New
+                      Subject <i class="bi bi-person-fill"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Photo <i class="fs-4 bi bi-camera-fill ps-2"></i></button> -->
                   </div>
                 </div>
               </div>
@@ -999,96 +1110,104 @@
 
           <!-- true-video Tab -->
           <div class="tab-pane fade" id="true-video" role="tabpanel" aria-labelledby="true-video-tab">
-            <div id="woundList">
-              <div class="list-group mb-2 wound-item" data-wound="wound1">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0 "
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Video #1</strong><br><small>Left Foot<br>Pressure Injury</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera-video text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
-                      </div>
-                    </div>
-                    <img src="assets/images/true-video-1.png" class="rounded-end" style="width: 150px;">
-                  </div>
 
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Video #2</strong><br><small>Left Lower Leg<br>Necrotic Ulcer</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera-video text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
+            <div id="woundListWrapper" style="max-height: 70vh; overflow-y: auto;">
+              <div id="woundList">
+                <div class="list-group mb-2 wound-item" data-wound="wound1">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0 "
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Video #1</strong><br><small>Left Foot<br>Pressure Injury</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera-video text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
                       </div>
+                      <img src="assets/images/true-video-1.png" class="rounded-end" style="width: 150px;">
                     </div>
-                    <img src="assets/images/true-video-2.png" class="rounded-end" style="width: 150px;">
-                    <!-- <div class="form-check position-absolute top-0 end-0 rounded">
+                  </label>
+                </div>
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Video #2</strong><br><small>Left Lower Leg<br>Necrotic Ulcer</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera-video text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/true-video-2.png" class="rounded-end" style="width: 150px;">
+                      <!-- <div class="form-check position-absolute top-0 end-0 rounded">
                       <span class="badge rounded text-bg-danger draggable" draggable="true" id="drag-text" data-text="Unmeasured">Unmeasured</span>
                     </div> -->
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
-              </div>
-
-              <div class="list-group mb-2 wound-item" data-wound="wound2">
-                <label
-                  class="list-group-item list-group-item-action position-relative mb-2 border-2 border-white rounded p-0"
-                  onclick="toggleWound(this)">
-                  <div class="d-flex justify-content-between border rounded">
-                    <div class="p-3"><strong>Video #3</strong><br><small>Right Foot<br>Necrotic Ulcer</small>
-                      <div class="mt-1">
-                        <button class="btn bg-primary btn-sm me-2 rounded px-3">
-                          <i class="d-block bi bi-camera-video text-white"></i>
-                        </button>
-                        <button class="btn btn-outline-primary btn-sm rounded px-3">
-                          <i class="d-block bi bi-graph-up"></i>
-                        </button>
-                      </div>
                     </div>
-                    <img src="assets/images/true-video-3.png" class="rounded-end" style="width: 150px;">
-                  </div>
-                  <span class="checkmark-icon position-absolute top-0 end-0 translate-middle-y d-none">
-                    <i class="bi bi-check-circle-fill text-success rounded-circle bg-white"></i>
-                  </span>
-                </label>
+                  </label>
+                </div>
+
+                <div class="list-group mb-2 wound-item" data-wound="wound2">
+                  <label
+                    class="list-group-item list-group-item-action position-relative mb-2 border-0 border-white rounded p-0"
+                    onclick="toggleWound(this)">
+                    <div class="d-flex justify-content-between border rounded">
+                      <div class="p-3"><strong>Video #3</strong><br><small>Right Foot<br>Necrotic Ulcer</small>
+                        <div class="mt-1">
+                          <button class="btn bg-primary btn-sm me-2 rounded px-3">
+                            <i class="d-block bi bi-camera-video text-white"></i>
+                          </button>
+                          <button class="btn btn-outline-primary btn-sm rounded px-3">
+                            <i class="d-block bi bi-graph-up"></i>
+                          </button>
+                        </div>
+                      </div>
+                      <img src="assets/images/true-video-3.png" class="rounded-end" style="width: 150px;">
+                    </div>
+                  </label>
+                </div>
               </div>
             </div>
-
-            <footer class="fixed-bottom bg-white border-top">
+            <!-- Sticky Footer -->
+            <footer class="bg-white border-top sticky-xs-bottom d-none d-xl-block">
               <div class="container-xxl">
                 <div class="row">
                   <div
-                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-end py-2">
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
                     <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
                       New
-                      Video &nbsp<i class="fs-4 bi bi-camera-video"></i></button>
-                    <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
-                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button>
+                      Video &nbsp<i class="bi bi-camera-video"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button> -->
+                  </div>
+                </div>
+              </div>
+            </footer>
+            <footer class="bg-white border-top fixed-bottom sticky-xs-bottom d-xl-none">
+              <div class="container-xxl">
+                <div class="row">
+                  <div
+                    class="col-sm-12 col-md-10 col-lg-8 col-xl-6 col-xxl-6 mx-auto d-flex flex-column flex-sm-row justify-content-center py-2">
+                    <button id="" class="btn btn-primary mb-3 mb-sm-0 me-sm-2 text-nowrap" type="button" disabled>Add
+                      New
+                      Video &nbsp<i class="bi bi-camera-video"></i></button>
+                    <!-- <button class="btn btn-outline-dark text-nowrap d-flex justify-content-center align-items-center"
+                      type="button">New Video <i class="fs-4 bi bi-camera-video-fill ps-2"></i></button> -->
                   </div>
                 </div>
               </div>
             </footer>
           </div>
+
         </div>
       </div>
     </div>
@@ -1112,6 +1231,21 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 
   <!-- JavaScript -->
+
+  <script>
+    // sticky bottom
+    document.addEventListener("DOMContentLoaded", function () {
+      const items = document.querySelectorAll("#woundList .list-group");
+      const footer = document.getElementById("stickyFooter");
+
+      if (items.length > 3) {
+        footer.classList.remove("d-none");
+      } else {
+        footer.classList.add("d-none");
+      }
+    });
+  </script>
+
   <script>
     let selectedItem = null;
     let currentTab = "problem";

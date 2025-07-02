@@ -22,51 +22,66 @@
     </div>
   </nav>
 
- <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
-        <div class="container-xxl">
-            <a class="navbar-brand border-end pe-3" href="index.html">
-                <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+  <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
+    <div class="container-xxl">
+      <a class="navbar-brand border-end pe-3" href="index.html">
+        <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
+      </a>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link px-3 active" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i>
+              Patients</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="new-patient.html"><i class="bi bi-plus-lg"></i> Add Patient</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link px-3" href="#" data-bs-toggle="offcanvas" data-bs-target="#bottomDrawer4"><i
+                class="bi bi-person-plus-fill"></i> Invite User</a>
+          </li>
+
+          <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+            <a class="nav-link ps-3 pe-2" href="manage.html"><i class="bi bi-person-fill-gear"></i>
+              Manage
             </a>
-            <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                    <li class="nav-item">
-                        <a class="nav-link" aria-current="page" href="index.html"><i class="bi bi-person-fill"></i> Patients</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="assign-photos-selected.html"><i class="bi bi-images"></i> Assign</a>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Manage
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="index.html">My Patients</a></li>
-                            <li><a class="dropdown-item" href="index.html">All Patients</a></li>
-                            <li><a class="dropdown-item" href="#">Access</a></li>
-                            <li><a class="dropdown-item" href="#">Stats</a></li>
+            <a class="nav-link dropdown-toggle-icon ps-0 pe-1" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-chevron-down transition-rotate"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="manage.html#mypatients-tab">My Patients</a></li>
+              <li><a class="dropdown-item" href="manage.html#allpatients-tab">All Patients</a></li>
+              <li><a class="dropdown-item" href="manage.html#stats-tab">Stats</a></li>
+              <li><a class="dropdown-item" href="manage.html#access-tab">Access</a></li>
+            </ul>
+          </li>
 
-                        </ul>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="settings.html" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            Settings
-                        </a>
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#">Application</a></li>
-                            <li><a class="dropdown-item" href="#">Connection</a></li>
-                            <li><a class="dropdown-item" href="#">Log Out</a></li>
-
-                        </ul>
-                    </li>
-
-                </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-dark" type="submit">Search</button>
-                </form>
-            </div>
-        </div>
-    </nav>
+          <li class="nav-item dropdown custom-dropdown d-flex align-items-center">
+            <a class="nav-link ps-3 pe-2" href="settings.html"><i class="bi bi-gear-fill"></i>
+              Settings
+            </a>
+            <a class="nav-link dropdown-toggle-icon p-0 pe-1" href="#" role="button" data-bs-toggle="dropdown"
+              aria-expanded="false">
+              <i class="bi bi-chevron-down transition-rotate"></i>
+            </a>
+            <ul class="dropdown-menu">
+              <li><a class="dropdown-item" href="settings.html#patients-tab">Application</a></li>
+              <li><a class="dropdown-item" href="settings.html#hashtags-tab">Connection</a></li>
+              <li><a class="dropdown-item" href="log-in-account.html">Log Out</a></li>
+            </ul>
+          </li>
+        </ul>
+        <form class="d-flex" role="search">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-dark" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
   <div id="selection-message" class="mb-2 text-center text-white bg-success" style="display: none;">
     <strong id="selection-count">0 Photos Assigned</strong>
@@ -97,7 +112,9 @@
               <div class="row g-2">
 
                 <div class="col-6 col-md-4 position-relative">
-                  <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
+                  <div
+                    class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                    onclick="toggleCheckbox(this, event)">
                     <img src="assets/images/assign-img-1.png" class="img-fluid w-100">
                     <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
                       <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
@@ -106,7 +123,9 @@
                 </div>
 
                 <div class="col-6 col-md-4 position-relative">
-                  <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
+                  <div
+                    class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                    onclick="toggleCheckbox(this, event)">
                     <img src="assets/images/assign-img-2.png" class="img-fluid w-100">
                     <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
                       <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
@@ -115,7 +134,9 @@
                 </div>
 
                 <div class="col-6 col-md-4 position-relative">
-                  <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
+                  <div
+                    class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                    onclick="toggleCheckbox(this, event)">
                     <img src="assets/images/assign-img-3.png" class="img-fluid w-100">
                     <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
                       <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
@@ -133,7 +154,9 @@
               <div class="row g-2">
 
                 <div class="col-6 col-md-4 position-relative">
-                  <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
+                  <div
+                    class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                    onclick="toggleCheckbox(this, event)">
                     <img src="assets/images/assign-img-4.png" class="img-fluid w-100">
                     <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
                       <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
@@ -142,7 +165,9 @@
                 </div>
 
                 <div class="col-6 col-md-4 position-relative">
-                  <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
+                  <div
+                    class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                    onclick="toggleCheckbox(this, event)">
                     <img src="assets/images/assign-img-5.png" class="img-fluid w-100">
                     <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
                       <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
@@ -151,7 +176,9 @@
                 </div>
 
                 <div class="col-6 col-md-4 position-relative">
-                  <div class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden" onclick="toggleCheckbox(this, event)">
+                  <div
+                    class="image-wrapper position-relative border border-2 border-transparent rounded overflow-hidden"
+                    onclick="toggleCheckbox(this, event)">
                     <img src="assets/images/assign-img-6.png" class="img-fluid w-100">
                     <div class="form-check position-absolute bottom-0 end-0 m-1 p-1 rounded">
                       <input class="form-check-input" type="checkbox" onchange="onCheckboxChange(this)">
