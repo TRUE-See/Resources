@@ -554,3 +554,11 @@ textarea {
   content: "\f586";
   color: #2196F3;
 }
+
+.nav-tabs{    flex-wrap: nowrap;
+    white-space: nowrap;
+    overflow-x: auto;
+    overflow-y: hidden;
+  padding: 0px 10px;
+      column-gap: 5px;
+  }
