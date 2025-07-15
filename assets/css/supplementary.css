@@ -622,3 +622,14 @@ ul.wounds-list li:hover{
 .form-check-input{
   border-color: #777 !important;
   }
+
+  span.invite-user-badge {
+    display: inline-block;
+    border: 1px #fff solid;
+    padding: 4px;
+    border-radius: 5px;
+    width: 48px;
+    font-size: 0.8em;
+    line-height: 13px;
+    font-weight: 500;
+}
