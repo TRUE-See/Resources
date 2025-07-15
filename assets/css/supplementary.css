@@ -517,7 +517,6 @@ textarea {
 }
 
 
-
 .star-toggle {
   appearance: none;
   -webkit-appearance: none;
@@ -561,4 +560,61 @@ textarea {
     overflow-y: hidden;
   padding: 0px 10px;
       column-gap: 5px;
+  }
+
+
+/******border-color-and-list-item-spacing-update******/
+
+.list-group-item:hover,
+.list-group-item .bg-light:hover {
+  background-color: #ececec !important;
+}
+
+.list-group {
+  border: none !important;
+  border-color: #ccc !important;
+}
+
+.list-group-item {
+  margin: 5px 0px;
+  border: 1px solid #ccc !important;
+  border-radius: 5px !important;
+}
+
+.list-group-item div div:nth-child(1) {
+  display: block;
+  width: 100%;
+}
+
+/* Only update existing border colors */
+.border,
+.nav-tabs .nav-item.show .nav-link,
+.nav-tabs .nav-link.active,
+.form-control {
+  border-color: #ccc !important;
+}
+
+.nav-tabs {
+  padding-top: 2px;
+}
+
+.list-group-item a {
+  display: block;
+  width: 100%;
+}
+
+.wound-item .list-group-item{
+border: none !important;
+margin: 0px;
+border-color: #ccc !important;
+}
+
+ul.wounds-list li {
+    border: 1px #ccc solid;
+    border-radius: 5px;
+    padding-left: 13px;
+    margin-bottom: 10px;
+}
+ul.wounds-list li:hover{
+   background-color: #ececec !important;
   }

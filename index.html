@@ -255,11 +255,13 @@
                                 <div class="px-3">
                                     <div class="row my-3">
                                         <div class="col-5 col-sm-5 col-md-4">
+                                            <label for="startDate"><strong>Start Date</strong></label>
                                             <input type="date" class="form-control">
                                         </div>
                                         <span class="col-2 col-sm-2 col-md-4 col-form-label text-center"><i
                                                 class="bi bi-arrow-right-short"></i></span>
                                         <div class="col-5 col-sm-5 col-md-4">
+                                            <label for="startDate"><strong>End Date</strong></label>
                                             <input type="date" class="form-control">
                                         </div>
                                     </div>
@@ -1135,6 +1137,24 @@
             document.getElementById('form-area').appendChild(clone);
         };
     </script>
+    <script>
+  // Wait for DOM to load
+  document.addEventListener('DOMContentLoaded', () => {
+    // Select all the list items
+    document.querySelectorAll('.wounds-list li').forEach((li) => {
+      li.addEventListener('click', function (e) {
+        // Avoid toggling twice when clicking directly on the checkbox
+        if (e.target.tagName.toLowerCase() === 'input') return;
+
+        // Find the checkbox inside this <li>
+        const checkbox = this.querySelector('.form-check-input');
+        if (checkbox) {
+          checkbox.checked = !checkbox.checked;
+        }
+      });
+    });
+  });
+</script>
 </body>
 
 </html>
