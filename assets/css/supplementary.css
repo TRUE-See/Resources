@@ -564,10 +564,15 @@ textarea {
 
 
 /******border-color-and-list-item-spacing-update******/
-
+.bg-light {
+    --bs-bg-opacity: 1;
+    background-color: #f4f4f4 !important;
+}
 .list-group-item:hover,
 .list-group-item .bg-light:hover {
-  background-color: #edecef !important;
+-webkit-box-shadow: 0px 0px 8px 0px rgba(208, 208, 208, 1);
+-moz-box-shadow: 0px 0px 8px 0px rgba(208, 208, 208, 1);
+box-shadow: 0px 0px 8px 0px rgba(208, 208, 208, 1);
 }
 
 .list-group {
@@ -616,7 +621,9 @@ ul.wounds-list li {
     margin-bottom: 10px;
 }
 ul.wounds-list li:hover{
-   background-color: #edecef !important;
+-webkit-box-shadow: 0px 0px 8px 0px rgba(208, 208, 208, 1);
+-moz-box-shadow: 0px 0px 8px 0px rgba(208, 208, 208, 1);
+box-shadow: 0px 0px 8px 0px rgba(208, 208, 208, 1);
   }
 
 .form-check-input{
@@ -633,3 +640,4 @@ ul.wounds-list li:hover{
     line-height: 13px;
     font-weight: 500;
 }
+
