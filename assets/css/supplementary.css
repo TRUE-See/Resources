@@ -567,7 +567,7 @@ textarea {
 
 .list-group-item:hover,
 .list-group-item .bg-light:hover {
-  background-color: #ececec !important;
+  background-color: #edecef !important;
 }
 
 .list-group {
@@ -616,5 +616,9 @@ ul.wounds-list li {
     margin-bottom: 10px;
 }
 ul.wounds-list li:hover{
-   background-color: #ececec !important;
+   background-color: #edecef !important;
+  }
+
+.form-check-input{
+  border-color: #777 !important;
   }
