@@ -364,15 +364,19 @@
                                                 <label class="form-label" for="body-region-footer">Region</label>
                                                 <select class="form-select" id="body-region-footer">
                                                     <option value="">Select Region</option>
-                                                    <option value="head_neck">Head &amp; Neck</option>
+                                                    <option value="head">Head</option>
+                                                    <option value="face">Face</option>
+                                                    <option value="neck">Neck</option>
                                                     <option value="chest">Chest</option>
                                                     <option value="abdomen">Abdomen</option>
                                                     <option value="pelvis">Pelvis</option>
+                                                    <option value="genitals">Genitals</option>
+                                                    <option value="buttocks">Buttocks</option>
+                                                    <option value="back">Back</option>
                                                     <option value="left_upper_extremity">Left Upper Extremity</option>
                                                     <option value="right_upper_extremity">Right Upper Extremity</option>
                                                     <option value="left_lower_extremity">Left Lower Extremity</option>
                                                     <option value="right_lower_extremity">Right Lower Extremity</option>
-                                                    <option value="back_region">Back Region</option>
                                                 </select>
                                             </div>
                                             <div class="col-md-6 col-6">
@@ -459,73 +463,105 @@
             'right_side': 'Right Side'
         };
 
+        // Updated BODY_REGIONS_MAP according to Excel file
         const BODY_REGIONS_MAP = {
-            'head_neck': ['Scalp', 'Frontal (forehead)', 'Eyebrow', 'Eye', 'Cheek', 'Nose', 'Nostril', 'Jaw', 'Lip', 'Gum', 'Palate', 'Tongue', 'Chin', 'Throat'],
-            'chest': ['Clavicular', 'Sternal', 'Midaxillary', 'Breast', 'Nipple'],
-            'abdomen': ['Epigastrium', 'RUQ', 'LUQ', 'RLQ', 'LLQ', 'Umbilical'],
-            'pelvis': ['Pubis', 'Inguinal (groin)', 'Perineum', 'Labia', 'Vagina', 'Penis', 'Urethral Meatus', 'Scrotum'],
-            'left_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Antecubital (inside elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'right_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Antecubital (inside elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'left_lower_extremity': ['Femoral (thigh)', 'Patellar (anterior knee)', 'Tarsal (ankle)', 'Dorsal (top of foot)', 'Plantar (bottom of foot)', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit', '1-2 Interdigital Space', '2-3 Interdigital Space', '3-4 Interdigital Space', '4-5 Interdigital Space', 'Residual Limb'],
-            'right_lower_extremity': ['Femoral (thigh)', 'Patellar (anterior knee)', 'Tarsal (ankle)', 'Dorsal (top of foot)', 'Plantar (bottom of foot)', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit', '1-2 Interdigital Space', '2-3 Interdigital Space', '3-4 Interdigital Space', '4-5 Interdigital Space', 'Residual Limb'],
-            'back_region': ['Cervical Spine', 'Scapular', 'Thoracic Spine', 'Flank', 'Lumbar Spine', 'Gluteal', 'Sacral Spine', 'Coccyx'],
+            'head': ['Scalp', 'Parietal', 'Occipital', 'Temporal'],
+            'face': ['Forehead', 'Left Eyebrow', 'Right Eyebrow', 'Left Eye', 'Right Eye', 'Nose', 'Left Nostril', 'Right Nostril', 'Left Cheek', 'Right Cheek', 'Cheek', 'Jaw', 'Lip', 'Gum', 'Palate', 'Tongue', 'Chin', 'Left Ear', 'Right Ear'],
+            'neck': ['Anterior Neck', 'Posterior Neck', 'Throat', 'Cervical'],
+            'chest': ['Sternal', 'Left Clavicular', 'Right Clavicular', 'Clavicular', 'Left Breast', 'Right Breast', 'Breast', 'Left Nipple', 'Right Nipple', 'Nipple', 'Midaxillary'],
+            'abdomen': ['Epigastric', 'Umbilical', 'Left Upper Quadrant', 'Right Upper Quadrant', 'Left Lower Quadrant', 'Right Lower Quadrant'],
+            'pelvis': ['Suprapubic', 'Pubic', 'Pubis', 'Left Inguinal', 'Right Inguinal', 'Inguinal', 'Left Iliac Crest', 'Right Iliac Crest', 'Iliac Crest', 'Ilium', 'Ischial Tuberosity', 'Perineal', 'Perineum', 'Intergluteal Fold', 'Perirectal', 'Anus', 'Left Greater Trochanter', 'Right Greater Trochanter'],
+            'genitals': ['External Genital Area', 'Labia', 'Vagina', 'Penis', 'Urethral Meatus', 'Scrotum'],
+            'buttocks': ['Left Gluteal', 'Right Gluteal', 'Gluteal'],
+            'back': ['Cervical Spine', 'Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Left Scapular', 'Right Scapular', 'Scapular', 'Flank'],
+            'left_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'right_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'left_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Dorsal (Top Foot)', 'Plantar (Bottom Foot)', 'Interdigital Spaces', 'Residual Limb'],
+            'right_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Dorsal (Top Foot)', 'Plantar (Bottom Foot)', 'Interdigital Spaces', 'Residual Limb']
         };
 
+        // Updated POSTERIOR_BODY_REGIONS_MAP according to Excel file
         const POSTERIOR_BODY_REGIONS_MAP = {
-            'head_neck': ['Parietal', 'Occipital', 'Scalp', 'Cervical'],
-            'pelvis': ['Ilium', 'Iliac Crest', 'Ischial Tuberosity', 'Intergluteal Fold/Crease', 'Perirectal', 'Anus'],
-            'left_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Olecranal (back of elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'right_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Olecranal (back of elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'left_lower_extremity': ['Femoral (thigh)', 'Popliteal (posterior knee)', 'Sural (calf)', 'Tarsal (ankle)', 'Calcaneal (heel)', 'Plantar (bottom of foot)', 'Residual Limb'],
-            'right_lower_extremity': ['Femoral (thigh)', 'Popliteal (posterior knee)', 'Sural (calf)', 'Tarsal (ankle)', 'Calcaneal (heel)', 'Plantar (bottom of foot)', 'Residual Limb'],
-            'back_region': ['Cervical Spine', 'Scapular', 'Thoracic Spine', 'Flank', 'Lumbar Spine', 'Gluteal', 'Sacral Spine', 'Coccyx'],
+            'head': ['Scalp', 'Parietal', 'Occipital'],
+            'face': [],
+            'neck': ['Posterior Neck', 'Cervical'],
+            'chest': [],
+            'abdomen': [],
+            'pelvis': ['Left Iliac Crest', 'Right Iliac Crest', 'Iliac Crest', 'Ilium', 'Ischial Tuberosity', 'Perineal', 'Intergluteal Fold', 'Perirectal', 'Anus'],
+            'genitals': [],
+            'buttocks': ['Left Gluteal', 'Right Gluteal', 'Gluteal'],
+            'back': ['Cervical Spine', 'Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Left Scapular', 'Right Scapular', 'Scapular', 'Flank'],
+            'left_upper_extremity': ['Acromial (Shoulder)', 'Brachial (Upper Arm)', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'right_upper_extremity': ['Acromial (Shoulder)', 'Brachial (Upper Arm)', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'left_lower_extremity': ['Femoral (Thigh)', 'Popliteal', 'Sural (Calf)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Plantar (Bottom Foot)', 'Residual Limb'],
+            'right_lower_extremity': ['Femoral (Thigh)', 'Popliteal', 'Sural (Calf)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Plantar (Bottom Foot)', 'Residual Limb']
         };
 
+        // Updated LEFT_SIDE_BODY_REGIONS_MAP according to Excel file
         const LEFT_SIDE_BODY_REGIONS_MAP = {
-            'head_neck': ['Temporal', 'Scalp', 'Ear', 'Cheek', 'Jaw', 'Throat', 'Cervical'],
-            'pelvis': ['Greater Trochanter'],
-            'left_upper_extremity': ['Acromial (shoulder)', 'Axillary (armpit)', 'Brachial (upper arm)', 'Antebrachial (forearm)', 'Carpal (wrist)'],
-            'left_lower_extremity': ['Femoral (thigh)', 'Sural (calf)', 'Peroneal (side of leg)', 'Tarsal (ankle)', 'Residual Limb'],
-            //'chest': ['Midaxillary'],
-            //'abdomen': ['Flank'],
-            'back_region': ['Scapular']
+            'head': ['Scalp', 'Parietal', 'Occipital', 'Temporal'],
+            'face': ['Forehead', 'Left Eyebrow', 'Left Eye', 'Nose', 'Left Nostril', 'Left Cheek', 'Cheek', 'Jaw', 'Left Ear'],
+            'neck': ['Anterior Neck', 'Posterior Neck', 'Throat', 'Cervical'],
+            'chest': ['Sternal', 'Left Clavicular', 'Left Breast'],
+            'abdomen': ['Epigastric', 'Umbilical', 'Left Upper Quadrant', 'Left Lower Quadrant'],
+            'pelvis': ['Suprapubic', 'Pubic', 'Left Inguinal', 'Left Iliac Crest', 'Perineal', 'Left Greater Trochanter'],
+            'genitals': ['External Genital Area'],
+            'buttocks': ['Left Gluteal'],
+            'back': ['Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Left Scapular', 'Scapular'],
+            'left_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)'],
+            'right_upper_extremity': [],
+            'left_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Residual Limb'],
+            'right_lower_extremity': []
         };
 
+        // Updated RIGHT_SIDE_BODY_REGIONS_MAP according to Excel file
         const RIGHT_SIDE_BODY_REGIONS_MAP = {
-            'head_neck': ['Temporal', 'Scalp', 'Ear', 'Cheek', 'Jaw', 'Throat', 'Cervical'],
-            'pelvis': ['Greater Trochanter'],
-            'right_upper_extremity': ['Acromial (shoulder)', 'Axillary (armpit)', 'Brachial (upper arm)', 'Antebrachial (forearm)', 'Carpal (wrist)'],
-            'right_lower_extremity': ['Femoral (thigh)', 'Sural (calf)', 'Peroneal (side of leg)', 'Tarsal (ankle)', 'Residual Limb'],
-            //'chest': ['Midaxillary'],
-            //'abdomen': ['Flank'],
-            'back_region': ['Scapular']
+            'head': ['Scalp', 'Parietal', 'Occipital', 'Temporal'],
+            'face': ['Forehead', 'Right Eyebrow', 'Right Eye', 'Nose', 'Right Nostril', 'Right Cheek', 'Cheek', 'Jaw', 'Right Ear'],
+            'neck': ['Anterior Neck', 'Posterior Neck', 'Throat', 'Cervical'],
+            'chest': ['Sternal', 'Right Clavicular', 'Right Breast'],
+            'abdomen': ['Epigastric', 'Umbilical', 'Right Upper Quadrant', 'Right Lower Quadrant'],
+            'pelvis': ['Suprapubic', 'Pubic', 'Right Inguinal', 'Right Iliac Crest', 'Perineal', 'Right Greater Trochanter'],
+            'genitals': ['External Genital Area'],
+            'buttocks': ['Right Gluteal'],
+            'back': ['Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Right Scapular', 'Scapular'],
+            'left_upper_extremity': [],
+            'right_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)'],
+            'left_lower_extremity': [],
+            'right_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Residual Limb']
         };
 
+        // Updated REGION_TO_NODE_MAP to include new regions
         const REGION_TO_NODE_MAP = {
-            'head_neck': ['Head'],
+            'head': ['Head'],
+            'face': ['Head'],
+            'neck': ['Head'],
             'chest': ['Chest'],
             'abdomen': ['Tummy'],
             'pelvis': ['Pelvis'],
+            'genitals': ['Pelvis'],
+            'buttocks': ['Pelvis'],
+            'back': ['Chest', 'Tummy', 'Pelvis'],
             'left_upper_extremity': ['Lefthand'],
             'right_upper_extremity': ['Righthand'],
             'left_lower_extremity': ['Leftleg'],
             'right_lower_extremity': ['Rightleg']
         };
 
-        // View-specific visibility rules
+        // Updated VIEW_VISIBILITY_RULES to include new regions
         const VIEW_VISIBILITY_RULES = {
             'anterior': {
-                hidden: ['back_region']
+                hidden: ['back', 'buttocks']
             },
             'left_side': {
-                hidden: ['back_region', 'right_upper_extremity', 'right_lower_extremity', 'chest', 'abdomen']
+                hidden: ['back', 'right_upper_extremity', 'right_lower_extremity', 'buttocks']
             },
             'right_side': {
-                hidden: ['back_region', 'left_upper_extremity', 'left_lower_extremity', 'chest', 'abdomen']
+                hidden: ['back', 'left_upper_extremity', 'left_lower_extremity', 'buttocks']
             },
             'posterior': {
-                hidden: ['chest', 'abdomen'], // Removed 'pelvis' from hidden list
-                visible: ['head_neck', 'pelvis', 'left_upper_extremity', 'right_upper_extremity', 'left_lower_extremity', 'right_lower_extremity', 'back_region']
+                hidden: ['chest', 'abdomen', 'face', 'genitals'],
+                visible: ['head', 'neck', 'pelvis', 'buttocks', 'back', 'left_upper_extremity', 'right_upper_extremity', 'left_lower_extremity', 'right_lower_extremity']
             }
         };
 
@@ -609,11 +645,11 @@
             mapPartToRegion(partName, currentView) {
                 // Handle back region in posterior view
                 if (currentView === 'posterior' && BACK_REGION_NODES.some(node => partName.includes(node))) {
-                    return 'back_region';
+                    return 'back';
                 }
 
                 const mapping = {
-                    'Head': 'head_neck',
+                    'Head': 'head',
                     'Lefthand': 'left_upper_extremity',
                     'Righthand': 'right_upper_extremity',
                     'Leftleg': 'left_lower_extremity',
@@ -884,7 +920,7 @@
 
                 // Update dropdown
                 const bodyRegionSelect = document.getElementById('body-region-footer');
-                bodyRegionSelect.value = 'back_region';
+                bodyRegionSelect.value = 'back';
                 bodyRegionSelect.dispatchEvent(new Event('change'));
             },
 
@@ -1076,7 +1112,7 @@
                         appState.selectedPart = null;
                     }
 
-                    if (selectedRegion === 'back_region') {
+                    if (selectedRegion === 'back') {
                         this.handleBackRegionSelection();
                     } else if (selectedRegion) {
                         this.handleNormalRegionSelection(selectedRegion);
