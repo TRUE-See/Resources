@@ -156,7 +156,6 @@
             top: 0px;
             bottom: 0px;
             margin: 0 auto;
-            /* transform: translateX(-50%); */
             color: white;
             font-size: 20px;
             font-weight: bold;
@@ -170,10 +169,6 @@
             background-color: rgba(0, 0, 0, 0);
             padding: 10px;
             border-radius: 0px;
-        }
-
-        #orientation-label:hover {
-            /* transform: translateX(-50%) scale(1.05); */
         }
 
         #orientation-icon {
@@ -212,7 +207,6 @@
 
         #modelCanvas {
             touch-action: pan-y;
-            /* Allow vertical scrolling */
         }
 
         .noteforuser {
@@ -246,10 +240,10 @@
             display: block;
         }
         @media (max-width: 991px) {
-    .modal-dialog {
-        max-width: 755px;
-    }
-}
+            .modal-dialog {
+                max-width: 755px;
+            }
+        }
     </style>
 </head>
 
@@ -269,13 +263,13 @@
             </div>
         </div>
     </nav>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary  d-none d-xl-flex">
+    <nav class="navbar navbar-expand-lg bg-body-tertiary d-none d-xl-flex">
         <div class="container-xxl">
             <a class="navbar-brand border-end pe-3" href="#">
                 <img src="https://truesee.futurismdemo.com/assets/images/logo.png" />
             </a>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                   <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item">
                         <a class="nav-link px-3 active" aria-current="page" href="../index.html"><i
                                 class="bi bi-person-fill"></i> Patients</a>
@@ -344,8 +338,7 @@
                         <div class="modal-dialog modal-dialog-centered modal-xl">
                             <div class="modal-content">
                                 <div class="modal-header">
-
-                                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Orientation </h1>
+                                    <h1 class="modal-title fs-5" id="staticBackdropLabel1">Orientation</h1>
                                     <button type="button" class="btn-close" data-bs-dismiss="modal"
                                         aria-label="Close"></button>
                                 </div>
@@ -356,23 +349,18 @@
                                                 <div class="container-flude mt-3" style="overflow: hidden;">
                                                     <div class="row">
                                                         <div class="col-12">
-                                                            
                                                             <div id="canvas-container">
                                                                 <div class="scrollblock"></div>
                                                                 <h5 class="noteforuser">Click on Region</h5>
                                                                 <div id="model-holder">
                                                                     <canvas id="modelCanvas"></canvas>
-                                                                    <!-- <div id="orientation-label"> Anterior 
-                                                                <img id="orientation-icon" src="orientation.svg" />
-                                                         </div> -->
                                                                 </div>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
-                                            <div
-                                                class="col-lg-6 col-md-6 col-xl-6 col-sm-12 align-items-center">
+                                            <div class="col-lg-6 col-md-6 col-xl-6 col-sm-12 align-items-center">
                                                 <div class="pb-2 border-bottom text-center mt-3">
                                                     <strong>Click to Change Position &nbsp;&nbsp; <button
                                                             id="orientation" class="btn btn-success"><img
@@ -382,9 +370,7 @@
 
                                                 <footer class="footer container-xxl">
                                                     <div class="row">
-                                                        <div
-                                                            class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
-                                                            <!-- <h2 class="action-title">Create New Wound</h2> -->
+                                                        <div class="col-sm-12 col-md-12 col-lg-12 col-xl-12 col-xxl-12 mx-auto">
                                                             <form class="footer-form">
                                                                 <div class="row g-3">
                                                                     <div class="col-md-6 col-6">
@@ -393,21 +379,19 @@
                                                                         <select class="form-select"
                                                                             id="body-region-footer">
                                                                             <option value="">Select Region</option>
-                                                                            <option value="head_neck">Head &amp; Neck
-                                                                            </option>
+                                                                            <option value="head">Head</option>
+                                                                            <option value="face">Face</option>
+                                                                            <option value="neck">Neck</option>
                                                                             <option value="chest">Chest</option>
                                                                             <option value="abdomen">Abdomen</option>
                                                                             <option value="pelvis">Pelvis</option>
-                                                                            <option value="left_upper_extremity">Left
-                                                                                Upper Extremity</option>
-                                                                            <option value="right_upper_extremity">Right
-                                                                                Upper Extremity</option>
-                                                                            <option value="left_lower_extremity">Left
-                                                                                Lower Extremity</option>
-                                                                            <option value="right_lower_extremity">Right
-                                                                                Lower Extremity</option>
-                                                                            <option value="back_region">Back Region
-                                                                            </option>
+                                                                            <option value="genitals">Genitals</option>
+                                                                            <option value="buttocks">Buttocks</option>
+                                                                            <option value="back">Back</option>
+                                                                            <option value="left_upper_extremity">Left Upper Extremity</option>
+                                                                            <option value="right_upper_extremity">Right Upper Extremity</option>
+                                                                            <option value="left_lower_extremity">Left Lower Extremity</option>
+                                                                            <option value="right_lower_extremity">Right Lower Extremity</option>
                                                                         </select>
                                                                     </div>
                                                                     <div class="col-md-6 col-6">
@@ -421,7 +405,7 @@
                                                                 </div>
                                                                 <br>
                                                                 <div class="row g-2 justify-content-end">
-                                                                    <div class="col-6 col-lg-auto  ms-auto">
+                                                                    <div class="col-6 col-lg-auto ms-auto">
                                                                         <button
                                                                             class="btn btn-outline-secondary w-100">Cancel</button>
                                                                     </div>
@@ -433,7 +417,6 @@
                                                                     </div>
                                                                 </div>
                                                             </form>
-
                                                         </div>
                                                     </div>
                                                 </footer>
@@ -451,11 +434,6 @@
         </div>
     </div>
     <!-- 3D avatar popup end -->
-
-
-
-
-    </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
@@ -489,7 +467,12 @@
             }
         };
 
-        const HIGHLIGHTABLE_NODES = ['Head', 'Chest', 'Lefthand', 'Righthand', 'Pelvis', 'Leftleg', 'Rightleg', 'Tummy'];
+        const HIGHLIGHTABLE_NODES = [
+            'Head', 'Chest', 'Lefthand', 'Righthand', 'Pelvis', 
+            'Leftleg', 'Rightleg', 'Tummy', 'Neck', 'Face', 'Genitals', 'Buttocks'
+        ];
+        
+        // Back region nodes that should be treated as a single region in posterior view
         const BACK_REGION_NODES = ['Chest', 'Tummy'];
 
         const VIEWS = {
@@ -507,73 +490,105 @@
             'right_side': 'Right Side'
         };
 
+        // BODY_REGIONS_MAP according to Excel file
         const BODY_REGIONS_MAP = {
-            'head_neck': ['Scalp', 'Frontal (forehead)', 'Eyebrow', 'Eye', 'Cheek', 'Nose', 'Nostril', 'Jaw', 'Lip', 'Gum', 'Palate', 'Tongue', 'Chin', 'Throat'],
-            'chest': ['Clavicular', 'Sternal', 'Midaxillary', 'Breast', 'Nipple'],
-            'abdomen': ['Epigastrium', 'RUQ', 'LUQ', 'RLQ', 'LLQ', 'Umbilical'],
-            'pelvis': ['Pubis', 'Inguinal (groin)', 'Perineum', 'Labia', 'Vagina', 'Penis', 'Urethral Meatus', 'Scrotum'],
-            'left_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Antecubital (inside elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'right_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Antecubital (inside elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'left_lower_extremity': ['Femoral (thigh)', 'Patellar (anterior knee)', 'Tarsal (ankle)', 'Dorsal (top of foot)', 'Plantar (bottom of foot)', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit', '1-2 Interdigital Space', '2-3 Interdigital Space', '3-4 Interdigital Space', '4-5 Interdigital Space', 'Residual Limb'],
-            'right_lower_extremity': ['Femoral (thigh)', 'Patellar (anterior knee)', 'Tarsal (ankle)', 'Dorsal (top of foot)', 'Plantar (bottom of foot)', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit', '1-2 Interdigital Space', '2-3 Interdigital Space', '3-4 Interdigital Space', '4-5 Interdigital Space', 'Residual Limb'],
-            'back_region': ['Cervical Spine', 'Scapular', 'Thoracic Spine', 'Flank', 'Lumbar Spine', 'Gluteal', 'Sacral Spine', 'Coccyx'],
+            'head': ['Scalp', 'Parietal', 'Occipital', 'Temporal'],
+            'face': ['Forehead', 'Left Eyebrow', 'Right Eyebrow', 'Left Eye', 'Right Eye', 'Nose', 'Left Nostril', 'Right Nostril', 'Left Cheek', 'Right Cheek', 'Cheek', 'Jaw', 'Lip', 'Gum', 'Palate', 'Tongue', 'Chin', 'Left Ear', 'Right Ear'],
+            'neck': ['Anterior Neck', 'Posterior Neck', 'Throat', 'Cervical'],
+            'chest': ['Sternal', 'Left Clavicular', 'Right Clavicular', 'Clavicular', 'Left Breast', 'Right Breast', 'Breast', 'Left Nipple', 'Right Nipple', 'Nipple', 'Midaxillary'],
+            'abdomen': ['Epigastric', 'Umbilical', 'Left Upper Quadrant', 'Right Upper Quadrant', 'Left Lower Quadrant', 'Right Lower Quadrant'],
+            'pelvis': ['Suprapubic', 'Pubic', 'Pubis', 'Left Inguinal', 'Right Inguinal', 'Inguinal', 'Left Iliac Crest', 'Right Iliac Crest', 'Iliac Crest', 'Ilium', 'Ischial Tuberosity', 'Perineal', 'Perineum', 'Intergluteal Fold', 'Perirectal', 'Anus', 'Left Greater Trochanter', 'Right Greater Trochanter'],
+            'genitals': ['External Genital Area', 'Labia', 'Vagina', 'Penis', 'Urethral Meatus', 'Scrotum'],
+            'buttocks': ['Left Gluteal', 'Right Gluteal', 'Gluteal'],
+            'back': ['Cervical Spine', 'Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Left Scapular', 'Right Scapular', 'Scapular', 'Flank'],
+            'left_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'right_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'left_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Dorsal (Top Foot)', 'Plantar (Bottom Foot)', 'Interdigital Spaces', 'Residual Limb'],
+            'right_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Dorsal (Top Foot)', 'Plantar (Bottom Foot)', 'Interdigital Spaces', 'Residual Limb']
         };
 
+        // POSTERIOR_BODY_REGIONS_MAP according to Excel file
         const POSTERIOR_BODY_REGIONS_MAP = {
-            'head_neck': ['Parietal', 'Occipital', 'Scalp', 'Cervical'],
-            'pelvis': ['Ilium', 'Iliac Crest', 'Ischial Tuberosity', 'Intergluteal Fold/Crease', 'Perirectal', 'Anus'],
-            'left_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Olecranal (back of elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'right_upper_extremity': ['Acromial (shoulder)', 'Brachial (upper arm)', 'Olecranal (back of elbow)', 'Antebrachial (forearm)', 'Carpal (wrist)', 'Manus (hand)', 'Palm', '1st digit', '2nd digit', '3rd digit', '4th digit', '5th digit'],
-            'left_lower_extremity': ['Femoral (thigh)', 'Popliteal (posterior knee)', 'Sural (calf)', 'Tarsal (ankle)', 'Calcaneal (heel)', 'Plantar (bottom of foot)', 'Residual Limb'],
-            'right_lower_extremity': ['Femoral (thigh)', 'Popliteal (posterior knee)', 'Sural (calf)', 'Tarsal (ankle)', 'Calcaneal (heel)', 'Plantar (bottom of foot)', 'Residual Limb'],
-            'back_region': ['Cervical Spine', 'Scapular', 'Thoracic Spine', 'Flank', 'Lumbar Spine', 'Gluteal', 'Sacral Spine', 'Coccyx'],
+            'head': ['Scalp', 'Parietal', 'Occipital'],
+            'face': [],
+            'neck': ['Posterior Neck', 'Cervical'],
+            'chest': [],
+            'abdomen': [],
+            'pelvis': ['Left Iliac Crest', 'Right Iliac Crest', 'Iliac Crest', 'Ilium', 'Ischial Tuberosity', 'Perineal', 'Intergluteal Fold', 'Perirectal', 'Anus', 'Left Greater Trochanter', 'Right Greater Trochanter'],
+            'genitals': [],
+            'buttocks': ['Left Gluteal', 'Right Gluteal', 'Gluteal'],
+            'back': ['Cervical Spine', 'Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Left Scapular', 'Right Scapular', 'Scapular', 'Flank'],
+            'left_upper_extremity': ['Acromial (Shoulder)', 'Brachial (Upper Arm)', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'right_upper_extremity': ['Acromial (Shoulder)', 'Brachial (Upper Arm)', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)', 'Manus (Hand)', 'Palm', 'Digits (1-5)'],
+            'left_lower_extremity': ['Femoral (Thigh)', 'Popliteal', 'Sural (Calf)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Plantar (Bottom Foot)', 'Residual Limb'],
+            'right_lower_extremity': ['Femoral (Thigh)', 'Popliteal', 'Sural (Calf)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Plantar (Bottom Foot)', 'Residual Limb']
         };
 
+        // LEFT_SIDE_BODY_REGIONS_MAP according to Excel file
         const LEFT_SIDE_BODY_REGIONS_MAP = {
-            'head_neck': ['Temporal', 'Scalp', 'Ear', 'Cheek', 'Jaw', 'Throat', 'Cervical'],
-            'pelvis': ['Greater Trochanter'],
-            'left_upper_extremity': ['Acromial (shoulder)', 'Axillary (armpit)', 'Brachial (upper arm)', 'Antebrachial (forearm)', 'Carpal (wrist)'],
-            'left_lower_extremity': ['Femoral (thigh)', 'Sural (calf)', 'Peroneal (side of leg)', 'Tarsal (ankle)', 'Residual Limb'],
-            //'chest': ['Midaxillary'],
-            //'abdomen': ['Flank'],
-            'back_region': ['Scapular']
+            'head': ['Scalp', 'Parietal', 'Occipital', 'Temporal'],
+            'face': ['Forehead', 'Left Eyebrow', 'Left Eye', 'Nose', 'Left Nostril', 'Left Cheek', 'Cheek', 'Jaw', 'Left Ear'],
+            'neck': ['Anterior Neck', 'Posterior Neck', 'Throat', 'Cervical'],
+            'chest': ['Sternal', 'Left Clavicular', 'Left Breast', 'Left Nipple', 'Midaxillary'],
+            'abdomen': ['Epigastric', 'Umbilical', 'Left Upper Quadrant', 'Left Lower Quadrant', 'Flank'],
+            'pelvis': ['Suprapubic', 'Pubic', 'Left Inguinal', 'Left Iliac Crest', 'Perineal', 'Left Greater Trochanter', 'Ilium', 'Ischial Tuberosity'],
+            'genitals': ['External Genital Area'],
+            'buttocks': ['Left Gluteal'],
+            'back': ['Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Left Scapular', 'Scapular'],
+            'left_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)'],
+            'right_upper_extremity': [],
+            'left_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Residual Limb'],
+            'right_lower_extremity': []
         };
 
+        // RIGHT_SIDE_BODY_REGIONS_MAP according to Excel file
         const RIGHT_SIDE_BODY_REGIONS_MAP = {
-            'head_neck': ['Temporal', 'Scalp', 'Ear', 'Cheek', 'Jaw', 'Throat', 'Cervical'],
-            'pelvis': ['Greater Trochanter'],
-            'right_upper_extremity': ['Acromial (shoulder)', 'Axillary (armpit)', 'Brachial (upper arm)', 'Antebrachial (forearm)', 'Carpal (wrist)'],
-            'right_lower_extremity': ['Femoral (thigh)', 'Sural (calf)', 'Peroneal (side of leg)', 'Tarsal (ankle)', 'Residual Limb'],
-            //'chest': ['Midaxillary'],
-            //'abdomen': ['Flank'],
-            'back_region': ['Scapular']
+            'head': ['Scalp', 'Parietal', 'Occipital', 'Temporal'],
+            'face': ['Forehead', 'Right Eyebrow', 'Right Eye', 'Nose', 'Right Nostril', 'Right Cheek', 'Cheek', 'Jaw', 'Right Ear'],
+            'neck': ['Anterior Neck', 'Posterior Neck', 'Throat', 'Cervical'],
+            'chest': ['Sternal', 'Right Clavicular', 'Right Breast', 'Right Nipple', 'Midaxillary'],
+            'abdomen': ['Epigastric', 'Umbilical', 'Right Upper Quadrant', 'Right Lower Quadrant', 'Flank'],
+            'pelvis': ['Suprapubic', 'Pubic', 'Right Inguinal', 'Right Iliac Crest', 'Perineal', 'Right Greater Trochanter', 'Ilium', 'Ischial Tuberosity'],
+            'genitals': ['External Genital Area'],
+            'buttocks': ['Right Gluteal'],
+            'back': ['Thoracic Spine', 'Lumbar Spine', 'Sacral Spine', 'Coccyx', 'Right Scapular', 'Scapular'],
+            'left_upper_extremity': [],
+            'right_upper_extremity': ['Acromial (Shoulder)', 'Axillary (Armpit)', 'Brachial (Upper Arm)', 'Antecubital', 'Olecranal', 'Antebrachial (Forearm)', 'Carpal (Wrist)'],
+            'left_lower_extremity': [],
+            'right_lower_extremity': ['Femoral (Thigh)', 'Patellar', 'Popliteal', 'Sural (Calf)', 'Peroneal (Fibular)', 'Tarsal (Ankle)', 'Calcaneal (Heel)', 'Residual Limb']
         };
 
+        // REGION_TO_NODE_MAP - Updated to properly map regions to 3D model nodes
         const REGION_TO_NODE_MAP = {
-            'head_neck': ['Head'],
+            'head': ['Head'],
+            'face': ['Face'],
+            'neck': ['Neck'],
             'chest': ['Chest'],
             'abdomen': ['Tummy'],
             'pelvis': ['Pelvis'],
+            'genitals': ['Genitals'],
+            'buttocks': ['Buttocks'],
+            'back': ['Chest', 'Tummy'], // Only Chest and Tummy map to back
             'left_upper_extremity': ['Lefthand'],
             'right_upper_extremity': ['Righthand'],
             'left_lower_extremity': ['Leftleg'],
             'right_lower_extremity': ['Rightleg']
         };
 
-        // View-specific visibility rules
+        // VIEW_VISIBILITY_RULES - Updated for better region visibility
         const VIEW_VISIBILITY_RULES = {
             'anterior': {
-                hidden: ['back_region']
+                hidden: ['back', 'buttocks']
             },
             'left_side': {
-                hidden: ['back_region', 'right_upper_extremity', 'right_lower_extremity', 'chest', 'abdomen']
+                hidden: ['back', 'right_upper_extremity', 'right_lower_extremity', 'buttocks']
             },
             'right_side': {
-                hidden: ['back_region', 'left_upper_extremity', 'left_lower_extremity', 'chest', 'abdomen']
+                hidden: ['back', 'left_upper_extremity', 'left_lower_extremity', 'buttocks']
             },
             'posterior': {
-                hidden: ['chest', 'abdomen'], // Removed 'pelvis' from hidden list
-                visible: ['head_neck', 'pelvis', 'left_upper_extremity', 'right_upper_extremity', 'left_lower_extremity', 'right_lower_extremity', 'back_region']
+                hidden: ['chest', 'abdomen', 'face', 'genitals'],
+                visible: ['head', 'neck', 'pelvis', 'buttocks', 'back', 'left_upper_extremity', 'right_upper_extremity', 'left_lower_extremity', 'right_lower_extremity']
             }
         };
 
@@ -604,7 +619,6 @@
 
         // Utility Functions
         const Utils = {
-            // Debounce function for performance optimization
             debounce(func, wait) {
                 let timeout;
                 return function executedFunction(...args) {
@@ -617,7 +631,6 @@
                 };
             },
 
-            // Get mouse/touch coordinates
             getCoordinates(event, canvas) {
                 const rect = canvas.getBoundingClientRect();
                 let clientX, clientY;
@@ -637,7 +650,6 @@
                 };
             },
 
-            // Check if node is highlightable
             isHighlightableNode(object) {
                 if (object.name && HIGHLIGHTABLE_NODES.includes(object.name)) {
                     return true;
@@ -650,25 +662,64 @@
                     }
                     parent = parent.parent;
                 }
+
+                if (object.parent) {
+                    const parentName = object.parent.name;
+                    if (parentName && HIGHLIGHTABLE_NODES.includes(parentName)) {
+                        return true;
+                    }
+                }
+
                 return false;
             },
 
-            // Map part name to region
+            findSelectableNode(object) {
+                if (object.name && HIGHLIGHTABLE_NODES.includes(object.name)) {
+                    return object;
+                }
+
+                let parent = object.parent;
+                while (parent) {
+                    if (parent.name && HIGHLIGHTABLE_NODES.includes(parent.name)) {
+                        return parent;
+                    }
+                    parent = parent.parent;
+                }
+
+                return object;
+            },
+
             mapPartToRegion(partName, currentView) {
-                // Handle back region in posterior view
-                if (currentView === 'posterior' && BACK_REGION_NODES.some(node => partName.includes(node))) {
-                    return 'back_region';
+                // In posterior view, only Chest and Tummy map to 'back'
+                if (currentView === 'posterior') {
+                    if (partName.includes('Chest') || partName.includes('Tummy')) {
+                        return 'back';
+                    }
+                    // For pelvis and genitals in posterior view, keep their original regions
+                    if (partName.includes('Pelvis')) {
+                        return 'pelvis';
+                    }
+                    if (partName.includes('Genitals')) {
+                        return 'genitals';
+                    }
+                    if (partName.includes('Buttocks')) {
+                        return 'buttocks';
+                    }
                 }
 
                 const mapping = {
-                    'Head': 'head_neck',
+                    'Head': 'head',
+                    'Face': 'face',
+                    'Neck': 'neck',
                     'Lefthand': 'left_upper_extremity',
                     'Righthand': 'right_upper_extremity',
                     'Leftleg': 'left_lower_extremity',
                     'Rightleg': 'right_lower_extremity',
                     'Chest': 'chest',
                     'Tummy': 'abdomen',
-                    'Pelvis': 'pelvis'
+                    'Pelvis': 'pelvis',
+                    'Genitals': 'genitals',
+                    'Buttocks': 'buttocks'
                 };
 
                 for (const [key, region] of Object.entries(mapping)) {
@@ -676,6 +727,7 @@
                         return region;
                     }
                 }
+
                 return '';
             }
         };
@@ -728,6 +780,25 @@
                         }
                     });
                 });
+            },
+
+            resetAllHighlights() {
+                if (appState.selectedPart) {
+                    if (appState.selectedPart.isBackRegion) {
+                        this.resetBackRegionHighlight();
+                    } else {
+                        this.resetHighlight(appState.selectedPart);
+                    }
+                    appState.selectedPart = null;
+                }
+                if (appState.highlightedPart) {
+                    if (appState.highlightedPart.isBackRegion) {
+                        this.resetBackRegionHighlight();
+                    } else {
+                        this.resetHighlight(appState.highlightedPart);
+                    }
+                    appState.highlightedPart = null;
+                }
             }
         };
 
@@ -753,7 +824,6 @@
                 const canvas = document.getElementById('modelCanvas');
                 appState.renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
 
-                // Set size based on container
                 const container = document.getElementById('canvas-container');
                 const width = container.clientWidth;
                 const height = container.clientHeight;
@@ -765,21 +835,17 @@
             },
 
             initLighting() {
-                //ambientLight
                 const ambientLight = new THREE.AmbientLight(0xffffff, 0.6);
                 appState.scene.add(ambientLight);
 
-                //Front
                 const directionalLight2 = new THREE.DirectionalLight(0xffffff, 0.2);
                 directionalLight2.position.set(0, 0, 5);
                 appState.scene.add(directionalLight2);
 
-                //Top
                 const directionalLight = new THREE.DirectionalLight(0xffffff, 1);
                 directionalLight.position.set(1, 10, 2);
                 appState.scene.add(directionalLight);
 
-                //back
                 const backLight = new THREE.DirectionalLight(0xffffff, 0.6);
                 backLight.position.set(-1, -1, -3);
                 appState.scene.add(backLight);
@@ -808,7 +874,7 @@
                 const height = container.clientHeight;
                 const size = Math.min(width, height);
 
-                appState.camera.aspect = 1;  // Keep aspect ratio square
+                appState.camera.aspect = 1;
                 appState.camera.updateProjectionMatrix();
                 appState.renderer.setSize(size, size);
             }
@@ -819,7 +885,6 @@
             loadGLBModel() {
                 const loader = new THREE.GLTFLoader();
 
-                // Create placeholder
                 const geometry = new THREE.BoxGeometry(0.5, 1.8, 0.5);
                 const material = new THREE.MeshBasicMaterial({ color: 0xcccccc, transparent: true, opacity: 0.5 });
                 const placeholder = new THREE.Mesh(geometry, material);
@@ -835,10 +900,18 @@
                         appState.model.scale.set(CONFIG.scene.modelScale, CONFIG.scene.modelScale, CONFIG.scene.modelScale);
                         appState.scene.add(appState.model);
 
-                        // Apply default materials
+                        console.log('Model nodes:');
                         appState.model.traverse((child) => {
                             if (child.isMesh) {
+                                console.log('Mesh:', child.name, 'Parent:', child.parent ? child.parent.name : 'none');
+                                
                                 child.material = new THREE.MeshStandardMaterial({ color: 0xd3d3d3 });
+                                
+                                if (Array.isArray(child.material)) {
+                                    child.material.forEach(mat => mat.needsUpdate = true);
+                                } else {
+                                    child.material.needsUpdate = true;
+                                }
                             }
                         });
 
@@ -862,25 +935,47 @@
 
                 const intersects = appState.raycaster.intersectObject(appState.model, true);
 
-                if (appState.currentView === 'posterior') {
-                    this.handlePosteriorHover(intersects);
-                } else {
-                    this.handleAnteriorHover(intersects);
+                // Don't reset highlight if we have a selected part
+                if (appState.selectedPart) {
+                    return;
                 }
-            },
 
-
-            handleAnteriorHover(intersects) {
-                if (appState.highlightedPart && appState.highlightedPart !== appState.selectedPart) {
+                // Reset previous hover highlight
+                if (appState.highlightedPart) {
                     this.resetCurrentHighlight();
                 }
 
                 if (intersects.length > 0) {
                     const object = intersects[0].object;
-                    if (Utils.isHighlightableNode(object) && object !== appState.selectedPart) {
-                        MaterialManager.highlightPart(object);
-                        appState.highlightedPart = object;
+                    
+                    if (appState.currentView === 'posterior') {
+                        this.handlePosteriorHover(object);
+                    } else {
+                        const selectableNode = Utils.findSelectableNode(object);
+                        if (Utils.isHighlightableNode(selectableNode)) {
+                            MaterialManager.highlightPart(selectableNode);
+                            appState.highlightedPart = selectableNode;
+                        }
                     }
+                }
+            },
+
+            handlePosteriorHover(object) {
+                // Check if it's a back region node (Chest/Tummy only)
+                if (BACK_REGION_NODES.includes(object.name)) {
+                    this.highlightBackRegion();
+                    appState.highlightedPart = { isBackRegion: true, nodes: BACK_REGION_NODES };
+                } 
+                // Check if it's pelvis, genitals, or buttocks (selectable individually)
+                else if (object.name === 'Pelvis' || object.name === 'Genitals' || object.name === 'Buttocks') {
+                    const selectableNode = Utils.findSelectableNode(object);
+                    MaterialManager.highlightPart(selectableNode);
+                    appState.highlightedPart = selectableNode;
+                }
+                else if (Utils.isHighlightableNode(object)) {
+                    const selectableNode = Utils.findSelectableNode(object);
+                    MaterialManager.highlightPart(selectableNode);
+                    appState.highlightedPart = selectableNode;
                 }
             },
 
@@ -896,24 +991,53 @@
 
                 if (intersects.length > 0) {
                     const object = intersects[0].object;
+                    const selectableNode = Utils.findSelectableNode(object);
 
                     if (appState.currentView === 'posterior') {
-                        this.handlePosteriorClick(object);
-                    } else if (Utils.isHighlightableNode(object)) {
-                        this.selectPart(object);
+                        this.handlePosteriorClick(selectableNode);
+                    } else if (Utils.isHighlightableNode(selectableNode)) {
+                        this.selectPart(selectableNode);
                     }
                 }
             },
 
             handlePosteriorClick(object) {
-                // Check if it's a back region node
+                // Check if it's a back region node (Chest/Tummy only)
                 if (BACK_REGION_NODES.includes(object.name)) {
                     this.selectBackRegion();
+                }
+                // Check if it's pelvis, genitals, or buttocks (should be selectable individually)
+                else if (object.name === 'Pelvis' || object.name === 'Genitals' || object.name === 'Buttocks') {
+                    this.selectPart(object);
                 }
                 // Check if it's other selectable nodes in posterior view
                 else if (Utils.isHighlightableNode(object)) {
                     this.selectPart(object);
                 }
+            },
+
+            selectPart(object) {
+                // Reset previous selection
+                if (appState.selectedPart) {
+                    if (appState.selectedPart.isBackRegion) {
+                        MaterialManager.resetBackRegionHighlight();
+                    } else {
+                        MaterialManager.resetHighlight(appState.selectedPart);
+                    }
+                }
+
+                appState.selectedPart = object;
+                MaterialManager.highlightPart(object);
+
+                // Update dropdown
+                const selectedRegion = Utils.mapPartToRegion(object.name, appState.currentView);
+                if (selectedRegion) {
+                    const bodyRegionSelect = document.getElementById('body-region-footer');
+                    bodyRegionSelect.value = selectedRegion;
+                    bodyRegionSelect.dispatchEvent(new Event('change'));
+                }
+
+                console.log('Selected:', object.name, 'Region:', selectedRegion);
             },
 
             selectBackRegion() {
@@ -926,42 +1050,23 @@
                     }
                 }
 
-                // Select back region
+                // Select back region - highlight all back region nodes
                 this.highlightBackRegion();
                 appState.selectedPart = { isBackRegion: true, nodes: BACK_REGION_NODES };
 
                 // Update dropdown
                 const bodyRegionSelect = document.getElementById('body-region-footer');
-                bodyRegionSelect.value = 'back_region';
+                bodyRegionSelect.value = 'back';
                 bodyRegionSelect.dispatchEvent(new Event('change'));
-            },
-
-            selectPart(object) {
-                // Reset previous selection
-                if (appState.selectedPart && appState.selectedPart !== object) {
-                    if (appState.selectedPart.isBackRegion) {
-                        MaterialManager.resetBackRegionHighlight();
-                    } else {
-                        MaterialManager.resetHighlight(appState.selectedPart);
-                    }
-                }
-
-                appState.selectedPart = object;
-                MaterialManager.highlightPart(appState.selectedPart);
-
-                // Update dropdown
-                const selectedRegion = Utils.mapPartToRegion(appState.selectedPart.name, appState.currentView);
-                if (selectedRegion) {
-                    const bodyRegionSelect = document.getElementById('body-region-footer');
-                    bodyRegionSelect.value = selectedRegion;
-                    bodyRegionSelect.dispatchEvent(new Event('change'));
-                }
+                
+                console.log('Back region selected - highlighted nodes:', BACK_REGION_NODES);
             },
 
             highlightBackRegion() {
                 BACK_REGION_NODES.forEach(nodeName => {
                     appState.model.traverse(node => {
                         if (node.name === nodeName) {
+                            console.log('Highlighting back region node:', node.name);
                             MaterialManager.highlightPart(node);
                         }
                     });
@@ -982,22 +1087,28 @@
             setupEventListeners() {
                 const canvas = document.getElementById('modelCanvas');
 
-                // Debounced hover for performance
                 const debouncedHover = Utils.debounce(this.handleHover.bind(this), 10);
 
                 canvas.addEventListener('mousemove', debouncedHover);
                 canvas.addEventListener('touchmove', (e) => {
                     e.preventDefault();
                     debouncedHover(e);
-                }, { passive: true });
+                }, { passive: false });
 
                 canvas.addEventListener('click', this.handleClick.bind(this));
                 canvas.addEventListener('touchend', (e) => {
                     e.preventDefault();
                     this.handleClick(e);
-                }, { passive: true });
+                }, { passive: false });
 
-                canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: true });
+                canvas.addEventListener('touchstart', (e) => e.preventDefault(), { passive: false });
+                
+                // Clear hover but not selection when mouse leaves canvas
+                canvas.addEventListener('mouseleave', () => {
+                    if (!appState.selectedPart && appState.highlightedPart) {
+                        this.resetCurrentHighlight();
+                    }
+                });
             }
         };
 
@@ -1019,7 +1130,6 @@
                 this.updateDropdownVisibility();
                 this.animateToView();
 
-                // Refresh the sub-region dropdown based on the new view
                 const bodyRegionSelect = document.getElementById('body-region-footer');
                 if (bodyRegionSelect.value) {
                     DropdownManager.handleRegionChange();
@@ -1035,14 +1145,12 @@
                 const regionSelect = document.getElementById('body-region-footer');
                 const visibilityRules = VIEW_VISIBILITY_RULES[appState.currentView];
 
-                // Reset all options to visible first
                 Array.from(regionSelect.options).forEach(option => {
                     if (option.value !== '') {
                         option.style.display = '';
                     }
                 });
 
-                // Hide options based on current view rules
                 if (visibilityRules && visibilityRules.hidden) {
                     visibilityRules.hidden.forEach(regionValue => {
                         const option = Array.from(regionSelect.options).find(opt => opt.value === regionValue);
@@ -1052,12 +1160,10 @@
                     });
                 }
 
-                // Reset dropdown selection if current selection is now hidden
                 if (regionSelect.value && visibilityRules && visibilityRules.hidden &&
                     visibilityRules.hidden.includes(regionSelect.value)) {
                     regionSelect.value = '';
 
-                    // Reset any current selection
                     if (appState.selectedPart) {
                         if (appState.selectedPart.isBackRegion) {
                             MaterialManager.resetBackRegionHighlight();
@@ -1067,7 +1173,6 @@
                         appState.selectedPart = null;
                     }
 
-                    // Trigger change event to update sub-regions
                     regionSelect.dispatchEvent(new Event('change'));
                 }
             },
@@ -1105,26 +1210,18 @@
                 nextButton.disabled = true;
                 subRegionSelect.disabled = true;
 
-                // Initialize dropdown visibility
                 ViewManager.updateDropdownVisibility();
 
                 bodyRegionSelect.addEventListener('change', this.handleRegionChange.bind(this));
                 subRegionSelect.addEventListener('change', this.checkSelections);
 
-                // Handle region selection from dropdown
                 bodyRegionSelect.addEventListener('change', (event) => {
                     const selectedRegion = event.target.value;
 
-                    if (appState.selectedPart) {
-                        if (appState.selectedPart.isBackRegion) {
-                            MaterialManager.resetBackRegionHighlight();
-                        } else {
-                            MaterialManager.resetHighlight(appState.selectedPart);
-                        }
-                        appState.selectedPart = null;
-                    }
+                    // Reset previous selection
+                    MaterialManager.resetAllHighlights();
 
-                    if (selectedRegion === 'back_region') {
+                    if (selectedRegion === 'back') {
                         this.handleBackRegionSelection();
                     } else if (selectedRegion) {
                         this.handleNormalRegionSelection(selectedRegion);
@@ -1133,7 +1230,6 @@
             },
 
             handleBackRegionSelection() {
-                // Switch to posterior view if not already there
                 if (appState.currentView !== 'posterior') {
                     appState.currentView = 'posterior';
                     ViewManager.updateOrientationButton();
@@ -1148,10 +1244,9 @@
             },
 
             handleNormalRegionSelection(selectedRegion) {
-                // Check if the region is visible in the current view
                 const visibilityRules = VIEW_VISIBILITY_RULES[appState.currentView];
                 if (visibilityRules && visibilityRules.hidden && visibilityRules.hidden.includes(selectedRegion)) {
-                    return; // Don't highlight if region is hidden in current view
+                    return;
                 }
 
                 const nodesToHighlight = REGION_TO_NODE_MAP[selectedRegion] || [];
@@ -1161,7 +1256,6 @@
                         if (nodesToHighlight.includes(node.name)) {
                             appState.selectedPart = node;
                             MaterialManager.highlightPart(node);
-                            return;
                         }
                     });
                 }
@@ -1174,7 +1268,6 @@
 
                 subRegionSelect.innerHTML = '<option value="">Select Sub Region</option>';
 
-                // Determine which map to use based on the current view
                 let regionsMap;
                 if (appState.currentView === 'posterior') {
                     regionsMap = POSTERIOR_BODY_REGIONS_MAP;
@@ -1186,7 +1279,7 @@
                     regionsMap = BODY_REGIONS_MAP;
                 }
 
-                if (selectedRegion && regionsMap[selectedRegion]) {
+                if (selectedRegion && regionsMap[selectedRegion] && regionsMap[selectedRegion].length > 0) {
                     const subRegions = regionsMap[selectedRegion];
 
                     subRegions.forEach(subRegion => {
@@ -1218,58 +1311,52 @@
         // Animation Loop
         function animate() {
             requestAnimationFrame(animate);
-            appState.controls.update();
-            appState.renderer.render(appState.scene, appState.camera);
+            if (appState.controls) {
+                appState.controls.update();
+            }
+            if (appState.renderer && appState.scene && appState.camera) {
+                appState.renderer.render(appState.scene, appState.camera);
+            }
         }
 
         // Main Initialization
         function init() {
-            // Initialize scene components
             SceneManager.initScene();
             SceneManager.initCamera();
             SceneManager.initRenderer();
             SceneManager.initLighting();
             SceneManager.initControls();
 
-            // Setup interactions
             InteractionManager.setupEventListeners();
 
-            // Load model
             ModelManager.loadGLBModel();
 
-            // Setup UI
             DropdownManager.initRegionDropdowns();
 
-            // Setup orientation button
             document.getElementById('orientation').addEventListener('click', function () {
                 ViewManager.changeOrientation('next');
             });
 
-            // Handle window resize and modal events
             window.addEventListener('resize', () => {
                 SceneManager.onWindowResize();
-                // Update camera aspect ratio on modal open
                 if (window.innerWidth !== prevWidth) {
                     prevWidth = window.innerWidth;
                     setTimeout(SceneManager.onWindowResize, 100);
                 }
             });
 
-            // Handle modal open/close
+            // Handle modal events
             const modal = document.getElementById('avatar-popup');
             modal.addEventListener('shown.bs.modal', () => {
                 SceneManager.onWindowResize();
-                setTimeout(SceneManager.onWindowResize, 100); // Additional resize after animation
+                setTimeout(SceneManager.onWindowResize, 100);
             });
 
-            // Trigger initial resize
             SceneManager.onWindowResize();
 
-            // Start animation loop
             animate();
         }
 
-        // Initialize when DOM is loaded
         window.addEventListener('DOMContentLoaded', init);
     </script>
 </body>
